@@ -7,6 +7,7 @@
     flex-direction: column;
     position: sticky;
     top: 0;
+    z-index: 1000;
     /* overflow: hidden; */
 
     .header-fullcontent{
@@ -183,7 +184,7 @@
 }
 .header-dropdown{
     position: absolute;
-    /* background-color: green; */
+    background-color: white;
     height: 20vh;
     width: 30%;
     top: 39px;
