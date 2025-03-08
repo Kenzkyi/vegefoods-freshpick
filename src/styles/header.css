@@ -1,0 +1,196 @@
+.header{
+    min-height: 10vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    /* overflow: hidden; */
+
+    .header-fullcontent{
+        display: none;
+    }
+
+    .header-fullcontent{
+        display: none;
+
+        ul{
+            display: none;
+        }
+    }
+
+    @media screen and (max-width:890px) {
+        background-color: black;
+        /* min-height: 10vh; */
+
+        .header-fullcontent{
+            min-height: 50vh;
+            display: flex;
+            width: 70%;
+            background-color: black;
+            /* border: 1px solid blue; */
+            padding-bottom: 15px;
+
+            ul{
+                min-height: 50vh;
+                width: 100%;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                /* justify-content: space-between; */
+
+                li{
+                    list-style: none;
+                    height: 8.5vh;
+                    display: flex;
+                    align-items: center;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 11px;
+                    letter-spacing: 1px;
+                    color: #727272;
+                }
+
+                li:hover{
+                    color: white;
+                }
+                h6{
+                    height: 9vh;
+                    width: 100%;
+                    background-color: #82AE46;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    font-size: 13px;
+                    cursor: default;
+                }
+
+                .headermobile-dropdown{
+                    width: 100%;
+                    height: 30vh;
+                    background-color: white;
+                    color: black;
+                    display: flex;
+                    padding: 15px;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+            }
+        }
+    }
+}
+.header-holder{
+    min-height: 10vh;
+    width: 80%;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+
+    h3{
+        width: 55%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        font-size: 18px;
+        /* background-color: green; */
+        color: #82AE46;
+        cursor: pointer;
+        transition: color 350ms ease-in-out;
+    }
+
+    h3:hover{
+        color: black;
+    }
+
+    ul{
+        width: 45%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        cursor: pointer;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        position: relative;
+
+        li{
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .header-menubar{
+        display: none;
+    }
+
+    @media screen and (max-width:890px) {
+        justify-content: space-between;
+        width: 70%;
+        h3{
+            color: white;
+        }
+        
+        h3:hover{
+            color: #82AE46;
+        }
+
+        ul{
+            display: none;
+        }
+
+        .header-menubar{
+            display: flex;
+            color: white;
+
+            p{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                letter-spacing: 1px;
+                color: #808080;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.header-profile{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    /* background-color: red; */
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+    color: black;
+    transition: background 350ms ease-in-out;
+
+    @media screen and (max-width:890px) {
+        color: white;
+    }
+}
+.header-profile:hover{
+    background-color: #e6e6e6;
+    @media screen and (max-width:890px) {
+        background: rgb(39, 36, 36);
+    }
+}
+.header-dropdown{
+    position: absolute;
+    /* background-color: green; */
+    height: 20vh;
+    width: 30%;
+    top: 39px;
+    left: 70px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+    font-size: 15px;
+}
