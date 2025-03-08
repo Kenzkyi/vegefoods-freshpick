@@ -4,10 +4,6 @@ import "../styles/signup.css"
 const Signup = () => {
   return (
     <div className='Body'>
-   
-      <div className='RightPart'>
-      <img className='Img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRcBwCkOG5l7Dcgy5McvOhIOvxHbH2DJ8Tgw&s" alt="" />
-      </div>
       <div className='LeftPart'>
       <div
       style={{
@@ -16,7 +12,7 @@ const Signup = () => {
         alignItems: "center",
         justifyContent: "center",
         height: "100vh",
-        background: "#f4f4f4",
+        background: "transparent",
       }}
     >
 
@@ -27,7 +23,7 @@ const Signup = () => {
           height:"70%",
           gap: "20px",
           padding: "20px",
-          background: "#fff",
+          background: "#ffffff7a",
           alignItems:"center",
           justifyContent:"center",
           borderRadius: "8px",
@@ -40,8 +36,6 @@ const Signup = () => {
           type="text"
           name="username"
           placeholder=" userName"
-          // value={user.username}
-          // onChange={handleChange}
           style={{
             padding: "10px",
             border: "1px solid #ccc",
@@ -54,8 +48,6 @@ const Signup = () => {
           type="email"
           name="email"
           placeholder="Email"
-          // value={user.email}
-          // onChange={handleChange}
           style={{
             padding: "10px",
             border: "1px solid #ccc",
@@ -68,8 +60,6 @@ const Signup = () => {
           type="password"
           name="password"
           placeholder="Password"
-          // value={user.password}
-          // onChange={handleChange}
           style={{
             padding: "10px",
             border: "1px solid #ccc",
@@ -79,7 +69,6 @@ const Signup = () => {
           }}
         />
         <button
-          // onClick={handleSubmit}
           style={{
             padding: "10px",
             background: "blue",

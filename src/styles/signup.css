@@ -2,19 +2,18 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRcBwCkOG5l7Dcgy5McvOhIOvxHbH2DJ8Tgw&s');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
-.RightPart{
-    width: 50%;
-    height: 100%;
-    background-color: aqua;
-}
+
 .LeftPart{
     width: 50%;
     height: 100%;
-    /* background-color: beige; */
-}
-.Img{
-    width: 100%;
-    height: 100%;
+    background: transparent;
+    @media screen and (max-width:768px) {
+        width: 100%;
+    }
 }
