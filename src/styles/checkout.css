@@ -1,0 +1,344 @@
+.checkoutBody {
+  width: 100%;
+  height: auto;
+  font-family: poppins, arial, sans-serif;
+  /* padding: 30px; */
+  border: 3px solid;
+}
+
+.vegImage {
+  width: 100%;
+  height: 85vh;
+  background: url(../assets/public/bg_1.jpeg);
+  /* background-color: aqua; */
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+}
+
+.billing {
+  width: 100%;
+  height: max-content;
+  font: 24px poppins, arial, sans-serif;
+  padding: 30px;
+  display: flex;
+  background: #000000;
+}
+.billing h3 {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 30px;
+  justify-content: space-around;
+  margin-bottom: 60px;
+}
+
+.leftWrapper {
+  width: 60%;
+  height: 100vh;
+  /* background: yellow; */
+  /* padding-top: 30px; */
+}
+
+.nameHolder {
+  display: flex;
+  width: 65%;
+  justify-content: space-between;
+  /* margin-top: 30px; */
+}
+
+.nameWrapper {
+  width: 100%;
+  height: 10%;
+  /* background: red; */
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.firstName {
+  width: 48%;
+  height: 100%;
+  /* background: #000; */
+  border: 1px solid rgb(234, 227, 227);
+  padding: 20px;
+}
+
+.lastName {
+  width: 48%;
+  height: 100%;
+  /* background: green; */
+  padding: 20px;
+  border: 1px solid rgb(234, 227, 227);
+}
+
+.stateCountry {
+  width: 100%;
+  height: max-content;
+  padding-top: 15px;
+  margin: 20px 0;
+}
+
+.stateCountryHolder {
+  width: 100%;
+  height: 10vh;
+  margin: 20px 0;
+  border: 1px solid rgb(230, 226, 226);
+}
+
+.streetAddress {
+  width: 100%;
+  height: 10%;
+}
+
+.addressHolder {
+  width: 100%;
+  height: 10%;
+  /* background: red; */
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.houseHolder {
+  width: 48%;
+  height: 100%;
+  border: 1px solid rgb(234, 227, 227);
+}
+
+.apartment {
+  width: 48%;
+  height: 100%;
+  border: 1px solid rgb(234, 227, 227);
+}
+
+.townPostCode {
+  width: 71%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.townWrapper {
+  width: 100%;
+  height: 10%;
+  /* background: red; */
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.townHolder {
+  width: 48%;
+  height: 100%;
+  border: 1px solid rgb(234, 227, 227);
+}
+
+.postCardHolder {
+  width: 48%;
+  height: 100%;
+  border: 1px solid rgb(234, 227, 227);
+}
+
+.phoneEmailHolder {
+  width: 69%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.phoneEmailWrapper {
+  width: 100%;
+  height: 10%;
+  /* background: red; */
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.phoneContainer {
+  width: 48%;
+  height: 100%;
+  border: 1px solid rgb(234, 227, 227);
+}
+
+.emailContainer {
+  width: 48%;
+  height: 100%;
+  border: 1px solid rgb(234, 227, 227);
+}
+
+.accountWrapper {
+  width: 70%;
+  height: max-content;
+  display: flex;
+  padding-top: 30px;
+  gap: 20px;
+}
+
+.rightWrapper {
+  width: 50%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  font-family: Poppins, Arial, sans-serif;
+  /* background-color: aqua; */
+  /* padding: 15px; */
+}
+
+.cardTotalCont {
+  width: 100%;
+  height: 45vh;
+  /* gap: 20px; */
+  /* background: yellow; */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(234, 227, 227);
+  /* padding: 20px; */
+}
+
+.cardTotalHolder {
+  width: 50%;
+  height: 20%;
+  /* margin-top: 20px; */
+  /* padding-top: 40px; */
+  padding-left: 37px;
+  display: flex;
+  align-items: flex-end;
+  /* background-color: green; */
+}
+
+.wrapper2 {
+  width: 100%;
+  height: 60%;
+  /* background-color: aqua; */
+  display: flex;
+  padding-left: 40px;
+  padding-top: 20px;
+  /* border-bottom: 1px solid gray;*/
+  /* justify-content: 
+    space-around; */
+}
+
+.subTotal {
+  width: 30%;
+  height: 100%;
+  gap: 20px;
+  display: flex;
+  /* border-bottom: 1px solid gray; */
+  flex-direction: column;
+  color: rgb(172, 168, 168);
+  /* padding-top: 20px; */
+  /* background: #000; */
+}
+
+.amount {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  color: rgb(172, 168, 168);
+  /* justify-content: space-around;gap */
+  flex-direction: column;
+  gap: 20px;
+  /* background: red; */
+  /* border-bottom: 1px solid gray; */
+}
+
+.totalCont {
+  width: 100%;
+  height: 20%;
+  /* background: #00ffff; */
+  /* background-color: #82ae48; */
+  display: flex;
+  padding-left: 40px;
+  /* align-items: center; */
+  padding-top: 20px;
+  border-top: 1px solid gray;
+}
+
+.total {
+  width: 30%;
+  height: 100%;
+  color: rgb(172, 168, 168);
+}
+
+.amount2 {
+  width: 30%;
+  height: 100%;
+}
+
+.paymentMethod {
+  width: 100%;
+  height: 60%;
+  /* background: aqua; */
+  padding-top: 20px;
+}
+
+.payment {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  gap: 20px;
+  /* justify-content: space-around; */
+  /* flex-direction: column; */
+}
+
+.bottomCont {
+  width: 100%;
+  height: 55vh;
+  border: 1px solid rgb(234, 227, 227);
+  display: flex;
+  flex-direction: column;
+
+  /* background-color: red; */
+  padding: 10px;
+  /* gap: 20px; */
+}
+.payment {
+  padding-left: 30px;
+}
+
+.bottomDiv {
+  width: 80%;
+  height: 10vh;
+  background: #82ae48;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 30px;
+  /* padding: 16px 24px; */
+  color: #ffffff;
+  font: 16px Poppins, Arial, san-serif;
+}
+.bottomdivholder {
+  height: 30vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* background-color: aqua; */
+  /* margin-bottom: 20px; */
+}
+.paymentMethod {
+  height: 45vh;
+  width: 100%;
+  /* background-color: purple; */
+  margin-bottom: 15px;
+}
+/* .totalCont {
+  background-color: aqua;
+} */
+
+.Billings {
+  padding-left: 20px;
+}
