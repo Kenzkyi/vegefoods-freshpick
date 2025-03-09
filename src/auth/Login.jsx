@@ -4,7 +4,7 @@ import "../styles/login.css"
 const Login = () => {
   return (
     <div className='Body2'>
-      <div className='Login'>
+      <div className='LoginDiv'>
     <div
       style={{
         display: "flex",
