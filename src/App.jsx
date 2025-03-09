@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Shop from "./pages/Shop";
 import MainHolder from "./routes/MainHolder";
 import Home from './pages/Home';
+import ProductDetails from './components/ProductDetails';
 
 
 const routes = createBrowserRouter([
