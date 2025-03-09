@@ -20,6 +20,7 @@ const routes = createBrowserRouter([
         {path:'checkout',element:<Checkout/>},
         {path:'profile',element:<Profile/>},
         {path:'shop',element:<Shop/>},
+        {path:'shop/:productId',element:<ProductDetails/>},
     ]}
 ])
 
