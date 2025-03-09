@@ -1,12 +1,12 @@
 .footer{
-    height: 105vh;
+    min-height: 105vh;
     width: 100%;
     /* background-color: aqua; */
     display: flex;
     flex-direction: column;
 }
 .footer-upside{
-    height: 27vh;
+    min-height: 27vh;
     width: 100%;
     background-color: #F7F6F2;
     display: flex;
@@ -55,7 +55,7 @@
             }
 
             button{
-                width: 18%;
+                width: 100px;
                 border: none;
                 outline: none;
                 background-color: #82AE46;
@@ -64,10 +64,24 @@
                 cursor: pointer;
             }
         }
+
+        @media screen and (max-width:768px) {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            main{
+                width: 100%;
+            }
+
+            nav{
+                width: 100%;
+            }
+        }
     }
 }
 .footer-downside{
-    height: 78vh;
+    min-height: 78vh;
     width: 100%;
     background-color: white;
     display: flex;
@@ -78,17 +92,22 @@
         height: 15vh;
         width: 100%;
         /* background-color: aqua; */
+
+        @media screen and (max-width:768px) {
+            height: 10vh;
+            /* background-color: aqua; */
+        }
     }
     main{
-        height: 35vh;
+        min-height: 35vh;
         width: 80%;
         /* background-color: aqua; */
         font-family: Arial, Helvetica, sans-serif;
 
-        header{
+        /* header{
             height: 20%;
             width: 100%;
-            /* background-color: blue; */
+            background-color: blue;
 
             ul{
                 height: 100%;
@@ -99,7 +118,7 @@
                 li{
                     list-style: none;
                     width: 18%;
-                    /* background-color: #82AE46; */
+                    background-color: #82AE46;
                     display: flex;
                     align-items: center;
                     font-size: 15px;
@@ -108,27 +127,56 @@
 
                 p{
                     width: 25%;
-                    /* background-color: #82AE46; */
+                    background-color: #82AE46;
                     display: flex;
                     align-items: center;
                     font-size: 15px;
                     font-weight: 500;
                 }
             }
-        }
+        } */
 
         article{
-            height: 60%;
+            height: 100%;
             width: 100%;
             /* background-color: greenyellow; */
             display: flex;
             justify-content: space-between;
+
+            h3{
+                font-size: 15px;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
 
             h6{
                 width: 18%;
                 font-weight: 400;
                 font-size: 13px;
                 padding: 5px;
+
+                footer{
+                    height: max-content;
+                    width: 100%;
+                    /* background-color: aqua; */
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-top: 15px;
+                    /* justify-content: space-between; */
+                    gap: 10px;
+        
+                    div{
+                        height: 40px;
+                        width: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #FAFAFA;
+                        border-radius: 50%;
+                        font-size: 25px;
+                        cursor: pointer;
+                    }
+                }
             }
 
             ul{
@@ -169,6 +217,28 @@
                 }
             }
         }
+
+        
+
+        @media screen and (max-width:768px) {
+
+            min-height: 35vh;
+            article{
+                display: flex;
+                flex-direction: column;
+                height: 80%;
+                width: 100%;
+                gap: 20px;
+
+                h6,section,ol,ul{
+                    width: 80%;
+                    gap: 5px;
+                    font-size: 12px;
+                }
+
+
+            }
+        }
     }
     nav{
         height: 28vh;
@@ -184,6 +254,14 @@
 
             span{
                 color: #82AE46;
+            }
+        }
+
+        @media screen and (max-width:768px) {
+            width: 80%;
+            p{
+                font-size: 11px;
+                text-align: center;
             }
         }
     }
