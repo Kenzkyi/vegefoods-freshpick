@@ -1,5 +1,6 @@
 import React from 'react'
 import "../styles/signup.css"
+import { NavLink } from "react-router-dom";
 
 const Signup = () => {
   return (
@@ -82,7 +83,7 @@ const Signup = () => {
         >
           Signup
         </button>
-        <p>Already Have an acoount ? <span> log in </span></p>
+        <p>Already Have an acoount ? <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/login"> log in</NavLink></p>
       </div>
     </div>
       </div>
