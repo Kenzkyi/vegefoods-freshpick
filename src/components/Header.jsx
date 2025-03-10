@@ -14,9 +14,9 @@ const Header = () => {
   return (
     <div className='header'>
       <div className='header-holder'>
-        <h3 onClick={()=>nav('/')}>VEGEFOODS</h3>
+        <h3 onClick={()=>{nav('/'),setHeaderDropdown(false)}}>VEGEFOODS</h3>
         <ul>
-          <li onClick={()=>nav('/')}>HOME</li>
+          <li onClick={()=>{nav('/'),setHeaderDropdown(false)}}>HOME</li>
           <li onMouseEnter={()=>setHeaderDropdown(!headerDropdown)}>SHOP<IoMdArrowDropdown /></li>
           <div className="header-dropdown" style={{display:headerDropdown?'flex':'none'}} onMouseLeave={()=>setHeaderDropdown(false)}>
             <p onClick={()=>{nav('/shop'),setHeaderDropdown(false)}}>Shop</p>
@@ -28,7 +28,7 @@ const Header = () => {
           <li>ABOUT</li>
           <li>BLOG</li>
           <li>CONTACT</li>
-          <li onClick={()=>nav('/cart')}><MdShoppingCart />[ 0 ]</li>
+          <li onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}><MdShoppingCart />[ 0 ]</li>
         </ul>
         <div className="header-menubar">
           <p onClick={()=>setHeaderMenu(!headerMenu)}><IoReorderThreeOutline fontSize={30} /> MENU</p>
