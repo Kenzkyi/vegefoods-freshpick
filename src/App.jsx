@@ -9,12 +9,16 @@ import Profile from "./pages/Profile";
 import Shop from "./pages/Shop";
 import MainHolder from "./routes/MainHolder";
 import Home from './pages/Home';
+import Forgetpassword from './auth/Forgetpassword';
+import Resetpassword from  './auth/Resetpassword';
 import ProductDetails from './components/ProductDetails';
 
 
 const routes = createBrowserRouter([
     {path:'login',element:<Login/>},
     {path:'sign-up',element:<Signup/>},
+    {path:'forget-password',element:<Forgetpassword/>},
+    {path:'reset-password',element:<Resetpassword/>},
     {element:<MainHolder/>,children:[
         {path:'',element:<Home/>},
         {path:'cart',element:<Cart/>},
