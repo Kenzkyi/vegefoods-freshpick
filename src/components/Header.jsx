@@ -20,7 +20,7 @@ const Header = () => {
           <li onMouseEnter={()=>setHeaderDropdown(!headerDropdown)}>SHOP<IoMdArrowDropdown /></li>
           <div className="header-dropdown" style={{display:headerDropdown?'flex':'none'}} onMouseLeave={()=>setHeaderDropdown(false)}>
             <p onClick={()=>{nav('/shop'),setHeaderDropdown(false)}}>Shop</p>
-            <p>Wishlist</p>
+            <p onClick={()=>{nav('/login'),setHeaderDropdown(false)}}>Login</p>
             <p>Single Product</p>
             <p onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}>Cart</p>
             <p onClick={()=>{nav('/checkout'),setHeaderDropdown(false)}}>Checkout</p>
@@ -34,7 +34,7 @@ const Header = () => {
           <p onClick={()=>setHeaderMenu(!headerMenu)}><IoReorderThreeOutline fontSize={30} /> MENU</p>
         </div>
       </div>
-      <div className="header-profile" onClick={()=>nav('/login')}>
+      <div className="header-profile" onClick={()=>nav('/profile')}>
       <FaUser />
       </div>
       <div className="header-fullcontent" style={{display:headerMenu?'flex':'none'}}>
@@ -43,7 +43,7 @@ const Header = () => {
           <li onMouseEnter={()=>setHeaderDropdownMenu(!headerDropdownMenu)}>SHOP<IoMdArrowDropdown /></li>
           <div className="headermobile-dropdown" style={{display:headerDropdownMenu?'flex':'none'}} onMouseLeave={()=>setHeaderDropdownMenu(false)}>
             <p onClick={()=>{nav('/shop'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Shop</p>
-            <p>Wishlist</p>
+            <p onClick={()=>{nav('/login'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Login</p>
             <p>Single Product</p>
             <p onClick={()=>{nav('/cart'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Cart</p>
             <p onClick={()=>{nav('/checkout'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Checkout</p>
