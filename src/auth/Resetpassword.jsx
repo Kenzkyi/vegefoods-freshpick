@@ -1,17 +1,12 @@
-import React from "react";
-import "../styles/login.css"
+import React from 'react'
+import "../styles/resetPassword.css"
 import { NavLink } from "react-router-dom";
 
-const handleChange = (e) => {
-
-  setUser({ ...user, [e.target.name]: e.target.value });
-};
-
-const Login = () => {
+const resetPassword = () => {
   return (
-    <div className='Body2'>
-      <div className='LoginDiv'>
-    <div
+    <div className='Body4'>
+   <div className='resetpasswordDiv'>
+   <div
       style={{
         display: "flex",
         flexDirection: "column",
@@ -37,12 +32,12 @@ const Login = () => {
           width: "70%",
         }}
       >
-              <h2 style={{fontSize:"30px"}}>Login</h2>
+              <h2 style={{fontSize:"30px"}}>Reset Password</h2>
        
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="New Password"
           style={{
             padding: "10px",
             border: "1px solid #ccc",
@@ -54,7 +49,7 @@ const Login = () => {
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Comfirm Password"
           style={{
             padding: "10px",
             border: "1px solid #ccc",
@@ -63,7 +58,6 @@ const Login = () => {
             height:"12%"
           }}
         />
-        <div className="forgetPassword"> <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/forget-password">forgetPassword</NavLink></div>
         <button
           style={{
             padding: "10px",
@@ -76,15 +70,15 @@ const Login = () => {
             cursor: "pointer",
           }}
         >
-          Login
+          Craete Password
         </button>
-        <p>Don't Have An Account ? <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/sign-up">Sign up</NavLink></p>
+        <p>Set password  <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/login">Login</NavLink></p>
 
       </div>
     </div>
-      </div>
+   </div>
     </div>
   )
 }
 
-export default Login
+export default resetPassword
