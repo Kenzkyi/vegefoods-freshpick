@@ -1,5 +1,11 @@
-import React from 'react'
+import React from "react";
 import "../styles/login.css"
+import { NavLink } from "react-router-dom";
+
+const handleChange = (e) => {
+
+  setUser({ ...user, [e.target.name]: e.target.value });
+};
 
 const Login = () => {
   return (
@@ -71,7 +77,7 @@ const Login = () => {
         >
           Login
         </button>
-        <p>Don't Have An Account ? <span>  Sign up</span> </p>
+        <p>Don't Have An Account ? <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/sign-up">Sign up</NavLink></p>
 
       </div>
     </div>
