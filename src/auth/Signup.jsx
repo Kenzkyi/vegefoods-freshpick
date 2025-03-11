@@ -42,7 +42,7 @@ const Signup = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             width:"80%",
-            height:"12%"
+            height:"10%"
           }}
         />
         <input
@@ -54,7 +54,19 @@ const Signup = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             width:"80%",
-            height:"12%"
+            height:"10%"
+          }}
+        />
+          <input
+          type="phone Number"
+          name="phone Number"
+          placeholder="Phone Number"
+          style={{
+            padding: "10px",
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            width:"80%",
+            height:"10%"
           }}
         />
         <input
@@ -66,7 +78,7 @@ const Signup = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             width:"80%",
-            height:"12%"
+            height:"10%"
           }}
         />
         <button
