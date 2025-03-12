@@ -3,16 +3,27 @@
   height: auto;
   font-family: poppins, arial, sans-serif;
   /* padding: 30px; */
-  border: 3px solid;
+  /* border: 3px solid; */
 }
 
 .vegImage {
   width: 100%;
-  height: 85vh;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  gap: 20px;
+  font-size: 18px;
   background: url(../assets/public/bg_1.jpeg);
   /* background-color: aqua; */
   background-repeat: no-repeat;
   background-size: 100% 80%;
+}
+
+.imgText{
+  display: flex;
+  flex-direction: column;
 }
 
 .billing {
@@ -35,11 +46,14 @@
   padding: 30px;
   justify-content: space-around;
   margin-bottom: 60px;
+  cursor: pointer;
+  outline: none;
 }
 
 .leftWrapper {
   width: 60%;
   height: 100vh;
+  outline: none;
   /* background: yellow; */
   /* padding-top: 30px; */
 }
@@ -49,6 +63,7 @@
   width: 65%;
   justify-content: space-between;
   /* margin-top: 30px; */
+  cursor: pointer;
 }
 
 .nameWrapper {
@@ -58,6 +73,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
+  /* outline: 1px solid green; */
 }
 
 .firstName {
@@ -87,7 +103,8 @@
   width: 100%;
   height: 10vh;
   margin: 20px 0;
-  border: 1px solid rgb(230, 226, 226);
+  border: 1px solid rgb(234, 227, 227);
+  padding: 10px;
 }
 
 .streetAddress {
@@ -108,12 +125,14 @@
   width: 48%;
   height: 100%;
   border: 1px solid rgb(234, 227, 227);
+  padding: 10px;
 }
 
 .apartment {
   width: 48%;
   height: 100%;
   border: 1px solid rgb(234, 227, 227);
+  padding: 10px;
 }
 
 .townPostCode {
@@ -137,12 +156,14 @@
   width: 48%;
   height: 100%;
   border: 1px solid rgb(234, 227, 227);
+  padding: 10px;
 }
 
 .postCardHolder {
   width: 48%;
   height: 100%;
   border: 1px solid rgb(234, 227, 227);
+  padding: 10px;
 }
 
 .phoneEmailHolder {
@@ -166,12 +187,14 @@
   width: 48%;
   height: 100%;
   border: 1px solid rgb(234, 227, 227);
+  padding: 10px;
 }
 
 .emailContainer {
   width: 48%;
   height: 100%;
   border: 1px solid rgb(234, 227, 227);
+  padding: 10px;
 }
 
 .accountWrapper {
@@ -287,6 +310,7 @@
   height: 20%;
   display: flex;
   gap: 20px;
+  /* color: rgb(172, 168, 168); */
   /* justify-content: space-around; */
   /* flex-direction: column; */
 }
@@ -297,6 +321,7 @@
   border: 1px solid rgb(234, 227, 227);
   display: flex;
   flex-direction: column;
+  color: rgb(172, 168, 168);
 
   /* background-color: red; */
   padding: 10px;
@@ -304,6 +329,8 @@
 }
 .payment {
   padding-left: 30px;
+  color: #000000;
+  /* color: rgb(172, 168, 168); */
 }
 
 .bottomDiv {
@@ -318,6 +345,7 @@
   /* padding: 16px 24px; */
   color: #ffffff;
   font: 16px Poppins, Arial, san-serif;
+  /* color: rgb(172, 168, 168); */
 }
 .bottomdivholder {
   height: 30vh;
