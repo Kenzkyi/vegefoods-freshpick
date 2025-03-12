@@ -48,7 +48,7 @@ const Login = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             width:"80%",
-            height:"12%"
+            height:"10%"
           }}
         />
         <input
@@ -60,7 +60,7 @@ const Login = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             width:"80%",
-            height:"12%"
+            height:"10%"
           }}
         />
         <div className="forgetPassword"> <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/forget-password">forgetPassword</NavLink></div>
