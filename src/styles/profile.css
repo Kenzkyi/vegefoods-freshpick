@@ -55,10 +55,6 @@
     cursor: pointer;
 }
 
-.logout-btn:hover{
-    background-color: red;
-}
-
 .any-choice-div{
     width: 60%;
     height: 100%;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../styles/profile.css"
 import { RiLogoutBoxFill } from "react-icons/ri";
 import {useNavigate} from 'react-router-dom'
@@ -10,14 +10,58 @@ const Profile = () => {
 
   const navigate = useNavigate()
 
-  const [imageValue, setImageValue] = useState(null)
+  const [imageValue, setImageValue] = useState( localStorage.getItem('profileImage') || null)
   const [isPopUpOpend, setIsPopupOpen] = useState(false)
+  const [username, setUsername] = useState(localStorage.getItem('username') || 'guest_user123');
+  const [location, setLocation] = useState(localStorage.getItem('location') || 'Unknown Location');
+  const [phone, setPhone] = useState( localStorage.getItem('phone') || 'No Number');
+
+  const [editUserName, setEditUserName] = useState(username);
+  const [editLocation, setEditLocation] = useState(location);
+  const [editPhone, setEditPhone] = useState(phone);
+
+  useEffect(()=> {
+    const savedUsername = localStorage.getItem('username')
+    const savedLocation = localStorage.getItem('location')
+    const savedPhone = localStorage.getItem('phone')
+    const savedImage = localStorage.getItem('profileImage')
+
+    if (savedUsername) setUsername(savedUsername);
+    if (savedLocation) setLocation(savedLocation);
+    if (savedPhone) setPhone(savedPhone);
+    if (savedImage) setImageValue(savedImage);
+  }, [])
+
+
+  const openEditPopUp = () => {
+    setEditUserName(username);
+    setEditLocation(location);
+    setEditPhone(phone);
+    setIsPopupOpen(true);
+  }
+
+  const saveChanges = () => {
+     setUsername(editUserName);
+     setLocation(editLocation);
+     setPhone(editPhone);
+
+     localStorage.setItem('username', editUserName);
+     localStorage.setItem('location', editLocation);
+     localStorage.setItem('phone', editPhone)
+     setIsPopupOpen(false);
+  }
+
 
     const getImageUrl = (e) => {
       const file = e.target.files[0];
       if (file && file.type.startsWith("image/")) {
-        const url = URL.createObjectURL(file)
-        setImageValue(url)
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const persistimageurl = reader.result;
+            setImageValue(persistimageurl);
+            localStorage.setItem("profileImage", persistimageurl);
+        };
+        reader.readAsDataURL(file)
       } else {
           alert("please upload a valid image file!");
       }
@@ -39,19 +83,19 @@ const Profile = () => {
 <div className='popup-div-btm'>
     <div className='user-details-edit-wrap'>
         <div className='username-div-edit'>
-            <input type="text" className='my-edit-input' placeholder='Username' />
+            <input onChange={(e)=>setEditUserName(e.target.value)} value={editUserName} type="text" className='my-edit-input' placeholder='Username' />
         </div>
         <div className='location-div-edit'>
-            <input type="text" className='my-edit-input'placeholder='Location' />
+            <input onChange={(e)=>setEditLocation(e.target.value)} value={editLocation} type="text" className='my-edit-input'placeholder='Location' />
         </div>
         <div className='phone-number-div-edit'>
-            <input type="number" className='my-edit-input' placeholder='Phone Number' />
+            <input onChange={(e)=>setEditPhone(e.target.value)} value={editPhone} type="number" className='my-edit-input' placeholder='Phone Number' />
         </div>
     </div>
     <div className='save-cahnage-cancel-btn'>
         <div className='save-cahnage-cancel-btn-wrap'>
-            <button className='my-edit-popup-active-btn-cancel'>Cancel</button>
-            <button className='my-edit-popup-active-btn-save-changes'>Save Changes</button>
+            <button onClick={()=>setIsPopupOpen(false)} className='my-edit-popup-active-btn-cancel'>Cancel</button>
+            <button onClick={saveChanges} className='my-edit-popup-active-btn-save-changes'>Save Changes</button>
         </div>
     </div>
 </div>
@@ -86,10 +130,10 @@ const Profile = () => {
             </div>
             <div className='Profile-wrap-down-div'>
                 <div className='Name-div-wrap'>
-                    <div className='name-div-top'>wisdomosuji26</div>
+                    <div className='name-div-top'>{username}</div>
                     <div className='name-div-btm'>
                         <div className='edit-profile'>
-                            <button onClick={()=>setIsPopupOpen(true)} className='myprofilebtn'>Edit Profile</button>
+                            <button onClick={openEditPopUp} className='myprofilebtn'>Edit Profile</button>
                         </div>
                         <div className='settings'>
                             <button className='myprofilebtn2'>Settings</button>
@@ -104,9 +148,9 @@ const Profile = () => {
                         
                     </div>
                     <div className='requirement-div2'>
-                        <p>Texas, United State.</p>
-                        <p>+1 123 456 096</p>
-                        <p>wisdomosuji26@gmail.com</p>
+                        <p>{location}.</p>
+                        <p>{phone}</p>
+                        <p>user123@gmail.com</p>
                     </div>
                 </div>
             </div>
