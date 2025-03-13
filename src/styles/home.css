@@ -387,7 +387,7 @@
     flex-wrap: wrap;
     column-gap: 20px;
     row-gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 70px;
     /* justify-content: space-between; */
 
     @media screen and (max-width:1024px) {
@@ -515,6 +515,282 @@
         opacity: 1;
     }
 }
+
+.home-sixthlayer{
+    height: 89vh;
+    width: 100%;
+    /* background-color: aqua; */
+    background: url('https://preview.colorlib.com/theme/vegefoods/images/bg_3.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .home-sixthlayerright{
+        height: 73%;
+        width: 49%;
+        
+        .home-sixthlayerholder{
+            height: 100%;
+            width: 79%;
+            /* background-color: aqua; */
+
+            h6{
+                color: #82AE46;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 18px;
+                font-weight: 400;
+                margin-bottom: 30px;
+            }
+            
+            h3{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 40px;
+                margin-bottom: 32px;
+                font-weight: 600;
+            }
+
+            p{
+                font-family: Arial, Helvetica, sans-serif;
+                color: #808080;
+                font-size: 15px;
+                font-weight: 400;
+            }
+            
+            h4{
+                font-size: 30px;
+                font-weight: 400;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                color: #82AE46;
+                margin-top: 23px;
+            }
+
+            h5{
+                font-weight: 500;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                margin-top: 12px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                span{
+                    color: #82AE46;
+                }
+            }
+
+            section{
+                height: 11vh;
+                width: 74%;
+                /* background-color: aqua; */
+                margin-top: 58px;
+                display: flex;
+
+                div{
+                    width: 25%;
+                    height: 100%;
+                    /* background-color: red; */
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    h1{
+                        font-size: 30px;
+                        font-weight: 550;
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: #82AE46;
+                    }
+
+                    a{
+                        font-size: 12px;
+                        font-weight: 500;
+                        /* color: #808080; */
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.home-sevenlayer{
+    height: 56vh;
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 88px;
+
+    h6{
+        color: #82AE46;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin-bottom: 19px;
+    }
+
+    h5{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    p{
+        width: 43%;
+        /* background-color: red; */
+        text-align: center;
+        color: #808080;
+        font-size: 15px;
+        font-weight: 400;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+.home-eightlayer{
+    height: 100vh;
+    width: 84.7%;
+    /* background-color: aqua; */
+
+    header{
+        height: 64%;
+        /* background-color: white; */
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: space-between;
+        
+        main{
+            height: 100%;
+            width: 32%;
+            /* background-color: aqua; */
+            padding: 15px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .home-lineholder{
+                position: absolute;
+                height: 110px;
+                width: 1px;
+                left: 0;
+                top: 40.5%;
+                background-color: #CCCCCC;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+    
+                div{
+                    height: 30%;
+                    width: 3px;
+                    background-color: #82AE46;
+    
+                }
+    
+            }
+
+            article{
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                /* background-color: red; */
+                background: url('https://preview.colorlib.com/theme/vegefoods/images/person_1.jpg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+
+                div{
+                    height: 40px;
+                    width: 40px;
+                    background-color: white;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 16px;
+                    color: #82AE46;
+                    position: absolute;
+                    bottom: -4px;
+                    right: -4px;
+                }
+            }
+
+            section{
+                height: 30%;
+                width: 81%;
+                /* background-color: blue; */
+                margin-top: 50px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+
+              
+            }
+
+            aside{
+                height: 15%;
+                width: 50%;
+                /* background-color: red; */
+                margin-top: 45px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+
+                h5{
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+
+                p{
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 12px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        
+    }
+
+    footer{
+        height: 36%;
+        width: 100%;
+        /* background-color: green; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        main{
+            width: 9%;
+            height: 10%;
+            /* background-color: white; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            div{
+                height: 12px;
+                width: 12px;
+                background-color: #CCCCCC;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
 .home-lastlayer{
     height: 35vh;
     width: 100%;

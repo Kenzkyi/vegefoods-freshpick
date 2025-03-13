@@ -3,10 +3,17 @@ import '../styles/home.css'
 import { IoReorderThreeOutline } from 'react-icons/io5'
 import { IoMdCart } from 'react-icons/io'
 import { FcLikePlaceholder } from 'react-icons/fc'
+import { FaQuoteLeft } from 'react-icons/fa'
 
 
 const Home = () => {
   const [firstlayer,setFirstLayer] = useState(true)
+
+  useEffect(()=>{
+    console.log(window.scrollY > 250)
+
+    return  ()=>console.log('clear')
+  },[])
 
   useEffect(()=>{
     const interval = setInterval(() => {
@@ -232,6 +239,107 @@ const Home = () => {
             <div><FcLikePlaceholder /></div>
           </aside>
         </div>
+      </div>
+      <div className="home-sixthlayer">
+        <div className="home-sixthlayerright">
+          <div className="home-sixthlayerholder">
+            <h6>Best Price For You</h6>
+            <h3>Deal of the day</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            <h4>Spinach</h4>
+            <h5>$10 <span>now $5 only</span></h5>
+            <section>
+              <div>
+                <h1>-1907</h1>
+                <a>DAYS</a>
+              </div>
+              <div>
+                <h1>08</h1>
+                <a>HOURS</a>
+              </div>
+              <div>
+                <h1>21</h1>
+                <a>MINUTES</a>
+              </div>
+              <div>
+                <h1>10</h1>
+                <a>SECONDS</a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div className="home-sevenlayer">
+        <h6>Testimony</h6>
+        <h5>Our satisfied customer says</h5>
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+      </div>
+      <div className="home-eightlayer">
+        <header>
+          <main>
+            <div className="home-lineholder">
+              <div></div>
+            </div>
+            <article>
+              <div><FaQuoteLeft /></div>
+            </article>
+            <section>
+                 <p>Far Far away, behind the word</p> 
+              <p>mountains,far from the countries</p>
+              <p>Vokalia and Consonantia, there live</p>
+                            <p>the blind texts.</p>
+            </section>
+            <aside>
+              <h5>Garreth Smith</h5>
+              <p>SYSTEM ANALYST</p>
+            </aside>
+          </main>
+          <main>
+            <div className="home-lineholder">
+              <div></div>
+            </div>
+            <article>
+              <div><FaQuoteLeft /></div>
+            </article>
+            <section>
+                 <p>Far Far away, behind the word</p> 
+              <p>mountains,far from the countries</p>
+              <p>Vokalia and Consonantia, there live</p>
+                            <p>the blind texts.</p>
+            </section>
+            <aside>
+              <h5>Garreth Smith</h5>
+              <p>SYSTEM ANALYST</p>
+            </aside>
+          </main>
+          <main>
+            <div className="home-lineholder">
+              <div></div>
+            </div>
+            <article>
+              <div><FaQuoteLeft /></div>
+            </article>
+            <section>
+                 <p>Far Far away, behind the word</p> 
+              <p>mountains,far from the countries</p>
+              <p>Vokalia and Consonantia, there live</p>
+                            <p>the blind texts.</p>
+            </section>
+            <aside>
+              <h5>Garreth Smith</h5>
+              <p>SYSTEM ANALYST</p>
+            </aside>
+          </main>
+        </header>
+        <footer>
+          <main>
+            <div style={{backgroundColor:'#82AE46'}}></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </main>
+        </footer>
       </div>
       <div className="home-lastlayer">
         <main>
