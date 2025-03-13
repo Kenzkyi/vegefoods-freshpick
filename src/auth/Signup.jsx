@@ -58,9 +58,9 @@ const Signup = () => {
           }}
         />
           <input
-          type="phone Number"
-          name="phone Number"
-          placeholder="Phone Number"
+          type="Full name"
+          name="Full name"
+          placeholder="Full name"
           style={{
             padding: "10px",
             border: "1px solid #ccc",
