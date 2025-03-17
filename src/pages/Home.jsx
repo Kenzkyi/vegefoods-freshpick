@@ -123,7 +123,7 @@ const Home = () => {
           <article>
           <h6>Vegetables</h6>
           <p>Protect the health of every home</p>
-          <button>Shop now</button>
+          <button onClick={()=>navigate('/shop')}>Shop now</button>
           </article>
           <section></section>
         </main>
@@ -197,7 +197,7 @@ const Home = () => {
       </div>
       <div className="home-eightlayer">
         <header>
-          <main>
+          <main className='home-eightlayerholder'>
             <div className="home-lineholder">
               <div></div>
             </div>
@@ -215,7 +215,7 @@ const Home = () => {
               <p>SYSTEM ANALYST</p>
             </aside>
           </main>
-          <main>
+          <main className='home-eightlayerholder2'>
             <div className="home-lineholder">
               <div></div>
             </div>
@@ -233,7 +233,7 @@ const Home = () => {
               <p>SYSTEM ANALYST</p>
             </aside>
           </main>
-          <main>
+          <main className='home-eightlayerholder3'>
             <div className="home-lineholder">
               <div></div>
             </div>

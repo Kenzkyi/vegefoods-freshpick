@@ -149,7 +149,7 @@
                 margin-bottom: 10px;
             }
 
-            h6{
+            .footer-downsideholder{
                 width: 18%;
                 font-weight: 400;
                 font-size: 13px;
@@ -230,7 +230,7 @@
                 width: 100%;
                 gap: 20px;
 
-                h6,section,ol,ul{
+                .footer-downsideholder,section,ol,ul{
                     width: 80%;
                     gap: 5px;
                     font-size: 12px;

@@ -22,12 +22,12 @@ const Shop = () => {
     try {
         const res = await axios.get(`${baseUrl}getAllProducts`)
         setProduct(res.data.data)
-        console.log(res)
+        // console.log(res)
     } catch (error) {
         console.log(error)
     }
  }
- console.log(Product)
+//  console.log(Product)
 
  useEffect(()=>{
     getAllProducts()
@@ -56,7 +56,7 @@ const Shop = () => {
         <div className='Vegeatbles-main-table-wrap'>
             {
                 Product.map((item)=>(
-                    <div key={item.id} onClick={()=>{handleProductClick(item.name),dispatch(setProductId(item._id))}} className='vegetable-image-1'>
+                    <div key={item._id} onClick={()=>{handleProductClick(item.name.toLowerCase()),dispatch(setProductId(item._id))}} className='vegetable-image-1'>
                         <div className='vegetable-image-div'>
                             <img src={item.productImage.imageUrl} alt={item.name} />
                         </div>

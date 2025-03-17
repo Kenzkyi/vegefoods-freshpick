@@ -34,7 +34,7 @@ const Footer = () => {
             </ul>
           </header> */}
           <article>
-            <h6>
+            <div className='footer-downsideholder'>
               <h3>Vegefoods</h3>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
               <footer>
@@ -42,7 +42,7 @@ const Footer = () => {
             <div><FaFacebookF /></div>
             <div><FaInstagram /></div>
           </footer>
-            </h6>
+            </div>
             <ul>
               <h3>Menu</h3>
               <li onClick={()=>nav('/shop')}>Shop</li>

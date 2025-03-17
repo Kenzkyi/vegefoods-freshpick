@@ -8,7 +8,7 @@ import { removeCart } from '../global/slice';
 const Cart = () => {
 
   const cart = useSelector((state)=>state.cart)
-  console.log(cart)
+  // console.log(cart)
   const dispatch = useDispatch()
 
   return (
@@ -62,9 +62,9 @@ const Cart = () => {
           <div className='prices'>
             <p>{item.price}</p>
           </div>
-          <div className='quantity2'>1</div>
+          <div className='quantity2'>{item.quantityNum}</div>
           <div className='total2'>
-            <p>{item.price}</p>
+            <p>{item.price * item.quantityNum}</p>
           </div>
         </div>))
           }
