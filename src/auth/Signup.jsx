@@ -26,7 +26,6 @@ const Signup = () => {
     // }
   }
 
-  // console.log(all)
 
     const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 

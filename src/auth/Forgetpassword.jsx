@@ -15,7 +15,6 @@ if(email){
   try {
     const res = await axios.post(`${baseUrl}forgotpassword`,{email})
     toast.success(res.data.message)
-   console.log(res)
    } catch (error) {
      console.log(error)
    }
