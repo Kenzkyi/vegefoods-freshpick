@@ -1,12 +1,12 @@
 import React from 'react'
-import "../styles/forgetPassword.css"
+import "../styles/VerifyEmail.css"
 import { NavLink } from "react-router-dom";
 
-const Forgetpassword = () => {
+const VerifyEmail = () => {
 
   return (
-    <div className='Body3'>
-   <div className='forgetpassword'>
+    <div className='Body4'>
+   <div className='VerifyEmail'>
    <div
         style={{
           display: "flex",
@@ -33,8 +33,8 @@ const Forgetpassword = () => {
             width: "70%",
           }}
         >
-                <h2 style={{fontSize:"30px"}}>Forget Password?</h2>
-          <input
+                <h2 style={{fontSize:"30px"}}>Verify Email</h2>
+          {/* <input
             type="Email"
             name="Email"
             placeholder="Enter email address"
@@ -45,7 +45,7 @@ const Forgetpassword = () => {
               width:"80%",
               height:"10%"
             }}
-          />
+          /> */}
           <button
             style={{
               padding: "10px",
@@ -58,9 +58,9 @@ const Forgetpassword = () => {
               cursor: "pointer",
             }}
           >
-            submit
+            Verify
           </button>
-          <p style={{textAlign:'left',width:'80%'}}>Or <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/login">Login</NavLink></p>
+          <p style={{textAlign:'left',width:'80%'}}> <NavLink style={{cursor: "pointer", textDecoration: "none"}}  to="/resend-verification">Resend verification Email</NavLink></p>
   
         </div>
       </div>
@@ -69,4 +69,4 @@ const Forgetpassword = () => {
   )
 }
 
-export default Forgetpassword
+export default VerifyEmail

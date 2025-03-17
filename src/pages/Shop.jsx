@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setProductId } from '../global/slice';
+import { TbCurrencyNaira } from 'react-icons/tb';
 
 const Shop = () => {
 
@@ -61,7 +62,7 @@ const Shop = () => {
                         </div>
                         <div className='vegetable-text-div'>
                             <div className='item-title-div'>{item.name}</div>
-                            <div className='item-price-div'>${item.price}</div>
+                            <div className='item-price-div'><TbCurrencyNaira />{item.price}</div>
                         </div>
                     </div>
                 ))

@@ -1,9 +1,16 @@
 import React from 'react'
 import '../styles/cart.css'
 import { MdCancelPresentation } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux';
+import { removeCart } from '../global/slice';
 
 
 const Cart = () => {
+
+  const cart = useSelector((state)=>state.cart)
+  console.log(cart)
+  const dispatch = useDispatch()
+
   return (
     <div className='cartBody'>
 
@@ -39,48 +46,28 @@ const Cart = () => {
 
 
                  {/* middle product */}
-          <div className='middleProduct'> 
-            <div className='icons1'>
-          <MdCancelPresentation size={35}/>
-        </div>
-        <div className='fruits2'>
-          <img src="https://preview.colorlib.com/theme/vegefoods/images/product-3.jpg" alt="" />
-        </div>
-        <div className='product2'>
-          <h3 style={{color:`#000000`}}>Bell Pepper</h3>
-          <p>far far away, behind the word mountains,</p>
-          <p> far from the countries</p>
-        </div>
-        <div className='prices'>
-          <p>$4.90</p>
-        </div>
-        <input type='text' className='quantity2'/>
-        <div className='total2'>
-          <p>$4.90</p>
-        </div>
-      </div>
-
-
-       <div className='bottomWrapper'>
-       <div className='icons3'>
-          <MdCancelPresentation size={35}/>
-        </div>
-        <div className='gabbage'>
-          <img src="src/assets/public/product-4.jpeg" alt="" />
-        </div>
-        <div className='product3'>
-          <h3 style={{color:`#000000`}}>Bell Pepper</h3>
-          <p>far far away, behind the word mountains,</p>
-          <p> far from the countries</p>
-        </div>
-        <div className='prices3'>
-          <p>$15.70</p>
-        </div>
-        <input type='text' className='quantity3'/>
-        <div className='total3'>
-          <p>$15.70</p>
-        </div>
-       </div>
+          {
+            cart.map((item,index)=>(
+            <div className='middleProduct' key={index}> 
+              <div className='icons1'>
+            <MdCancelPresentation size={35} cursor={'pointer'} onClick={()=>dispatch(removeCart(item._id))}/>
+          </div>
+          <div className='fruits2'>
+            <img src={item.productImage.imageUrl} alt="" />
+          </div>
+          <div className='product2'>
+            <h3 style={{color:`#000000`}}>{item.name}</h3>
+            <p>{item.description.length > 120? item.description.substr(0,120) + ' ...':item.description}</p>
+          </div>
+          <div className='prices'>
+            <p>{item.price}</p>
+          </div>
+          <div className='quantity2'>1</div>
+          <div className='total2'>
+            <p>{item.price}</p>
+          </div>
+        </div>))
+          }
 
       
            {/* proceed to checkout section */}

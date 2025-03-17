@@ -1,12 +1,12 @@
 import React from 'react'
-import "../styles/forgetPassword.css"
+import "../styles/ResendVerification.css"
 import { NavLink } from "react-router-dom";
 
-const Forgetpassword = () => {
+const ResendVerification = () => {
 
   return (
-    <div className='Body3'>
-   <div className='forgetpassword'>
+    <div className='Body4'>
+   <div className='VerifyEmail'>
    <div
         style={{
           display: "flex",
@@ -33,7 +33,7 @@ const Forgetpassword = () => {
             width: "70%",
           }}
         >
-                <h2 style={{fontSize:"30px"}}>Forget Password?</h2>
+                <h2 style={{fontSize:"30px"}}>Resend verification Email</h2>
           <input
             type="Email"
             name="Email"
@@ -58,9 +58,9 @@ const Forgetpassword = () => {
               cursor: "pointer",
             }}
           >
-            submit
+            Resend
           </button>
-          <p style={{textAlign:'left',width:'80%'}}>Or <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/login">Login</NavLink></p>
+          <p style={{textAlign:'left',width:'80%'}}>Or <NavLink style={{cursor: "pointer", textDecoration: "none"}}></NavLink></p>
   
         </div>
       </div>
@@ -69,4 +69,4 @@ const Forgetpassword = () => {
   )
 }
 
-export default Forgetpassword
+export default ResendVerification

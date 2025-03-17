@@ -12,18 +12,22 @@ import Home from './pages/Home';
 import Forgetpassword from './auth/Forgetpassword';
 import Resetpassword from  './auth/Resetpassword';
 import ProductDetails from './components/ProductDetails';
+import VerifyEmail from './auth/VerifyEmail';
+import ResendVerification from './auth/ResendVerification';
 
 
 const routes = createBrowserRouter([
     {path:'login',element:<Login/>},
     {path:'sign-up',element:<Signup/>},
+    {path:'resend-verification',element:<ResendVerification/>},
+    {path:'verify-email/:token',element:<VerifyEmail/>},
+    {path:'profile',element:<Profile/>},
     {path:'forget-password',element:<Forgetpassword/>},
     {path:'reset-password',element:<Resetpassword/>},
     {element:<MainHolder/>,children:[
         {path:'',element:<Home/>},
         {path:'cart',element:<Cart/>},
         {path:'checkout',element:<Checkout/>},
-        {path:'profile',element:<Profile/>},
         {path:'shop',element:<Shop/>},
         {path:'shop/:productName',element:<ProductDetails/>},
     ]}
