@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
         {path:'cart',element:<Cart/>},
         {path:'checkout',element:<Checkout/>},
         {path:'shop',element:<Shop/>},
-        {path:'shop/:productId',element:<ProductDetails/>},
+        {path:'shop/:productName',element:<ProductDetails/>},
     ]}
 ])
 
