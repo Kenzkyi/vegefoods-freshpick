@@ -1,8 +1,21 @@
 import React from 'react'
 import "../styles/VerifyEmail.css"
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import axios from 'axios';
 
 const VerifyEmail = () => {
+
+    const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+    const {token} = useParams()
+
+  const verifyEmail = async () => {
+    try {
+      const res = await axios.get(`${baseUrl}verify/${token}`)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className='Body4'>
@@ -57,6 +70,7 @@ const VerifyEmail = () => {
               height:"50px",
               cursor: "pointer",
             }}
+            onClick={verifyEmail}
           >
             Verify
           </button>
