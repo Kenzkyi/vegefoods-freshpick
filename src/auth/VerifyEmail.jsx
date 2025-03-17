@@ -7,7 +7,9 @@ import { toast } from 'react-toastify';
 const VerifyEmail = () => {
 
     const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
     const {token} = useParams()
+    
     const nav = useNavigate()
 
   const verifyEmail = async () => {

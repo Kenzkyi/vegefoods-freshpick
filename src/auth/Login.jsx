@@ -14,24 +14,20 @@ const Login = () => {
   
   const onChangeFunc = (e)=>{
     const {name, value } = e.target
-    // console.log(name)
     setAll({...all,[name]:value})
   }
-  // console.log(all)
 
   const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
   const loginUser = async (data) => {
     try {
       const res = await axios.post(`${baseUrl}login`,data)
-      // console.log(res)
       localStorage.setItem('userInfo',JSON.stringify({token:res.data.token,id: res.data.data._id}))
       toast.success('Log in successfully')
       setTimeout(() => {
         nav('/')
       }, 6000);
     } catch (error) {
-      // console.log(error)
       if(error.message === 'Request failed with status code 400'){
         toast.error('Please verify your email')
       }
