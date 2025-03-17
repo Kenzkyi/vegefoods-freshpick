@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/login.css"
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -9,14 +9,15 @@ const Login = () => {
     email:'',
     password:''
   })
+  const nav = useNavigate()
 
   
   const onChangeFunc = (e)=>{
     const {name, value } = e.target
-    console.log(name)
+    // console.log(name)
     setAll({...all,[name]:value})
   }
-  console.log(all)
+  // console.log(all)
 
   const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
@@ -24,6 +25,11 @@ const Login = () => {
     try {
       const res = await axios.post(`${baseUrl}login`,data)
       console.log(res)
+      localStorage.setItem('userToken',res.data.token)
+      toast.success('Log in successfully')
+      setTimeout(() => {
+        nav('/')
+      }, 6000);
     } catch (error) {
       console.log(error)
     }

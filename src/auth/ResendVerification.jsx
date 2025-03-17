@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../styles/ResendVerification.css"
 import { NavLink } from "react-router-dom";
+import axios from 'axios';
 
 const ResendVerification = () => {
+
+  const [email, setEmail] = useState()
+
+      const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
+  const resendEmail = async (data) => {
+   
+    try {
+      const res = await axios.post(`${baseUrl}resendverificationemail`,{data} )
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
   return (
     <div className='Body4'>
@@ -57,6 +73,7 @@ const ResendVerification = () => {
               height:"50px",
               cursor: "pointer",
             }}
+            onClick={()=>resendEmail(email)}
           >
             Resend
           </button>

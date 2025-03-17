@@ -14,6 +14,7 @@ import Resetpassword from  './auth/Resetpassword';
 import ProductDetails from './components/ProductDetails';
 import VerifyEmail from './auth/VerifyEmail';
 import ResendVerification from './auth/ResendVerification';
+import PrivateRoute from './routes/PrivateRoute';
 
 
 const routes = createBrowserRouter([
@@ -21,7 +22,10 @@ const routes = createBrowserRouter([
     {path:'sign-up',element:<Signup/>},
     {path:'resend-verification',element:<ResendVerification/>},
     {path:'verify-email/:token',element:<VerifyEmail/>},
-    {path:'profile',element:<Profile/>},
+    {element:<PrivateRoute/>,children:[
+      {path:'profile',element:<Profile/>},
+      {path:'checkout',element:<Checkout/>}
+    ]},
     {path:'forget-password',element:<Forgetpassword/>},
     {path:'reset-password',element:<Resetpassword/>},
     {element:<MainHolder/>,children:[

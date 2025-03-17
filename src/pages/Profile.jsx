@@ -105,7 +105,7 @@ const Profile = () => {
         <div className='Profile-wrap'>
             <div className='Profile-wrap-up-div'>
                 <div className='image-div'>
-                <button onClick={()=>navigate("/")} className='logout-btn'><RiLogoutBoxFill/>Logout</button>
+                <button onClick={()=>{navigate("/"),localStorage.removeItem('userToken')}} className='logout-btn'><RiLogoutBoxFill/>Logout</button>
                     <div className='image-div-main'>
                     {
                             imageValue ? (
