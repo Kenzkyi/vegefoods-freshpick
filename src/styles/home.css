@@ -619,11 +619,22 @@
 
             .home-sixthlayerholder{
                 width: 100%;
+
+                section{
+                    width: 90%;
+                }
             }
         }
 
         @media screen and (max-width:550px) {
             width: 90%;
+            .home-sixthlayerholder{
+                width: 100%;
+
+                section{
+                    width: 100%;
+                }
+            }
         }
     }
 }
@@ -669,6 +680,17 @@
 
         p{
             width: 83%;
+        }
+    }
+
+    @media screen and (max-width:550px) {
+        h5{
+            font-size: 26px;
+            text-align: center;
+        }
+
+        p{
+            width: 90%;
         }
     }
 }
