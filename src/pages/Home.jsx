@@ -36,12 +36,9 @@ const Home = () => {
      try {
          const res = await axios.get(`${baseUrl}getAllProducts`)
          setProduct(res.data.data)
-        //  console.log(res)
      } catch (error) {
-        //  console.log(error)
      }
   }
-  // console.log(Product)
  
   useEffect(()=>{
      getAllProducts()

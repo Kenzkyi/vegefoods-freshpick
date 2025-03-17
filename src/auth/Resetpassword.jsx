@@ -11,12 +11,14 @@ const resetPassword = () => {
 
     const onChangeFunc =(e)=>{
       const { name, value}= e.target 
-
       setAll({...all,[name]:value})
+
     }
-    console.log(all)
+
     const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
     const {token} = useParams()
+    
     const nav = useNavigate()
 
 

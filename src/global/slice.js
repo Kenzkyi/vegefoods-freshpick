@@ -22,7 +22,6 @@ const slice = createSlice({
        },
        removeCart: (state,{payload})=>{
         const obj = state.cart.find((item)=>item._id === payload)
-        console.log(obj)
         if(obj.quantityNum > 1){
             state.cart = state.cart.map((item)=>item._id === payload ? {...item,quantityNum:item.quantityNum-1} : item)
         }else{

@@ -8,7 +8,7 @@ import { removeCart } from '../global/slice';
 const Cart = () => {
 
   const cart = useSelector((state)=>state.cart)
-  // console.log(cart)
+  
   const dispatch = useDispatch()
 
   return (

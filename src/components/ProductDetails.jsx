@@ -10,23 +10,21 @@ import { addCart } from '../global/slice';
 const ProductDetails = () => {
 
   const productId = useSelector((state)=>state.productId)
+
   const dispatch = useDispatch()
 
-  const [count, setCount] = useState(1)
+  // const [count, setCount] = useState(1)
 
-  const handleIncrease = () => {
-    setCount(count + 1)
-  }
+  // const handleIncrease = () => {
+  //   setCount(count + 1)
+  // }
 
-  const handleDecrease = () => {
-    count < 2 ? 1 : setCount(count - 1)
-  }
+  // const handleDecrease = () => {
+  //   count < 2 ? 1 : setCount(count - 1)
+  // }
 
   const [product,setProduct] = useState({})
 
-  // if (!product) {
-  //   return <h2>Product not found</h2>
-  // }
 
   const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
@@ -34,7 +32,6 @@ const ProductDetails = () => {
     try {
       const res = await axios.get(`${baseUrl}getOneProduct/${id}`)
       setProduct(res.data.data)
-      // console.log(res)
     } catch (error) {
       console.log(error)
     }
@@ -43,7 +40,6 @@ const ProductDetails = () => {
   useEffect(()=>{
     getOneProduct(productId)
   },[])
-
 
   return (
     <div className='ProductDetails'>
@@ -71,9 +67,9 @@ const ProductDetails = () => {
           <div className='Single-product-main-div-wrap-div2'>{product.description}</div>
           <div className='Single-product-main-div-wrap-div3'>
             <div className='Counter-App'>
-              <div className='decrement-btn'><button onClick={handleDecrease} className='my-btn'>-</button></div>
+              {/* <div className='decrement-btn'><button onClick={handleDecrease} className='my-btn'>-</button></div> */}
               <div className='Count-container'>{count}</div>
-              <div className='increment-btn'><button onClick={handleIncrease} className='my-btn'>+</button></div>
+              {/* <div className='increment-btn'><button onClick={handleIncrease} className='my-btn'>+</button></div> */}
              
             </div>
             <div className='weight-div'><p>{product.quantity} kg available</p></div>

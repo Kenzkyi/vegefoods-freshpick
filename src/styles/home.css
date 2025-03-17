@@ -82,12 +82,10 @@
     @media screen and (max-width:1100px) {
         main{
             width: 85%;
-            /* background-color: red; */
         }
     }
 
     @media screen and (max-width:790px) {
-        /* background-color: red; */
         main{
             width: 95%;
 
@@ -108,7 +106,6 @@
 .home-secondlayer{
     height: 50vh;
     width: 100%;
-    /* background-color: aqua; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,14 +118,12 @@
 .home-secondlayerholder{
     height: 50%;
     width: 61%;
-    /* background-color: aqua; */
     display: flex;
     justify-content: space-between;
 
     nav{
         height: 100%;
         width: 13.5%;
-        /* background-color: green; */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -139,7 +134,6 @@
             height: 57%;
             width: 87%;
             border-radius: 50%;
-            /* background-color: #; */
             margin-bottom: 8px;
             display: flex;
             justify-content: center;
@@ -187,7 +181,6 @@
     }
     @media screen and (max-width:800px) {
         width: 95%;
-        /* background-color: red; */
         nav{
             width: 20%;
         }
@@ -196,8 +189,6 @@
         display: flex;
         flex-direction: column;
         height: 85%;
-        /* width: 40%; */
-        /* background-color: #82AE46; */
         gap: 10px;
         align-items: center;
 
@@ -222,14 +213,12 @@
 .home-thirdlayer{
     height: 69vh;
     width: 70.5%;
-    /* background-color: aqua; */
     display: flex;
     justify-content: space-between;
 
     nav{
         height: 100%;
         width: 31.5%;
-        /* background-color: red; */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -253,7 +242,6 @@
     main{
         height: 100%;
         width: 31.5%;
-        /* background-color: aqua; */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -261,7 +249,6 @@
         article{
             height: 27%;
             width: 100%;
-            /* background-color: green; */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -343,7 +330,6 @@
 .home-fourthlayer{
     height: 46vh;
     width: 100%;
-    /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -352,7 +338,6 @@
         height: 41%;
         width: 100%;
         margin-bottom: 38px;
-        /* background-color: black; */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -383,19 +368,15 @@
     min-height: 100vh;
     width: 70.5%;
     display: flex;
-    /* background-color: blue; */
     flex-wrap: wrap;
     column-gap: 20px;
     row-gap: 10px;
     margin-bottom: 70px;
-    /* justify-content: space-between; */
 
     @media screen and (max-width:1024px) {
         width: 90%;
     }
-    @media screen and (max-width:768px) {
-        /* background-color: red; */
-    }
+
 
 }
 .home-productholder{
@@ -405,13 +386,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: green; */
     border: 1px solid gainsboro;
     cursor: pointer;
     position: relative;
     
     header{
-        /* background-color: green; */
         height: 11%;
         width: 100%;
 
@@ -429,11 +408,9 @@
     main{
         height: 55%;
         width: 90%;
-        /* background-color: aqua; */
         display: flex;
         justify-content: center;
         align-items: center;
-        /* padding: 10px; */
         margin-bottom: 20px;
 
         img{
@@ -451,21 +428,17 @@
         height: 34%;
         width: 100%;
         display: flex;
-        /* background-color: aqua; */
         flex-direction: column;
-        /* justify-content: space-around; */
         align-items: center;
         gap: 10px;
 
         p{
             font-size: 13px;
-            /* font-weight: 200; */
             font-family: Arial, Helvetica, sans-serif;
         }
 
         h6{
             display: flex;
-            /* gap: 10px; */
             color: #82AE46;
             font-size: 18px;
 
@@ -519,7 +492,6 @@
 .home-sixthlayer{
     height: 89vh;
     width: 100%;
-    /* background-color: aqua; */
     background: url('https://preview.colorlib.com/theme/vegefoods/images/bg_3.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -535,7 +507,6 @@
         .home-sixthlayerholder{
             height: 100%;
             width: 79%;
-            /* background-color: aqua; */
 
             h6{
                 color: #82AE46;
@@ -584,14 +555,12 @@
             section{
                 height: 11vh;
                 width: 74%;
-                /* background-color: aqua; */
                 margin-top: 58px;
                 display: flex;
 
                 div{
                     width: 25%;
                     height: 100%;
-                    /* background-color: red; */
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -606,7 +575,6 @@
                     a{
                         font-size: 12px;
                         font-weight: 500;
-                        /* color: #808080; */
                         font-family: Arial, Helvetica, sans-serif;
                     }
                 }
@@ -642,7 +610,6 @@
 .home-sevenlayer{
     height: 56vh;
     width: 100%;
-    /* background-color: aqua; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -665,7 +632,6 @@
 
     p{
         width: 43%;
-        /* background-color: red; */
         text-align: center;
         color: #808080;
         font-size: 15px;
@@ -698,19 +664,15 @@
 .home-eightlayer{
     height: 100vh;
     width: 84.7%;
-    /* background-color: aqua; */
 
     header{
         height: 64%;
-        /* background-color: white; */
         display: flex;
-        /* flex-direction: column; */
         justify-content: space-between;
         
         main{
             height: 100%;
             width: 32%;
-            /* background-color: aqua; */
             padding: 15px;
             position: relative;
             display: flex;
@@ -742,7 +704,6 @@
                 height: 100px;
                 width: 100px;
                 border-radius: 50%;
-                /* background-color: red; */
                 background: url('https://preview.colorlib.com/theme/vegefoods/images/person_1.jpg');
                 background-repeat: no-repeat;
                 background-position: center;
@@ -768,7 +729,6 @@
             section{
                 height: 30%;
                 width: 81%;
-                /* background-color: blue; */
                 margin-top: 50px;
                 display: flex;
                 flex-direction: column;
@@ -784,7 +744,6 @@
             aside{
                 height: 15%;
                 width: 50%;
-                /* background-color: red; */
                 margin-top: 45px;
                 display: flex;
                 flex-direction: column;
@@ -829,7 +788,6 @@
     footer{
         height: 36%;
         width: 100%;
-        /* background-color: green; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -837,7 +795,6 @@
         main{
             width: 140px;
             height: 10%;
-            /* background-color: white; */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -858,7 +815,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    /* background-color: aqua; */
     border-top: 1px solid gainsboro;
 
     main{
@@ -871,7 +827,6 @@
         div{
             height: 25%;
             width: 16%;
-            /* background-color: green; */
             
 
             img{
@@ -883,7 +838,6 @@
     }
 
     @media screen and (max-width:1100px) {
-        /* background-color: red; */
      main{
         width: 90%;
      }   
