@@ -13,7 +13,7 @@ const Header = () => {
   const [headerDropdownMenu,setHeaderDropdownMenu] = useState(false)
   const nav = useNavigate()
   const cart = useSelector((state)=>state.cart)
-  console.log(cart)
+  // console.log(cart)
   return (
     <div className='header'>
       <div className='header-holder'>

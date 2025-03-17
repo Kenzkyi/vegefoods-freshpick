@@ -18,9 +18,9 @@ const Home = () => {
       const dispatch = useDispatch()
 
   useEffect(()=>{
-    console.log(window.scrollY > 250)
+    // console.log(window.scrollY > 250)
 
-    return  ()=>console.log('clear')
+    // return  ()=>console.log('clear')
   },[])
 
   useEffect(()=>{
@@ -36,12 +36,12 @@ const Home = () => {
      try {
          const res = await axios.get(`${baseUrl}getAllProducts`)
          setProduct(res.data.data)
-         console.log(res)
+        //  console.log(res)
      } catch (error) {
-         console.log(error)
+        //  console.log(error)
      }
   }
-  console.log(Product)
+  // console.log(Product)
  
   useEffect(()=>{
      getAllProducts()

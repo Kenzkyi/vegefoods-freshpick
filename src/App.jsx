@@ -27,7 +27,7 @@ const routes = createBrowserRouter([
       {path:'checkout',element:<Checkout/>}
     ]},
     {path:'forget-password',element:<Forgetpassword/>},
-    {path:'reset-password',element:<Resetpassword/>},
+    {path:'reset-password/:token',element:<Resetpassword/>},
     {element:<MainHolder/>,children:[
         {path:'',element:<Home/>},
         {path:'cart',element:<Cart/>},
