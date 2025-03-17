@@ -170,8 +170,9 @@
   /* background-color: maroon; */
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  flex-direction: column;
+  /* flex-direction: column; */
   font-size: 18px;
   color: #82AE46;
 }

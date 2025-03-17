@@ -4,10 +4,18 @@ import { IoReorderThreeOutline } from 'react-icons/io5'
 import { IoMdCart } from 'react-icons/io'
 import { FcLikePlaceholder } from 'react-icons/fc'
 import { FaQuoteLeft } from 'react-icons/fa'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { addCart, setProductId } from '../global/slice'
+import { useDispatch } from 'react-redux'
+import { TbCurrencyNaira } from 'react-icons/tb'
 
 
 const Home = () => {
   const [firstlayer,setFirstLayer] = useState(true)
+      const [Product,setProduct] = useState([])
+      const navigate = useNavigate();
+      const dispatch = useDispatch()
 
   useEffect(()=>{
     console.log(window.scrollY > 250)
@@ -21,6 +29,27 @@ const Home = () => {
     }, 5000);
     return ()=> clearInterval(interval)
   },[firstlayer])
+
+  const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
+  const getAllProducts = async () => {
+     try {
+         const res = await axios.get(`${baseUrl}getAllProducts`)
+         setProduct(res.data.data)
+         console.log(res)
+     } catch (error) {
+         console.log(error)
+     }
+  }
+  console.log(Product)
+ 
+  useEffect(()=>{
+     getAllProducts()
+  },[])
+
+  const handleProductClick = (name) => {
+    navigate(`/shop/${name}`);
+ };
   return (
     <div className='home'>
       {firstlayer ? <div className="home-firstlayer1">
@@ -115,130 +144,22 @@ const Home = () => {
         </nav>
       </div>
       <div className="home-fifthlayer">
-        <div className="home-productholder">
-          <header>
-            <p>30%</p>
-          </header>
+        {Product.slice(0,8).map((item,index)=>(
+          <div className="home-productholder" key={index} onClick={()=>{handleProductClick(item.name),dispatch(setProductId(item._id))}}>
           <main>
-            <img src="https://preview.colorlib.com/theme/vegefoods/images/product-1.jpg" alt="" />
+            <img src={item.productImage.imageUrl} alt="" />
           </main>
           <footer>
-            <p>BELL PEPPER</p>
-            <h6><del>$120.00</del>$80.00</h6>
+            <p>{item.name}</p>
+            <h6><TbCurrencyNaira />{item.price}</h6>
           </footer>
           <aside>
             <div><IoReorderThreeOutline /></div>
-            <div><IoMdCart /></div>
+            <div><IoMdCart onClick={(e)=>{e.stopPropagation(),dispatch(addCart(item))}}/></div>
             <div><FcLikePlaceholder /></div>
           </aside>
         </div>
-        <div className="home-productholder">
-          <header></header>
-          <main>
-            <img src="https://preview.colorlib.com/theme/vegefoods/images/product-2.jpg" />
-          </main>
-          <footer>
-            <p>STRAWBERRY</p>
-            <h6>$120.00</h6>
-          </footer>
-          <aside>
-            <div><IoReorderThreeOutline /></div>
-            <div><IoMdCart /></div>
-            <div><FcLikePlaceholder /></div>
-          </aside>
-        </div>
-        <div className="home-productholder">
-          <header></header>
-          <main>
-            <img src="https://preview.colorlib.com/theme/vegefoods/images/product-3.jpg" />
-          </main>
-          <footer>
-            <p>GREEN BEANS</p>
-            <h6>$120.00</h6>
-          </footer>
-          <aside>
-            <div><IoReorderThreeOutline /></div>
-            <div><IoMdCart /></div>
-            <div><FcLikePlaceholder /></div>
-          </aside>
-        </div>
-        <div className="home-productholder">
-          <header></header>
-          <main>
-            <img src="https://preview.colorlib.com/theme/vegefoods/images/product-4.jpg" />
-          </main>
-          <footer>
-            <p>PURPLE CABBAGE</p>
-            <h6><del>$120.00</del>$80.00</h6>
-          </footer>
-          <aside>
-            <div><IoReorderThreeOutline /></div>
-            <div><IoMdCart /></div>
-            <div><FcLikePlaceholder /></div>
-          </aside>
-        </div>
-        <div className="home-productholder">
-          <header>
-            <p>30%</p>
-          </header>
-          <main>
-            <img src="https://preview.colorlib.com/theme/vegefoods/images/product-5.jpg" />
-          </main>
-          <footer>
-            <p>TOMATOE</p>
-            <h6><del>$120.00</del>$80.00</h6>
-          </footer>
-          <aside>
-            <div><IoReorderThreeOutline /></div>
-            <div><IoMdCart /></div>
-            <div><FcLikePlaceholder /></div>
-          </aside>
-        </div>
-        <div className="home-productholder">
-          <header></header>
-          <main>
-            <img src="https://preview.colorlib.com/theme/vegefoods/images/product-6.jpg" />
-          </main>
-          <footer>
-            <p>BROCOLLI</p>
-            <h6>$120.00</h6>
-          </footer>
-          <aside>
-            <div><IoReorderThreeOutline /></div>
-            <div><IoMdCart /></div>
-            <div><FcLikePlaceholder /></div>
-          </aside>
-        </div>
-        <div className="home-productholder">
-          <header></header>
-          <main>
-            <img src="https://preview.colorlib.com/theme/vegefoods/images/product-7.jpg" />
-          </main>
-          <footer>
-            <p>CARROTS</p>
-            <h6>$120.00</h6>
-          </footer>
-          <aside>
-            <div><IoReorderThreeOutline /></div>
-            <div><IoMdCart /></div>
-            <div><FcLikePlaceholder /></div>
-          </aside>
-        </div>
-        <div className="home-productholder">
-          <header></header>
-          <main>
-            <img src="https://preview.colorlib.com/theme/vegefoods/images/product-8.jpg" />
-          </main>
-          <footer>
-            <p>FRUIT JUICE</p>
-            <h6>$120.00</h6>
-          </footer>
-          <aside>
-            <div><IoReorderThreeOutline /></div>
-            <div><IoMdCart /></div>
-            <div><FcLikePlaceholder /></div>
-          </aside>
-        </div>
+        ))}
       </div>
       <div className="home-sixthlayer">
         <div className="home-sixthlayerright">

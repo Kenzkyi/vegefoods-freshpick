@@ -2,32 +2,40 @@ import React, { useState } from "react";
 import "../styles/login.css"
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Login = () => {
-    const [all,setAll] = useState({
-      email:'',
-      password:'',
-    })
+  const [all,setAll] = useState({
+    email:'',
+    password:''
+  })
 
-    const onChangeFunc = (e)=>{
-      const {name, value} = e.target
-      const newUsername = value
-      setAll({...all,[name]:newUsername.trim()})
-    }
   
-    console.log(all)
+  const onChangeFunc = (e)=>{
+    const {name, value } = e.target
+    console.log(name)
+    setAll({...all,[name]:value})
+  }
+  console.log(all)
 
-    const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+  const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
-    const loginUser = async (data) => {
-      try {
-        const res = await axios.post(`${baseUrl}login`,data)
-        console.log(res)
-      } catch (error) {
-       console.log(error) 
-      }
+  const loginUser = async (data) => {
+    try {
+      const res = await axios.post(`${baseUrl}login`,data)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
     }
+  }
 
+  const handleLogin = (all)=>{
+    if(all.email && all.password){
+      loginUser(all)
+    }else{
+      toast.error('All input required')
+    }
+  }
   return (
     <div className='Body2'>
       <div className='LoginDiv'>
@@ -93,11 +101,11 @@ const Login = () => {
             color: "#fff",
             border: "none",
             borderRadius: "5px",
-            width:"50%",
+            width:"80%",
             height:"50px",
             cursor: "pointer",
           }}
-          onClick={()=>loginUser(all)}
+          onClick={()=>handleLogin(all)}
         >
           Login
         </button>

@@ -20,7 +20,7 @@ const routes = createBrowserRouter([
     {path:'login',element:<Login/>},
     {path:'sign-up',element:<Signup/>},
     {path:'resend-verification',element:<ResendVerification/>},
-    {path:'verify-email',element:<VerifyEmail/>},
+    {path:'verify-email/:token',element:<VerifyEmail/>},
     {path:'profile',element:<Profile/>},
     {path:'forget-password',element:<Forgetpassword/>},
     {path:'reset-password',element:<Resetpassword/>},

@@ -5,12 +5,15 @@ import { MdShoppingCart } from 'react-icons/md'
 import { useState } from 'react'
 import { IoReorderThreeOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
   const [headerDropdown,setHeaderDropdown] = useState(false)
   const [headerMenu,setHeaderMenu] = useState(false)
   const [headerDropdownMenu,setHeaderDropdownMenu] = useState(false)
   const nav = useNavigate()
+  const cart = useSelector((state)=>state.cart)
+  console.log(cart)
   return (
     <div className='header'>
       <div className='header-holder'>
@@ -28,7 +31,7 @@ const Header = () => {
           <li>ABOUT</li>
           <li>BLOG</li>
           <li>CONTACT</li>
-          <li onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}><MdShoppingCart />[ 0 ]</li>
+          <li onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}><MdShoppingCart />[ {cart.length} ]</li>
         </ul>
         <div className="header-menubar">
           <p onClick={()=>setHeaderMenu(!headerMenu)}><IoReorderThreeOutline fontSize={30} /> MENU</p>
@@ -51,7 +54,7 @@ const Header = () => {
           <li>ABOUT</li>
           <li>BLOG</li>
           <li>CONTACT</li>
-          <h6 onClick={()=>{nav('/cart'),setHeaderMenu(false)}}><MdShoppingCart />[ 0 ]</h6>
+          <h6 onClick={()=>{nav('/cart'),setHeaderMenu(false)}}><MdShoppingCart />[ {cart.length} ]</h6>
         </ul>
       </div>
     </div>
