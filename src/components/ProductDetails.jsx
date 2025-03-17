@@ -34,7 +34,7 @@ const ProductDetails = () => {
     try {
       const res = await axios.get(`${baseUrl}getOneProduct/${id}`)
       setProduct(res.data.data)
-      console.log(res)
+      // console.log(res)
     } catch (error) {
       console.log(error)
     }
