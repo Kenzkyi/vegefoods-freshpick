@@ -1,90 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "../styles/shop.css"
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { setProductId } from '../global/slice';
 
 const Shop = () => {
 
     const navigate = useNavigate();
+    const [Product,setProduct] = useState([])
 
-  const Product = [
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-1.jpg",
-        title: "BELL PEPPER",
-        price: "$80",
-        id: 1,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-2.jpg",
-         title: "STRAYBERRY",
-        price: "$120.00",
-        id: 2,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-3.jpg",
-         title: "GREEN BEANS",
-        price: "$120.00",
-        id: 3,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-4.jpg",
-        title: "PURPLE CABBAGE",
-        price: "$120.OO",
-        id: 4,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-5.jpg",
-        title: "TOMATOE",
-        price: "$80.00",
-        id: 5,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-6.jpg",
-        title: "BROCOLLI",
-        price: "$120.00",
-        id: 6,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-7.jpg",
-        title: "CARROT",
-        price: "$120.00",
-        id: 7,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-8.jpg",
-        title: "FRUIT JUICE",
-        price: "$120.00",
-        id: 8,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-9.jpg",
-        title: "ONION",
-        price: "$80.00",
-        id: 9,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-10.jpg",
-        title: "APPLE",
-        price: "$120.00",
-        id: 10,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-11.jpg",
-        title: "GARLIC",
-        price: "$120.00",
-        id: 11,
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-12.jpg",
-        title: "CHILLI",
-        price: "$120.00",
-        id: 12,
-    },
- ]
 
- const handleProductClick = (id) => {
-    navigate(`/shop/${id}`);
+ const handleProductClick = (name) => {
+    navigate(`/shop/${name}`);
  };
 
+ const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
+ const getAllProducts = async () => {
+    try {
+        const res = await axios.get(`${baseUrl}getAllProducts`)
+        setProduct(res.data.data)
+        console.log(res)
+    } catch (error) {
+        console.log(error)
+    }
+ }
+ console.log(Product)
+
+ useEffect(()=>{
+    getAllProducts()
+ },[])
+
+ const dispatch = useDispatch()
 
   return (
     <div className='Shop'>
@@ -107,13 +55,13 @@ const Shop = () => {
         <div className='Vegeatbles-main-table-wrap'>
             {
                 Product.map((item)=>(
-                    <div key={item.id} onClick={()=>handleProductClick(item.id)} className='vegetable-image-1'>
+                    <div key={item.id} onClick={()=>{handleProductClick(item.name),dispatch(setProductId(item._id))}} className='vegetable-image-1'>
                         <div className='vegetable-image-div'>
-                            <img src={item.image} alt={item.title} />
+                            <img src={item.productImage.imageUrl} alt={item.name} />
                         </div>
                         <div className='vegetable-text-div'>
-                            <div className='item-title-div'>{item.title}</div>
-                            <div className='item-price-div'>{item.price}</div>
+                            <div className='item-title-div'>{item.name}</div>
+                            <div className='item-price-div'>${item.price}</div>
                         </div>
                     </div>
                 ))

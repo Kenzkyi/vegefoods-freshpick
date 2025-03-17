@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/login.css"
 import { NavLink } from "react-router-dom";
-
-const handleChange = (e) => {
-
-  setUser({ ...user, [e.target.name]: e.target.value });
-};
+import axios from "axios";
 
 const Login = () => {
+    const [all,setAll] = useState({
+      email:'',
+      password:'',
+    })
+
+    const onChangeFunc = (e)=>{
+      const {name, value} = e.target
+      const newUsername = value
+      setAll({...all,[name]:newUsername.trim()})
+    }
+  
+    console.log(all)
+
+    const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
+    const loginUser = async (data) => {
+      try {
+        const res = await axios.post(`${baseUrl}login`,data)
+        console.log(res)
+      } catch (error) {
+       console.log(error) 
+      }
+    }
+
   return (
     <div className='Body2'>
       <div className='LoginDiv'>
@@ -48,8 +68,9 @@ const Login = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             width:"80%",
-            height:"12%"
+            height:"10%"
           }}
+          onChange={onChangeFunc}
         />
         <input
           type="password"
@@ -60,8 +81,9 @@ const Login = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             width:"80%",
-            height:"12%"
+            height:"10%"
           }}
+          onChange={onChangeFunc}
         />
         <div className="forgetPassword"> <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/forget-password">forgetPassword</NavLink></div>
         <button
@@ -75,6 +97,7 @@ const Login = () => {
             height:"50px",
             cursor: "pointer",
           }}
+          onClick={()=>loginUser(all)}
         >
           Login
         </button>

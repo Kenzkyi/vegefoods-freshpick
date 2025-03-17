@@ -35,15 +35,15 @@ const Forgetpassword = () => {
         >
                 <h2 style={{fontSize:"30px"}}>Verify Email</h2>
           <input
-            type="password"
-            name="password"
-            placeholder="Password"
+            type="Email"
+            name="Email"
+            placeholder="Email"
             style={{
               padding: "10px",
               border: "1px solid #ccc",
               borderRadius: "5px",
               width:"80%",
-              height:"12%"
+              height:"10%"
             }}
           />
           <button
@@ -58,7 +58,7 @@ const Forgetpassword = () => {
               cursor: "pointer",
             }}
           >
-            Send
+            Verify
           </button>
           <p>Forgotten password ? <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/reset-password">Reset Passord</NavLink></p>
   

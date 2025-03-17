@@ -43,7 +43,7 @@ const resetPassword = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             width:"80%",
-            height:"12%"
+            height:"10%"
           }}
         />
         <input
@@ -55,7 +55,7 @@ const resetPassword = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             width:"80%",
-            height:"12%"
+            height:"10%"
           }}
         />
         <button
@@ -72,7 +72,7 @@ const resetPassword = () => {
         >
           Craete Password
         </button>
-        <p>Set password  <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/login">Login</NavLink></p>
+        <p>Reset password ? <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/login">Login</NavLink></p>
 
       </div>
     </div>

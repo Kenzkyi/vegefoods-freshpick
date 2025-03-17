@@ -8,6 +8,11 @@ const Checkout = () => {
   return (
     <div className='checkoutBody'>
       <div className='vegImage'>
+        <p>Home</p>
+         <p>checkout</p>
+           <div className='imgText'>
+            <h1>Checkout</h1>
+           </div>
       </div>
       <div className='Billings'>
         <h3>Billing Details</h3>
@@ -19,39 +24,39 @@ const Checkout = () => {
             <p>Last name</p>
           </div>
           <div className='nameWrapper'>
-            <section className='firstName'></section>
-            <section className='lastName'></section>
+            <input type='text' className='firstName'/>
+            <input type='text' className='lastName'/>
           </div>
           <div className='stateCountry'>
             <p>State / Country</p>
           </div>
-          <section className='stateCountryHolder'></section>
+          <input type='text' className='stateCountryHolder'/>
           <section streetAddress>
             <p>Street Address</p>
           </section>
           <div className='addressHolder'>
-            <section className='houseHolder'></section>
-            <section className='apartment'></section>
+            <input type='text' className='houseHolder'/>
+            <input type='text' className='apartment'/>
           </div>
           <div className='townPostCode'>
             <p>Town / City</p>
             <p>Postcode / Zip *</p>
           </div>
           <div className='townWrapper'>
-            <section className='townHolder'></section>
-            <section className='postCardHolder'></section>
+            <input type='text' className='townHolder'/>
+            <input type='text' className='postCardHolder'/>
           </div>
           <div className='phoneEmailHolder'>
             <p>Phone</p>
             <p>Email Address</p>
           </div>
           <div className='phoneEmailWrapper'>
-            <section className='phoneContainer'></section>
-            <section className='emailContainer'></section>
+            <input type='text' className='phoneContainer'/>
+            <input type='text' className='emailContainer'/>
           </div>
           <div className='accountWrapper'>
-          <GoDot/>  <p>Create an Account?</p>
-          <GoDot/> <p>Ship to different address</p>
+           <p> <GoDot/>Create an Account?</p>
+           <p> <GoDot/>Ship to different address</p>
           </div>
         </div>
         
