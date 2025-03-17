@@ -60,7 +60,7 @@ const ResendVerification = () => {
           >
             Resend
           </button>
-          <p style={{textAlign:'left',width:'80%'}}>Or <NavLink style={{cursor: "pointer", textDecoration: "none"}}></NavLink></p>
+          <p style={{textAlign:'left',width:'80%'}}><NavLink style={{cursor: "pointer", textDecoration: "none"}}></NavLink></p>
   
         </div>
       </div>
