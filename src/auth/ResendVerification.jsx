@@ -2,21 +2,25 @@ import React, { useState } from 'react'
 import "../styles/ResendVerification.css"
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ResendVerification = () => {
 
-  const [email, setEmail] = useState()
+  const [email, setEmail] = useState('')
 
       const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
-  const resendEmail = async (data) => {
-   
+  const resendEmail = async (email) => {
+   if(email){
     try {
-      const res = await axios.post(`${baseUrl}resendverificationemail`,{data} )
+      const res = await axios.post(`${baseUrl}resendverificationemail`,{email} )
       console.log(res)
     } catch (error) {
       console.log(error)
     }
+   }else{
+    toast.error('Please Fill In your Email')
+   }
 
   }
 
@@ -61,6 +65,7 @@ const ResendVerification = () => {
               width:"80%",
               height:"10%"
             }}
+            onChange={(e)=>setEmail(e.target.value)}
           />
           <button
             style={{
