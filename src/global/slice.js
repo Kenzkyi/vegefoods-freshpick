@@ -15,20 +15,19 @@ const slice = createSlice({
        },
        addCart: (state,{payload})=>{
         if(state.cart.find((item)=>item._id === payload._id)){
-            state.cart = state.cart.map((item)=>{
-                if(item._id === payload._id){
-                    return {...item,quantityNum:item.quantityNum++}
-                }else{
-                    return item
-                }
-            })
+            state.cart = state.cart.map((item)=>item._id === payload._id ? {...item,quantityNum:item.quantityNum+1} : item)
         }else{
-
             state.cart = [...state.cart,{...payload,quantityNum:1}]
         }
        },
        removeCart: (state,{payload})=>{
-        state.cart = state.cart.filter((item)=>item._id !== payload)
+        const obj = state.cart.find((item)=>item._id === payload)
+        console.log(obj)
+        if(obj.quantityNum > 1){
+            state.cart = state.cart.map((item)=>item._id === payload ? {...item,quantityNum:item.quantityNum-1} : item)
+        }else{
+            state.cart = state.cart.filter((item)=>item._id !== payload)
+        }
        }
     }
 })

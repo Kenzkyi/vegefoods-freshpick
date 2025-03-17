@@ -24,7 +24,7 @@ const Login = () => {
   const loginUser = async (data) => {
     try {
       const res = await axios.post(`${baseUrl}login`,data)
-      console.log(res)
+      // console.log(res)
       localStorage.setItem('userInfo',JSON.stringify({token:res.data.token,id: res.data.data._id}))
       toast.success('Log in successfully')
       setTimeout(() => {

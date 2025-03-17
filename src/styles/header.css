@@ -175,6 +175,10 @@
     @media screen and (max-width:890px) {
         color: white;
     }
+
+    @media screen and (max-width:550px) {
+        right: 10px;
+    }
 }
 .header-profile:hover{
     background-color: #e6e6e6;
