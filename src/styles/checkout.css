@@ -2,8 +2,6 @@
   width: 100%;
   height: auto;
   font-family: poppins, arial, sans-serif;
-  /* padding: 30px; */
-  /* border: 3px solid; */
 }
 
 .vegImage {
@@ -13,7 +11,6 @@
   justify-content: center;
   align-items: center;
   background: url(../assets/public/bg_1.jpeg);
-  /* background-color: aqua; */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -54,24 +51,21 @@
   width: 60%;
   height: 100vh;
   outline: none;
-  /* background: yellow; */
-  /* padding-top: 30px; */
 }
 
 .nameHolder {
   display: flex;
   width: 65%;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .nameWrapper {
   width: 100%;
   height: 10%;
-  /* background: red; */
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
-  /* outline: 1px solid green; */
 }
 
 .firstName {
@@ -80,6 +74,7 @@
   /* background: #000; */
   border: 1px solid solid gray;
   outline: none;
+  border: 1px solid rgb(234, 227, 227);
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
@@ -88,7 +83,6 @@
 .lastName {
   width: 48%;
   height: 100%;
-  /* background: green; */
   padding: 20px;
   border: 1px solid solid gray;
   outline: none;
@@ -122,7 +116,6 @@
 .addressHolder {
   width: 100%;
   height: 10%;
-  /* background: red; */
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
@@ -159,7 +152,6 @@
 .townWrapper {
   width: 100%;
   height: 10%;
-  /* background: red; */
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
@@ -196,7 +188,6 @@
 .phoneEmailWrapper {
   width: 100%;
   height: 10%;
-  /* background: red; */
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
@@ -238,43 +229,33 @@
   gap: 20px;
   padding: 30px;
   font-family: Poppins, Arial, sans-serif;
-  /* background-color: aqua; */
-  /* padding: 15px; */
 }
 
 .cardTotalCont {
   width: 100%;
   height: 45vh;
-  /* gap: 20px; */
-  /* background: yellow; */
   display: flex;
   flex-direction: column;
   border: 1px solid solid gray;
   outline: none;
   /* padding: 20px; */
+  border: 1px solid rgb(234, 227, 227);
 }
 
 .cardTotalHolder {
   width: 50%;
   height: 20%;
-  /* margin-top: 20px; */
-  /* padding-top: 40px; */
   padding-left: 37px;
   display: flex;
   align-items: flex-end;
-  /* background-color: green; */
 }
 
 .wrapper2 {
   width: 100%;
   height: 60%;
-  /* background-color: aqua; */
   display: flex;
   padding-left: 40px;
   padding-top: 20px;
-  /* border-bottom: 1px solid gray;*/
-  /* justify-content: 
-    space-around; */
 }
 
 .subTotal {
@@ -284,6 +265,7 @@
   display: flex;
   flex-direction: column;
   /* color: rgba(0, 0, 0, 0.603); */
+  color: rgb(172, 168, 168);
 }
 
 .amount {
@@ -291,21 +273,15 @@
   height: 100%;
   display: flex;
   color: rgb(172, 168, 168);
-  /* justify-content: space-around;gap */
   flex-direction: column;
   gap: 20px;
-  /* background: red; */
-  /* border-bottom: 1px solid gray; */
 }
 
 .totalCont {
   width: 100%;
   height: 20%;
-  /* background: #00ffff; */
-  /* background-color: #82ae48; */
   display: flex;
   padding-left: 40px;
-  /* align-items: center; */
   padding-top: 20px;
   border-top: 1px solid gray;
 }
@@ -324,7 +300,6 @@
 .paymentMethod {
   width: 100%;
   height: 60%;
-  /* background: aqua; */
   padding-top: 20px;
 }
 
@@ -333,9 +308,6 @@
   height: 20%;
   display: flex;
   gap: 20px;
-  /* color: rgb(172, 168, 168); */
-  /* justify-content: space-around; */
-  /* flex-direction: column; */
 }
 
 .bottomCont {
@@ -352,6 +324,7 @@
 .payment {
   padding-left: 30px;
   color: black;
+  color: #000000;
 }
 
 .bottomDiv {
@@ -370,6 +343,8 @@
   color: #ffffff;
   transition: 350ms ease-in-out;
   transform: scale(1);
+  color: #ffffff;
+  font: 16px Poppins, Arial, san-serif;
 }
 
 .bottomDiv:hover{
@@ -389,12 +364,8 @@
 .paymentMethod {
   height: 45vh;
   width: 100%;
-  /* background-color: purple; */
   margin-bottom: 15px;
 }
-/* .totalCont {
-  background-color: aqua;
-} */
 
 .Billings {
   padding-left: 25px;

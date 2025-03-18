@@ -9,8 +9,8 @@ import { TbCurrencyNaira } from 'react-icons/tb';
 const Shop = () => {
 
     const navigate = useNavigate();
-    const [Product,setProduct] = useState([])
 
+    const [Product,setProduct] = useState([])
 
  const handleProductClick = (name) => {
     navigate(`/shop/${name}`);
@@ -22,12 +22,10 @@ const Shop = () => {
     try {
         const res = await axios.get(`${baseUrl}getAllProducts`)
         setProduct(res.data.data)
-        // console.log(res)
     } catch (error) {
         console.log(error)
     }
  }
-//  console.log(Product)
 
  useEffect(()=>{
     getAllProducts()

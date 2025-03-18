@@ -71,7 +71,6 @@ const Profile = () => {
         try {
            const res = await axios.get(`${baseUrl}getOneUser/${userInfo.id}`)
            setData(res.data.data)
-        //    console.log(res)
         } catch (error) {
             console.log(error)
         }
