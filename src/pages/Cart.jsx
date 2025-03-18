@@ -26,49 +26,51 @@ const Cart = () => {
           <h1>MY CART</h1>
         </div>
       </div>
-      <div className="all-productdiv">
-      <div className='productHeader'>
-        <div className='icon'></div>
-        <div className='fruits'></div>
-        <div className='product'>
-          <p>Product Name</p>
+      {
+        cart.length === 0 ? <h3 style={{margin:100,fontSize:50}}>Your Cart is Empty</h3> : <div className="all-productdiv">
+        <div className='productHeader'>
+          <div className='icon'></div>
+          <div className='fruits'></div>
+          <div className='product'>
+            <p>Product Name</p>
+          </div>
+          <div className='price'>
+            <p>Price</p>
+          </div>
+          <div className='quantity'>
+            <p>Quantity</p>
+          </div>
+          <div className='total1'>
+            <p>Total</p>
+          </div>
         </div>
-        <div className='price'>
-          <p>Price</p>
-        </div>
-        <div className='quantity'>
-          <p>Quantity</p>
-        </div>
-        <div className='total1'>
-          <p>Total</p>
-        </div>
-      </div>
-
-
-                 {/* middle product */}
-          {
-            cart.map((item,index)=>(
-            <div className='middleProduct' key={index}> 
-              <div className='icons1'>
-            <MdCancelPresentation size={35} cursor={'pointer'} onClick={()=>dispatch(removeCart(item._id))}/>
-          </div>
-          <div className='fruits2'>
-            <img src={item.productImage.imageUrl} alt="" />
-          </div>
-          <div className='product2'>
-            <h3 style={{color:`#000000`}}>{item.name}</h3>
-            <p>{item.description.length > 105? item.description.substr(0,105) + ' ...':item.description}</p>
-          </div>
-          <div className='prices'>
-            <p><TbCurrencyNaira fontSize={20}/>{item.price}</p>
-          </div>
-          <div className='quantity2'>{item.quantityNum}</div>
-          <div className='total2'>
-            <p><TbCurrencyNaira fontSize={20}/>{item.price * item.quantityNum}</p>
-          </div>
-        </div>))
-          }
-      </div>
+  
+  
+                   {/* middle product */}
+            {
+              cart.map((item,index)=>(
+              <div className='middleProduct' key={index}> 
+                <div className='icons1'>
+              <MdCancelPresentation size={35} cursor={'pointer'} onClick={()=>dispatch(removeCart(item._id))}/>
+            </div>
+            <div className='fruits2'>
+              <img src={item.productImage.imageUrl} alt="" />
+            </div>
+            <div className='product2'>
+              <h3 style={{color:`#000000`}}>{item.name}</h3>
+              <p>{item.description.length > 105? item.description.substr(0,105) + ' ...':item.description}</p>
+            </div>
+            <div className='prices'>
+              <p><TbCurrencyNaira fontSize={20}/>{item.price}</p>
+            </div>
+            <div className='quantity2'>{item.quantityNum}</div>
+            <div className='total2'>
+              <p><TbCurrencyNaira fontSize={20}/>{item.price * item.quantityNum}</p>
+            </div>
+          </div>))
+            }
+        </div> 
+      }
            {/* proceed to checkout section */}
       <div className='finalBottom'>
          <div className='couponWrapper'>
