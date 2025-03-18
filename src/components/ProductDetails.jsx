@@ -68,7 +68,7 @@ const ProductDetails = () => {
           <div className='Single-product-main-div-wrap-div3'>
             <div className='Counter-App'>
               {/* <div className='decrement-btn'><button onClick={handleDecrease} className='my-btn'>-</button></div> */}
-              <div className='Count-container'>{count}</div>
+              <div className='Count-container'>1</div>
               {/* <div className='increment-btn'><button onClick={handleIncrease} className='my-btn'>+</button></div> */}
              
             </div>
