@@ -1,8 +1,28 @@
 import React from 'react'
 import "../styles/VerifyEmail.css"
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const VerifyEmail = () => {
+
+    const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
+    const {token} = useParams()
+    
+    const nav = useNavigate()
+
+  const verifyEmail = async () => {
+    try {
+      const res = await axios.get(`${baseUrl}verify/${token}`)
+      toast.success(res.data.message)
+      setTimeout(() => {
+        nav('/login')
+      }, 6000);
+    } catch (error) {
+      toast.error('User already verified')
+    }
+  }
 
   return (
     <div className='Body4'>
@@ -57,6 +77,7 @@ const VerifyEmail = () => {
               height:"50px",
               cursor: "pointer",
             }}
+            onClick={verifyEmail}
           >
             Verify
           </button>

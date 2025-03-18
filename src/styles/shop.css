@@ -8,7 +8,6 @@
   width: 100%;
   height: 58vh;
   background-image: url(/src//assets/public/Vegefoodherofood.jpeg);
-  /* background-color: blue; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +19,6 @@
 .Shop-hero-inner-div{
   width: 20%;
   height: 30%; 
-  /* background-color: red; */
   padding-top: 10px;
   display: flex;
   align-items: center;
@@ -56,7 +54,6 @@
 .All-vegetables-header{
   width: 100%;
   height: 32vh;
-  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +62,6 @@
 .Vegeatbles-main-table{
   width: 100%;
   height: max-content;
-  /* background-color: green; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +70,6 @@
 .Vegeatbles-main-table-wrap{
   width: 83%;
   height: auto;
-  /* background-color: blue; */
   display: flex;
   gap: 29px;
   flex-wrap: wrap;
@@ -83,7 +78,6 @@
 .vegetable-image-1{
   width: 23%;
   height: 50vh;
-  /* background-color: yellow; */
   animation: zoomIn 10s ease-in;
   border: 1px solid rgba(128, 128, 128, 0.548);
   cursor: pointer;
@@ -92,7 +86,6 @@
 .All-vegetables-header-inner{
   width: 35%;
   height: 18%;
-  /* background-color: yellow; */
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -116,7 +109,6 @@
 .All-vegetables-header-inner-box-2{
   width: 20%;
   height: 100%;
-  /* background-color: red; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
   font-size: 18px;
@@ -130,7 +122,6 @@
 .vegetable-image-div{
   width: 100%;
   height: 75%;
-  /* background-color: red; */
   transition: 350ms ease-in-out;
   transform: scale(1);
   display: flex;
@@ -150,13 +141,11 @@
 .vegetable-text-div{
   width: 100%;
   height: 25%;
-  /* background-color: blue; */
 }
 
 .item-title-div{
   width: 100%;
   height: 50%;
-  /* background-color: yellow; */
   display: flex;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -167,18 +156,16 @@
 .item-price-div{
   width: 100%;
   height: 50%;
-  /* background-color: maroon; */
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  flex-direction: column;
   font-size: 18px;
   color: #82AE46;
 }
 
 @media screen and (min-width: 250px) and (max-width: 320px) {
   .Shop-hero{
-    /* background-color: red; */
     width: 100%;
   }
 
@@ -188,12 +175,10 @@
 
   .All-vegetables-header{
     width: 100%;
-    /* background-color: red; */
   }
 
   .All-vegetables-header-inner{
     width: 100%;
-    /* background-color: blue; */
     height: 30%;
     display: flex;
     justify-content: center;
@@ -201,7 +186,6 @@
   }
 
   .All-vegetables-header-inner-box-1{
-    /* background-color: red; */
     width: 100%;
     height: 70%;
     font-size: 13px;
@@ -209,7 +193,6 @@
   }
 
   .All-vegetables-header-inner-box-2{
-    /* background-color: blue; */
     width: 100%;
     height: 100%;
     font-size: 13px;
@@ -222,7 +205,6 @@
 
 @media screen and (min-width: 321px) and (max-width: 470px) {
   .Shop-hero{
-    /* background-color: red; */
     width: 100%;
   }
 
@@ -232,12 +214,10 @@
 
   .All-vegetables-header{
     width: 100%;
-    /* background-color: red; */
   }
 
   .All-vegetables-header-inner{
     width: 100%;
-    /* background-color: blue; */
     height: 30%;
     display: flex;
     justify-content: center;
@@ -245,7 +225,6 @@
   }
 
   .All-vegetables-header-inner-box-1{
-    /* background-color: red; */
     width: 100%;
     height: 70%;
     font-size: 16px;
@@ -253,7 +232,6 @@
   }
 
   .All-vegetables-header-inner-box-2{
-    /* background-color: blue; */
     width: 100%;
     height: 100%;
     font-size: 16px;
@@ -266,7 +244,6 @@
 
 @media screen and (min-width: 471px) and (max-width: 620px) {
   .Shop-hero{
-    /* background-color: red; */
     width: 100%;
   }
 
@@ -276,12 +253,10 @@
 
   .All-vegetables-header{
     width: 100%;
-    /* background-color: red; */
   }
 
   .All-vegetables-header-inner{
     width: 100%;
-    /* background-color: blue; */
     height: 30%;
     display: flex;
     justify-content: center;
@@ -289,7 +264,6 @@
   }
 
   .All-vegetables-header-inner-box-1{
-    /* background-color: red; */
     width: 100%;
     height: 70%;
     font-size: 13px;
@@ -297,12 +271,10 @@
   }
 
   .Vegeatbles-main-table-wrap{
-    /* background-color: blue; */
     display: flex;
   }
 
   .All-vegetables-header-inner-box-2{
-    /* background-color: blue; */
     width: 100%;
     height: 100%;
     font-size: 13px;
@@ -315,7 +287,6 @@
 
 @media screen and (min-width: 621px) and (max-width: 1021px) {
   .Shop-hero{
-    /* background-color: red; */
     width: 100%;
   }
 
@@ -325,12 +296,10 @@
 
   .All-vegetables-header{
     width: 100%;
-    /* background-color: red; */
   }
 
   .All-vegetables-header-inner{
     width: 100%;
-    /* background-color: blue; */
     height: 30%;
     display: flex;
     justify-content: center;
@@ -338,7 +307,6 @@
   }
 
   .All-vegetables-header-inner-box-1{
-    /* background-color: red; */
     width: 100%;
     height: 70%;
     font-size: 16px;
@@ -346,12 +314,10 @@
   }
 
   .Vegeatbles-main-table-wrap{
-    /* background-color: blue; */
     display: flex;
   }
 
   .All-vegetables-header-inner-box-2{
-    /* background-color: blue; */
     width: 100%;
     height: 100%;
     font-size: 16px;

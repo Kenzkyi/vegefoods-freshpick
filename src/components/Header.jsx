@@ -5,12 +5,14 @@ import { MdShoppingCart } from 'react-icons/md'
 import { useState } from 'react'
 import { IoReorderThreeOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
   const [headerDropdown,setHeaderDropdown] = useState(false)
   const [headerMenu,setHeaderMenu] = useState(false)
   const [headerDropdownMenu,setHeaderDropdownMenu] = useState(false)
   const nav = useNavigate()
+  const cart = useSelector((state)=>state.cart)
   return (
     <div className='header'>
       <div className='header-holder'>
@@ -20,7 +22,6 @@ const Header = () => {
           <li onMouseEnter={()=>setHeaderDropdown(!headerDropdown)}>SHOP<IoMdArrowDropdown /></li>
           <div className="header-dropdown" style={{display:headerDropdown?'flex':'none'}} onMouseLeave={()=>setHeaderDropdown(false)}>
             <p onClick={()=>{nav('/shop'),setHeaderDropdown(false)}}>Shop</p>
-            <p onClick={()=>{nav('/login'),setHeaderDropdown(false)}}>Login</p>
             <p>Single Product</p>
             <p onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}>Cart</p>
             <p onClick={()=>{nav('/checkout'),setHeaderDropdown(false)}}>Checkout</p>
@@ -28,7 +29,7 @@ const Header = () => {
           <li>ABOUT</li>
           <li>BLOG</li>
           <li>CONTACT</li>
-          <li onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}><MdShoppingCart />[ 0 ]</li>
+          <li onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}><MdShoppingCart />[ {cart.length} ]</li>
         </ul>
         <div className="header-menubar">
           <p onClick={()=>setHeaderMenu(!headerMenu)}><IoReorderThreeOutline fontSize={30} /> MENU</p>
@@ -43,7 +44,6 @@ const Header = () => {
           <li onMouseEnter={()=>setHeaderDropdownMenu(!headerDropdownMenu)}>SHOP<IoMdArrowDropdown /></li>
           <div className="headermobile-dropdown" style={{display:headerDropdownMenu?'flex':'none'}} onMouseLeave={()=>setHeaderDropdownMenu(false)}>
             <p onClick={()=>{nav('/shop'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Shop</p>
-            <p onClick={()=>{nav('/login'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Login</p>
             <p>Single Product</p>
             <p onClick={()=>{nav('/cart'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Cart</p>
             <p onClick={()=>{nav('/checkout'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Checkout</p>
@@ -51,7 +51,7 @@ const Header = () => {
           <li>ABOUT</li>
           <li>BLOG</li>
           <li>CONTACT</li>
-          <h6 onClick={()=>{nav('/cart'),setHeaderMenu(false)}}><MdShoppingCart />[ 0 ]</h6>
+          <h6 onClick={()=>{nav('/cart'),setHeaderMenu(false)}}><MdShoppingCart />[ {cart.length} ]</h6>
         </ul>
       </div>
     </div>

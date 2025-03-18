@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import "../styles/signup.css"
-import { NavLink } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Signup = () => {
   const [all,setAll] = useState({
@@ -12,6 +12,7 @@ const Signup = () => {
     password:'',
     // usernameErr:false
   })
+  const nav = useNavigate()
 
   const onChangeFunc = (e)=>{
     const {name, value} = e.target
@@ -25,16 +26,21 @@ const Signup = () => {
     // }
   }
 
-  console.log(all)
 
     const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
   const createUser = async (data) => {
     try{
       const res = await axios.post(`${baseUrl}register`,data)
-      console.log(res)
+      toast.success('Sign up successful. please check your Email to verify')
+      setTimeout(() => {
+        nav('/login')
+      }, 6000);
     }catch(error){
       console.log(error)
+      if(error.message === 'Network Error'){
+        toast.error('Oops network error')
+      }
     }
   }
 
@@ -52,7 +58,6 @@ const Signup = () => {
 
   return (
     <div className='Body'>
-    <Toaster/>
       <div className='LeftPart'>
       <div
       style={{
@@ -142,8 +147,8 @@ const Signup = () => {
             color: "#fff",
             border: "none",
             borderRadius: "5px",
-            width:"50%",
-            height:"50px",
+            width:"80%",
+            height:"45px",
             cursor: "pointer",
           }}
           onClick={submitData}

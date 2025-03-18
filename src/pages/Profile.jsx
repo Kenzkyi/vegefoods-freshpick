@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom'
 import { TbCloudUpload } from "react-icons/tb";
 import { BsFillCameraFill } from "react-icons/bs";
 import EditPopUp from '../components/EditPopUp';
+import axios from 'axios';
 
 const Profile = () => {
 
@@ -68,6 +69,24 @@ const Profile = () => {
      
     }
 
+    const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
+    const [data, setData] = useState({})
+
+    const getOneUser = async() =>{
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+        try {
+           const res = await axios.get(`${baseUrl}getOneUser/${userInfo.id}`)
+           setData(res.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(()=>{
+        getOneUser()
+    }, [])
+
   return (
     <div className='Profile'>
 
@@ -105,7 +124,7 @@ const Profile = () => {
         <div className='Profile-wrap'>
             <div className='Profile-wrap-up-div'>
                 <div className='image-div'>
-                <button onClick={()=>navigate("/")} className='logout-btn'><RiLogoutBoxFill/>Logout</button>
+                <button onClick={()=>{navigate("/"),localStorage.removeItem('userInfo')}} className='logout-btn'><RiLogoutBoxFill/>Logout</button>
                     <div className='image-div-main'>
                     {
                             imageValue ? (
@@ -130,7 +149,7 @@ const Profile = () => {
             </div>
             <div className='Profile-wrap-down-div'>
                 <div className='Name-div-wrap'>
-                    <div className='name-div-top'>{username}</div>
+                    <div className='name-div-top'>{data.fullName}</div>
                     <div className='name-div-btm'>
                         <div className='edit-profile'>
                             <button onClick={openEditPopUp} className='myprofilebtn'>Edit Profile</button>
@@ -142,15 +161,13 @@ const Profile = () => {
                 </div>
                 <div className='User-details-div'>
                     <div className='requirement-div1'>
-                        <p>Location:</p>
-                        <p>Phone:</p>
+                        <p>Username :</p>
                         <p>Email:</p>
                         
                     </div>
                     <div className='requirement-div2'>
-                        <p>{location}.</p>
-                        <p>{phone}</p>
-                        <p>user123@gmail.com</p>
+                        <p>{data.username}</p>
+                        <p>{data.email}</p>
                     </div>
                 </div>
             </div>

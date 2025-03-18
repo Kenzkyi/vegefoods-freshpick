@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../styles/forgetPassword.css"
 import { NavLink } from "react-router-dom";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Forgetpassword = () => {
 
+  const [email, setEmail]=useState("")
+
+   const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
+   const forgetPassword = async (email) => {
+if(email){
+  try {
+    const res = await axios.post(`${baseUrl}forgotpassword`,{email})
+    toast.success(res.data.message)
+   } catch (error) {
+     console.log(error)
+   }
+}else{
+  toast.error('Please input your email')
+}
+   }
   return (
     <div className='Body3'>
    <div className='forgetpassword'>
@@ -45,6 +63,7 @@ const Forgetpassword = () => {
               width:"80%",
               height:"10%"
             }}
+            onChange={(e)=>setEmail(e.target.value)}
           />
           <button
             style={{
@@ -57,6 +76,7 @@ const Forgetpassword = () => {
               height:"50px",
               cursor: "pointer",
             }}
+            onClick={()=>forgetPassword(email)}
           >
             submit
           </button>

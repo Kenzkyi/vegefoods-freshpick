@@ -3,27 +3,28 @@ import { MdOutlineStarOutline } from "react-icons/md";
 import "../styles/productDetails.css"
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { TbCurrencyNaira } from 'react-icons/tb';
+import { addCart } from '../global/slice';
 
 const ProductDetails = () => {
 
   const productId = useSelector((state)=>state.productId)
 
-  const [count, setCount] = useState(1)
+  const dispatch = useDispatch()
 
-  const handleIncrease = () => {
-    setCount(count + 1)
-  }
+  // const [count, setCount] = useState(1)
 
-  const handleDecrease = () => {
-    count < 2 ? 1 : setCount(count - 1)
-  }
+  // const handleIncrease = () => {
+  //   setCount(count + 1)
+  // }
+
+  // const handleDecrease = () => {
+  //   count < 2 ? 1 : setCount(count - 1)
+  // }
 
   const [product,setProduct] = useState({})
 
-  // if (!product) {
-  //   return <h2>Product not found</h2>
-  // }
 
   const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
@@ -31,7 +32,6 @@ const ProductDetails = () => {
     try {
       const res = await axios.get(`${baseUrl}getOneProduct/${id}`)
       setProduct(res.data.data)
-      console.log(res)
     } catch (error) {
       console.log(error)
     }
@@ -40,7 +40,6 @@ const ProductDetails = () => {
   useEffect(()=>{
     getOneProduct(productId)
   },[])
-
 
   return (
     <div className='ProductDetails'>
@@ -63,19 +62,19 @@ const ProductDetails = () => {
               <div className='product-rating-when-clicked-main-rating'><p style={{fontWeight: "600"}}>100</p><p style={{fontWeight: "600", color: "gray"}}>Rating</p></div>
               <div className='product-rating-when-clicked-sold-rating'><p style={{fontWeight: "600"}}>500</p><p style={{fontWeight: "600", color: "gray"}}>Sold</p></div>
             </div>
-            <div className='product-price-when-clicked'>${product.price}</div>
+            <div className='product-price-when-clicked'><TbCurrencyNaira />{product.price}</div>
           </div>
           <div className='Single-product-main-div-wrap-div2'>{product.description}</div>
           <div className='Single-product-main-div-wrap-div3'>
             <div className='Counter-App'>
-              <div className='decrement-btn'><button onClick={handleDecrease} className='my-btn'>-</button></div>
-              <div className='Count-container'>{count}</div>
-              <div className='increment-btn'><button onClick={handleIncrease} className='my-btn'>+</button></div>
+              {/* <div className='decrement-btn'><button onClick={handleDecrease} className='my-btn'>-</button></div> */}
+              <div className='Count-container'>1</div>
+              {/* <div className='increment-btn'><button onClick={handleIncrease} className='my-btn'>+</button></div> */}
              
             </div>
             <div className='weight-div'><p>{product.quantity} kg available</p></div>
             <div className='Add-to-cart-div'>
-              <button className='Add-cart-btn-main'>Add to Cart</button>
+              <button className='Add-cart-btn-main' onClick={()=>dispatch(addCart(product))}>Add to Cart</button>
             </div>
           </div>
          
