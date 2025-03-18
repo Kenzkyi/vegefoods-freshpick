@@ -2,8 +2,6 @@
   width: 100%;
   height: auto;
   font-family: poppins, arial, sans-serif;
-  /* padding: 30px; */
-  /* border: 3px solid; */
 }
 
 .vegImage {
@@ -16,7 +14,6 @@
   gap: 20px;
   font-size: 18px;
   background: url(../assets/public/bg_1.jpeg);
-  /* background-color: aqua; */
   background-repeat: no-repeat;
   background-size: 100% 80%;
 }
@@ -54,32 +51,26 @@
   width: 60%;
   height: 100vh;
   outline: none;
-  /* background: yellow; */
-  /* padding-top: 30px; */
 }
 
 .nameHolder {
   display: flex;
   width: 65%;
   justify-content: space-between;
-  /* margin-top: 30px; */
   cursor: pointer;
 }
 
 .nameWrapper {
   width: 100%;
   height: 10%;
-  /* background: red; */
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
-  /* outline: 1px solid green; */
 }
 
 .firstName {
   width: 48%;
   height: 100%;
-  /* background: #000; */
   border: 1px solid rgb(234, 227, 227);
   padding: 20px;
 }
@@ -87,7 +78,6 @@
 .lastName {
   width: 48%;
   height: 100%;
-  /* background: green; */
   padding: 20px;
   border: 1px solid rgb(234, 227, 227);
 }
@@ -115,7 +105,6 @@
 .addressHolder {
   width: 100%;
   height: 10%;
-  /* background: red; */
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
@@ -146,7 +135,6 @@
 .townWrapper {
   width: 100%;
   height: 10%;
-  /* background: red; */
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
@@ -177,7 +165,6 @@
 .phoneEmailWrapper {
   width: 100%;
   height: 10%;
-  /* background: red; */
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
@@ -213,42 +200,30 @@
   gap: 20px;
   padding: 30px;
   font-family: Poppins, Arial, sans-serif;
-  /* background-color: aqua; */
-  /* padding: 15px; */
 }
 
 .cardTotalCont {
   width: 100%;
   height: 45vh;
-  /* gap: 20px; */
-  /* background: yellow; */
   display: flex;
   flex-direction: column;
   border: 1px solid rgb(234, 227, 227);
-  /* padding: 20px; */
 }
 
 .cardTotalHolder {
   width: 50%;
   height: 20%;
-  /* margin-top: 20px; */
-  /* padding-top: 40px; */
   padding-left: 37px;
   display: flex;
   align-items: flex-end;
-  /* background-color: green; */
 }
 
 .wrapper2 {
   width: 100%;
   height: 60%;
-  /* background-color: aqua; */
   display: flex;
   padding-left: 40px;
   padding-top: 20px;
-  /* border-bottom: 1px solid gray;*/
-  /* justify-content: 
-    space-around; */
 }
 
 .subTotal {
@@ -256,11 +231,8 @@
   height: 100%;
   gap: 20px;
   display: flex;
-  /* border-bottom: 1px solid gray; */
   flex-direction: column;
   color: rgb(172, 168, 168);
-  /* padding-top: 20px; */
-  /* background: #000; */
 }
 
 .amount {
@@ -268,21 +240,15 @@
   height: 100%;
   display: flex;
   color: rgb(172, 168, 168);
-  /* justify-content: space-around;gap */
   flex-direction: column;
   gap: 20px;
-  /* background: red; */
-  /* border-bottom: 1px solid gray; */
 }
 
 .totalCont {
   width: 100%;
   height: 20%;
-  /* background: #00ffff; */
-  /* background-color: #82ae48; */
   display: flex;
   padding-left: 40px;
-  /* align-items: center; */
   padding-top: 20px;
   border-top: 1px solid gray;
 }
@@ -301,7 +267,6 @@
 .paymentMethod {
   width: 100%;
   height: 60%;
-  /* background: aqua; */
   padding-top: 20px;
 }
 
@@ -310,9 +275,6 @@
   height: 20%;
   display: flex;
   gap: 20px;
-  /* color: rgb(172, 168, 168); */
-  /* justify-content: space-around; */
-  /* flex-direction: column; */
 }
 
 .bottomCont {
@@ -322,15 +284,11 @@
   display: flex;
   flex-direction: column;
   color: rgb(172, 168, 168);
-
-  /* background-color: red; */
   padding: 10px;
-  /* gap: 20px; */
 }
 .payment {
   padding-left: 30px;
   color: #000000;
-  /* color: rgb(172, 168, 168); */
 }
 
 .bottomDiv {
@@ -342,10 +300,8 @@
   align-items: center;
   margin: 0 auto;
   border-radius: 30px;
-  /* padding: 16px 24px; */
   color: #ffffff;
   font: 16px Poppins, Arial, san-serif;
-  /* color: rgb(172, 168, 168); */
 }
 .bottomdivholder {
   height: 30vh;
@@ -354,18 +310,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* background-color: aqua; */
-  /* margin-bottom: 20px; */
 }
 .paymentMethod {
   height: 45vh;
   width: 100%;
-  /* background-color: purple; */
   margin-bottom: 15px;
 }
-/* .totalCont {
-  background-color: aqua;
-} */
 
 .Billings {
   padding-left: 20px;
