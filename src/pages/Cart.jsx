@@ -3,9 +3,13 @@ import '../styles/cart.css'
 import { MdCancelPresentation } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { removeCart } from '../global/slice';
+import { TbCurrencyNaira } from 'react-icons/tb';
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
+
+  const nav = useNavigate();
 
   const cart = useSelector((state)=>state.cart)
   // console.log(cart)
@@ -75,7 +79,7 @@ const Cart = () => {
          <div className='couponWrapper'>
           <div className='coupon'>
             <h3>Coupon Code</h3>
-            <h4 style={{color:`#808080`}}>Enter your coupon code if you have one</h4>
+            <h5 style={{color: "black"}}>Enter your coupon code if you have one.</h5>
             <p>Coupon Code</p>
             <input type='text' className='couponBox'/>
           </div>
@@ -88,9 +92,9 @@ const Cart = () => {
          <div className='estimate'>
            <div className='shipping'>
             <div className='shippingTask'>
-              <h3 style={{color:`#000000`}}>Estimate shipping and tax</h3>
-              Enter your Destination to get a shipping
-              <p>estimate</p>
+              <h3 style={{color: "black"}}>Estimate shipping and tax.</h3>
+             <p style={{color: "black"}}> Enter your Destination to get a shipping.</p>
+              <p style={{color: "black"}}>Estimate</p>
             </div>
             <div className='estimateCountry'>
               <div>
@@ -104,7 +108,7 @@ const Cart = () => {
 
                 <div className='zipCont'>
                 <div><p>Zip/Postal Code</p></div>
-                <button className='zipInput'/>
+                <input type="text" className='zipInput'/>
               </div>
               </div>
             
@@ -122,33 +126,32 @@ const Cart = () => {
          <div className='checkout'>
           <div className='cardsContainer1'>
           <div className='cardTotalHolder'>
-                <h4>Card Total</h4>
+                <h3>Card Total</h3>
            </div>
            <div className='wrapper2'>
             <div className='subTotal'>
-              <p>Subtotal</p>
-              <p>Delivery</p>
-              <p>Discount</p>
+              <p  style={{display: "flex", alignItems: "center", fontSize: "20px", color: "black"}}>Subtotal</p>
+              <p  style={{display: "flex", alignItems: "center", fontSize: "20px", color: "black"}}>Delivery</p>
+              <p  style={{display: "flex", alignItems: "center", fontSize: "20px", color: "black"}}>Discount</p>
             </div>
             <div className='amount'>
-              <p>$20.60</p>
-              <p>$0.00</p>
-              <p>$3.00</p>
-              {/* <hr style={{width:`100%`}}/> */}
+               <p style={{display: "flex", alignItems: "center", fontSize: "20px", color: "black"}}><TbCurrencyNaira style={{fontSize: "25px"}}/>3900.00</p>
+              <p style={{display: "flex", alignItems: "center", fontSize: "20px",  color: "black"}}><TbCurrencyNaira style={{fontSize: "25px"}}/>460.00</p>
+               <p style={{display: "flex", alignItems: "center", fontSize: "20px",  color: "black"}}><TbCurrencyNaira style={{fontSize: "25px"}}/>150.00</p>
             </div>
            </div>
            
            <div className='totalCont'>
                 <section className='total'>
-                  <p>TOTAL</p>
+                  <p style={{fontSize: "20px", color: "black", fontWeight: "600"}}>TOTAL</p>
                 </section>
                 <section className='amount2'>
-                  <p>$17.60</p>
+                  <p  style={{display: "flex", alignItems: "center", fontSize: "20px", color: "black", fontWeight: "600"}}><TbCurrencyNaira style={{fontSize: "25px"}}/>4510.00</p>
                 </section>
               </div>
 
           </div>
-          <button className='proceed'>
+          <button onClick={()=>nav("/checkout")} className='proceed'>
             <h3>Proceed to Checkout</h3>
           </button>
          </div>

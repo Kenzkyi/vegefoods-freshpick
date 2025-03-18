@@ -144,7 +144,8 @@ const Home = () => {
         </nav>
       </div>
       <div className="home-fifthlayer">
-        {Product.slice(0,8).map((item,index)=>(
+        {  Product.length === 0 ? <h1>Loading Products...</h1> : (
+        Product.slice(0,8).map((item,index)=>(
           <div className="home-productholder" key={index} onClick={()=>{handleProductClick(item.name),dispatch(setProductId(item._id))}}>
           <main>
             <img src={item.productImage.imageUrl} alt="" />
@@ -159,7 +160,7 @@ const Home = () => {
             <div><FcLikePlaceholder /></div>
           </aside>
         </div>
-        ))}
+        )))}
       </div>
       <div className="home-sixthlayer">
         <div className="home-sixthlayerright">

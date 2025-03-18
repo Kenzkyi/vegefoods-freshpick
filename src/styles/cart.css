@@ -9,13 +9,12 @@
 
 .cartVegImg{
         width: 100%;
-        height: 65vh;
+        height: 67vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         color: #ffffff;
-        gap: 15px;
         font-size: 18px;
         background: url(../assets/public/bg_1.jpeg);
         /* background-color: aqua; */
@@ -27,13 +26,14 @@
 .cartImgText{
     width: max-content;
     display: flex;
-    gap: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .cartImgH1{
     display: flex;
-    font-weight: 1200px;
-    font-size: 30px;
+    font-weight: 600;
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .productHeader{
@@ -68,8 +68,9 @@
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 23px;
     font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .price{
@@ -80,8 +81,9 @@
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 23px;
     font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
 
@@ -93,8 +95,9 @@
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 23px;
     font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .total1{
@@ -105,8 +108,9 @@
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 23px;
     font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .middleProduct{
@@ -328,7 +332,16 @@
   border-radius: 27px;
   margin-top: 14px;
   padding: 8px;
+  cursor: pointer;
+  border: none;
   color: #ffffff;
+  transition: 350ms ease-in-out;
+  transform: scale(1);
+}
+
+.estimate2:hover{
+    transform: scale(1.03);
+    background-color: black;
 }
 
 .estimateCountry{
@@ -339,6 +352,7 @@
     line-height: 2;
     padding-left: 10px;
     outline: none;
+    /* background-color: yellow; */
     margin-top: 10px;
     /* border: 1px solid green; */
 
@@ -350,6 +364,11 @@
     background: #ffffff;
     outline: none;
     padding: 10px;
+    border: 1px solid black;
+    /* background-color: blue; */
+    outline: none;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     /* border: 1px solid green; */
 
     
@@ -375,6 +394,10 @@
     background: #ffffff;
     outline: none;
     padding: 10px;
+    border: 1px solid black;
+    outline: none;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .zipCont{
@@ -382,8 +405,9 @@
     height: 90%;
     display: flex;
     flex-direction: column;
+    /* background-color: blue; */
     line-height: 2;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     outline: none;
     margin-top: 10px;
 }
@@ -394,6 +418,10 @@
     height: 18%;
     background: #ffffff;
     outline: none;
+    border: 1px solid black;
+    outline: none;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
 }
 
@@ -423,7 +451,15 @@
     justify-content: center;
     align-items: center;
     margin-top: 18px;
-    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 350ms ease-in-out;
+    transform: scale(1);
+}
+
+.proceed:hover{
+    background-color: black;
+    transform: scale(1.03);
 }
 
 .cardTotalHolder1{
@@ -435,7 +471,6 @@
     display: flex;
     /* margin-bottom: 90px; */
     align-items: flex-end;
-    border: 1px solid black;
 
     /* background-color: green; */
   }
@@ -460,20 +495,16 @@
     /* border-bottom: 1px solid gray; */
     flex-direction: column;
     color: rgb(172, 168, 168);
-    /* padding-top: 20px; */
-    /* background: #000; */
   }
 
-  .amount1{
+  .amount2{
     width: 30%;
     height: 100%;
     display: flex;
-    color: rgb(172, 168, 168);
-    /* justify-content: space-around;gap */
     flex-direction: column;
+    /* background-color: red; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     gap: 20px;
-    /* background: red; */
-    /* border-bottom: 1px solid gray; */
   }
   
 
@@ -498,6 +529,9 @@
     padding: 10px;
     margin-top: 25px;
     outline: none;
+    border: 1px solid black;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .apply{
@@ -511,8 +545,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 350ms ease-in-out;
+    transform: scale(1);
+}
 
+.apply:hover{
+    transform: scale(1.03);
+    background-color: black;
 }
 
 .apply2{
@@ -527,7 +568,6 @@
     align-items: center;
     justify-content: center;
 }
-
 
 
 

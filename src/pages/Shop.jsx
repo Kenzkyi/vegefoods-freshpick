@@ -45,16 +45,12 @@ const Shop = () => {
     </div>
     <div className='All-vegetables-header'>
         <div className='All-vegetables-header-inner'>
-            <div className='All-vegetables-header-inner-box-1'>All</div>
-            <div className='All-vegetables-header-inner-box-2'>Vegetables</div>
-            <div className='All-vegetables-header-inner-box-2'>Fruits</div>
-            <div className='All-vegetables-header-inner-box-2'>Juice</div>
-            <div className='All-vegetables-header-inner-box-2'>Dried</div>
+              <h1>Explore Our Fresh & Organic Selection 💖.</h1>
         </div>
     </div>
     <div className='Vegeatbles-main-table'>
         <div className='Vegeatbles-main-table-wrap'>
-            {
+            {  Product.length === 0 ? <h1>Loading Products...</h1> : (
                 Product.map((item)=>(
                     <div key={item._id} onClick={()=>{handleProductClick(item.name.toLowerCase()),dispatch(setProductId(item._id))}} className='vegetable-image-1'>
                         <div className='vegetable-image-div'>
@@ -65,7 +61,7 @@ const Shop = () => {
                             <div className='item-price-div'><TbCurrencyNaira />{item.price}</div>
                         </div>
                     </div>
-                ))
+                )))
             }
             
         </div>
