@@ -24,7 +24,7 @@ const resetPassword = () => {
 
     const resetPassword = async () => {
       try {
-       const res = await axios.post(`${baseUrl}verify/${token}`,all)
+       const res = await axios.post(`${baseUrl}resetpassword/${token}`,all)
         console.log(res)
         
         // setTimeout(() => {
@@ -98,13 +98,13 @@ const resetPassword = () => {
             color: "#fff",
             border: "none",
             borderRadius: "5px",
-            width:"50%",
+            width:"80%",
             height:"50px",
             cursor: "pointer",
           }}
           onClick={ resetPassword}
         >
-          Craete Password
+          Submit
         </button>
         <p>Reset password ? <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/login">Login</NavLink></p>
 

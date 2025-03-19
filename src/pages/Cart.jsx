@@ -4,6 +4,7 @@ import { MdCancelPresentation } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { removeCart } from '../global/slice';
 import { TbCurrencyNaira } from 'react-icons/tb';
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
@@ -11,6 +12,8 @@ const Cart = () => {
   const cart = useSelector((state)=>state.cart)
   
   const dispatch = useDispatch()
+
+  const nav = useNavigate()
 
   return (
     <div className='cartBody'>
@@ -133,7 +136,7 @@ const Cart = () => {
               </div>
 
           </div>
-          <button className='proceed'>Proceed to Checkout</button>
+          <button className='proceed' onClick={()=>nav('/checkout')}>Proceed to Checkout</button>
          </div>
       </div>
 

@@ -29,7 +29,7 @@ const Header = () => {
           <li>ABOUT</li>
           <li>BLOG</li>
           <li>CONTACT</li>
-          <li onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}><MdShoppingCart />[ {cart.length} ]</li>
+          <li onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}><MdShoppingCart />[ {cart?.length} ]</li>
         </ul>
         <div className="header-menubar">
           <p onClick={()=>setHeaderMenu(!headerMenu)}><IoReorderThreeOutline fontSize={30} /> MENU</p>
@@ -51,7 +51,7 @@ const Header = () => {
           <li>ABOUT</li>
           <li>BLOG</li>
           <li>CONTACT</li>
-          <h6 onClick={()=>{nav('/cart'),setHeaderMenu(false)}}><MdShoppingCart />[ {cart.length} ]</h6>
+          <h6 onClick={()=>{nav('/cart'),setHeaderMenu(false)}}><MdShoppingCart />[ {cart?.length} ]</h6>
         </ul>
       </div>
     </div>
