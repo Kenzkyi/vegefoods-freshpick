@@ -3,7 +3,7 @@ import "../styles/resetPassword.css"
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 
-const resetPassword = () => { 
+const ResetPassword = () => { 
     const [all,setAll] = useState({
       password:'',
       confirmPassword:'',
@@ -22,9 +22,9 @@ const resetPassword = () => {
     const nav = useNavigate()
 
 
-    const resetPassword = async () => {
+    const resetPassword = async (data) => {
       try {
-       const res = await axios.post(`${baseUrl}resetpassword/${token}`,all)
+       const res = await axios.post(`${baseUrl}resetpassword/${token}`,data)
         console.log(res)
         
         // setTimeout(() => {
@@ -102,7 +102,7 @@ const resetPassword = () => {
             height:"50px",
             cursor: "pointer",
           }}
-          onClick={ resetPassword}
+          onClick={()=>resetPassword(all)}
         >
           Submit
         </button>
@@ -115,4 +115,4 @@ const resetPassword = () => {
   )
 }
 
-export default resetPassword
+export default ResetPassword
