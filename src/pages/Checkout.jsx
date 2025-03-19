@@ -5,6 +5,7 @@ import { IoIosCheckboxOutline } from "react-icons/io";
 
 
 const Checkout = () => {
+  const arrayOfCountries = ['Select Country', 'Ghana','Nigeria', 'United state of america','Japan','China']
   return (
     <div className='checkoutBody'>
       <div className='vegImage'>
@@ -32,7 +33,13 @@ const Checkout = () => {
           <div className='stateCountry'>
             <p>State / Country</p>
           </div>
-          <input type='text' className='stateCountryHolder'/>
+          <select type='text' className='stateCountryHolder'>
+            {
+              arrayOfCountries.map((item,index)=>(
+                <option value="" key={index}>{item}</option>
+              ))
+            }
+          </select>
           <section streetAddress>
             <p>Street Address</p>
           </section>

@@ -12,20 +12,29 @@ import Home from './pages/Home';
 import Forgetpassword from './auth/Forgetpassword';
 import Resetpassword from  './auth/Resetpassword';
 import ProductDetails from './components/ProductDetails';
+import VerifyEmail from './auth/VerifyEmail';
+import ResendVerification from './auth/ResendVerification';
+import PrivateRoute from './routes/PrivateRoute';
 
 
 const routes = createBrowserRouter([
     {path:'login',element:<Login/>},
     {path:'sign-up',element:<Signup/>},
+    {path:'resend-verification',element:<ResendVerification/>},
+    {path:'verify-email/:token',element:<VerifyEmail/>},
+    {element:<PrivateRoute/>,children:[
+      {path:'profile',element:<Profile/>},
+    ]},
     {path:'forget-password',element:<Forgetpassword/>},
-    {path:'reset-password',element:<Resetpassword/>},
+    {path:'reset-password/:token',element:<Resetpassword/>},
     {element:<MainHolder/>,children:[
-        {path:'',element:<Home/>},
-        {path:'cart',element:<Cart/>},
-        {path:'checkout',element:<Checkout/>},
-        {path:'profile',element:<Profile/>},
+      {path:'',element:<Home/>},
+      {path:'cart',element:<Cart/>},
+      {element:<PrivateRoute/>,children:[
+          {path:'checkout',element:<Checkout/>}
+        ]},
         {path:'shop',element:<Shop/>},
-        {path:'shop/:productId',element:<ProductDetails/>},
+        {path:'shop/:productName',element:<ProductDetails/>},
     ]}
 ])
 

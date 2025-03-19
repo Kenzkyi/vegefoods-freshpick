@@ -1,115 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdOutlineStarOutline } from "react-icons/md";
 import "../styles/productDetails.css"
 import { useParams } from 'react-router-dom'
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { TbCurrencyNaira } from 'react-icons/tb';
+import { addCart } from '../global/slice';
 
 const ProductDetails = () => {
 
-  const { productId } = useParams();
+  const productId = useSelector((state)=>state.productId)
 
-  const Product = [
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-1.jpg",
-        title: "BELL PEPPER",
-        price: "$80",
-        id: 1,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-2.jpg",
-         title: "STRAYBERRY",
-        price: "$120.00",
-        id: 2,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-3.jpg",
-         title: "GREEN BEANS",
-        price: "$120.00",
-        id: 3,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-4.jpg",
-        title: "PURPLE CABBAGE",
-        price: "$120.OO",
-        id: 4,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-5.jpg",
-        title: "TOMATOE",
-        price: "$80.00",
-        id: 5,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-6.jpg",
-        title: "BROCOLLI",
-        price: "$120.00",
-        id: 6,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-7.jpg",
-        title: "CARROT",
-        price: "$120.00",
-        id: 7,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-8.jpg",
-        title: "FRUIT JUICE",
-        price: "$120.00",
-        id: 8,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-9.jpg",
-        title: "ONION",
-        price: "$80.00",
-        id: 9,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-10.jpg",
-        title: "APPLE",
-        price: "$120.00",
-        id: 10,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-11.jpg",
-        title: "GARLIC",
-        price: "$120.00",
-        id: 11,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
-    {
-        image: "https://preview.colorlib.com/theme/vegefoods/images/product-12.jpg",
-        title: "CHILLI",
-        price: "$120.00",
-        id: 12,
-        description: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the  copy said could convince her and so it didnt take long until. ",
-    },
- ]
+  const dispatch = useDispatch()
 
- const product = Product.find(p => p.id === parseInt(productId));
+  // const [count, setCount] = useState(1)
 
-  const [count, setCount] = useState(0)
+  // const handleIncrease = () => {
+  //   setCount(count + 1)
+  // }
 
-  const handleIncrease = () => {
-    setCount(count + 1)
+  // const handleDecrease = () => {
+  //   count < 2 ? 1 : setCount(count - 1)
+  // }
+
+  const [product,setProduct] = useState({})
+
+
+  const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
+  const getOneProduct = async (id) => {
+    try {
+      const res = await axios.get(`${baseUrl}getOneProduct/${id}`)
+      setProduct(res.data.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  const handleDecrease = () => {
-    count < 1 ? 0 : setCount(count - 1)
-  }
-
-  if (!product) {
-    return <h2>Product not found</h2>
-  }
-
+  useEffect(()=>{
+    getOneProduct(productId)
+  },[])
 
   return (
     <div className='ProductDetails'>
@@ -122,29 +52,29 @@ const ProductDetails = () => {
     <div className='Single-product-main-div'>
       <div className='Single-product-main-div-wrap'>
         <div className='Single-product-main-div-wrap-img1'>
-          <img src={product.image} alt={product.title} />
+          <img src={product?.productImage?.imageUrl} alt={product.name} />
         </div>
         <div className='Single-product-main-div-wrap-img2'>
           <div className='Single-product-main-div-wrap-div1'>
-            <div className='product-title-when-clicked'>{product.title}</div>
+            <div className='product-title-when-clicked'>{product.name}</div>
             <div className='product-rating-when-clicked'>
               <div className='product-rating-when-clicked-star-rating'>5.0 <MdOutlineStarOutline/><MdOutlineStarOutline/><MdOutlineStarOutline/><MdOutlineStarOutline/><MdOutlineStarOutline/></div>
               <div className='product-rating-when-clicked-main-rating'><p style={{fontWeight: "600"}}>100</p><p style={{fontWeight: "600", color: "gray"}}>Rating</p></div>
               <div className='product-rating-when-clicked-sold-rating'><p style={{fontWeight: "600"}}>500</p><p style={{fontWeight: "600", color: "gray"}}>Sold</p></div>
             </div>
-            <div className='product-price-when-clicked'>{product.price}</div>
+            <div className='product-price-when-clicked'><TbCurrencyNaira />{product.price}</div>
           </div>
           <div className='Single-product-main-div-wrap-div2'>{product.description}</div>
           <div className='Single-product-main-div-wrap-div3'>
             <div className='Counter-App'>
-              <div className='decrement-btn'><button onClick={handleDecrease} className='my-btn'>-</button></div>
-              <div className='Count-container'>{count}</div>
-              <div className='increment-btn'><button onClick={handleIncrease} className='my-btn'>+</button></div>
+              {/* <div className='decrement-btn'><button onClick={handleDecrease} className='my-btn'>-</button></div> */}
+              <div className='Count-container'>1</div>
+              {/* <div className='increment-btn'><button onClick={handleIncrease} className='my-btn'>+</button></div> */}
              
             </div>
-            <div className='weight-div'><p>600 kg available</p></div>
+            <div className='weight-div'><p>{product.quantity} kg available</p></div>
             <div className='Add-to-cart-div'>
-              <button className='Add-cart-btn-main'>Add to Cart</button>
+              <button className='Add-cart-btn-main' onClick={()=>dispatch(addCart(product))}>Add to Cart</button>
             </div>
           </div>
          
