@@ -6,7 +6,9 @@ import { FaFacebookF, FaInstagram, FaPhoneAlt, FaTwitter } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
 const Footer = () => {
+
   const nav = useNavigate()
+  
   return (
     <div className='footer'>
       <div className="footer-upside">
@@ -25,16 +27,8 @@ const Footer = () => {
       <div className="footer-downside">
         <aside></aside>
         <main>
-          {/* <header>
-            <ul>
-              <li>Vegefoods</li>
-              <li>Menu</li>
-              <p>Help</p>
-              <li>Have a Questions?</li>
-            </ul>
-          </header> */}
           <article>
-            <h6>
+            <div className='footer-downsideholder'>
               <h3>Vegefoods</h3>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
               <footer>
@@ -42,7 +36,7 @@ const Footer = () => {
             <div><FaFacebookF /></div>
             <div><FaInstagram /></div>
           </footer>
-            </h6>
+            </div>
             <ul>
               <h3>Menu</h3>
               <li onClick={()=>nav('/shop')}>Shop</li>

@@ -1,30 +1,32 @@
-import React, { useState } from 'react'
-import "../styles/forgetPassword.css"
-import { NavLink } from "react-router-dom";
+import React from 'react'
+import "../styles/VerifyEmail.css"
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const Forgetpassword = () => {
+const VerifyEmail = () => {
 
-  const [email, setEmail]=useState("")
+    const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
-   const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+    const {token} = useParams()
+    
+    const nav = useNavigate()
 
-   const forgetPassword = async (email) => {
-if(email){
-  try {
-    const res = await axios.post(`${baseUrl}forgotpassword`,{email})
-    toast.success(res.data.message)
-   } catch (error) {
-     console.log(error)
-   }
-}else{
-  toast.error('Please input your email')
-}
-   }
+  const verifyEmail = async () => {
+    try {
+      const res = await axios.get(`${baseUrl}verify/${token}`)
+      toast.success(res.data.message)
+      setTimeout(() => {
+        nav('/login')
+      }, 6000);
+    } catch (error) {
+      toast.error('User already verified')
+    }
+  }
+
   return (
-    <div className='Body3'>
-   <div className='forgetpassword'>
+    <div className='Body4'>
+   <div className='VerifyEmail'>
    <div
         style={{
           display: "flex",
@@ -51,8 +53,8 @@ if(email){
             width: "70%",
           }}
         >
-                <h2 style={{fontSize:"30px"}}>Forget Password?</h2>
-          <input
+                <h2 style={{fontSize:"30px"}}>Verify Email</h2>
+          {/* <input
             type="Email"
             name="Email"
             placeholder="Enter email address"
@@ -63,8 +65,7 @@ if(email){
               width:"80%",
               height:"10%"
             }}
-            onChange={(e)=>setEmail(e.target.value)}
-          />
+          /> */}
           <button
             style={{
               padding: "10px",
@@ -76,11 +77,11 @@ if(email){
               height:"50px",
               cursor: "pointer",
             }}
-            onClick={()=>forgetPassword(email)}
+            onClick={verifyEmail}
           >
-            submit
+            Verify
           </button>
-          <p style={{textAlign:'left',width:'80%'}}>Or <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/login">Login</NavLink></p>
+          <p style={{textAlign:'left',width:'80%'}}> <NavLink style={{cursor: "pointer", textDecoration: "none"}}  to="/resend-verification">Resend verification Email</NavLink></p>
   
         </div>
       </div>
@@ -89,4 +90,4 @@ if(email){
   )
 }
 
-export default Forgetpassword
+export default VerifyEmail

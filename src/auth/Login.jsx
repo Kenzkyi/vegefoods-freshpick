@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/login.css"
-import { NavLink } from "react-router-dom";
-
-const handleChange = (e) => {
-
-  setUser({ ...user, [e.target.name]: e.target.value });
-};
+import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const [all,setAll] = useState({
+    email:'',
+    password:''
+  })
+  const nav = useNavigate()
+
+  
+  const onChangeFunc = (e)=>{
+    const {name, value } = e.target
+    setAll({...all,[name]:value})
+  }
+
+  const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+
+  const loginUser = async (data) => {
+    try {
+      const res = await axios.post(`${baseUrl}login`,data)
+      localStorage.setItem('userInfo',JSON.stringify({token:res.data.token,id: res.data.data._id}))
+      toast.success('Log in successfully')
+      setTimeout(() => {
+        nav('/')
+      }, 6000);
+    } catch (error) {
+      if(error.message === 'Request failed with status code 400'){
+        toast.error('Please verify your email')
+      }
+    }
+  }
+
+  const handleLogin = (all)=>{
+    if(all.email && all.password){
+      loginUser(all)
+    }else{
+      toast.error('All input required')
+    }
+  }
   return (
     <div className='Body2'>
       <div className='LoginDiv'>
@@ -50,6 +83,7 @@ const Login = () => {
             width:"80%",
             height:"10%"
           }}
+          onChange={onChangeFunc}
         />
         <input
           type="password"
@@ -62,6 +96,7 @@ const Login = () => {
             width:"80%",
             height:"10%"
           }}
+          onChange={onChangeFunc}
         />
         <div className="forgetPassword"> <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/forget-password">forgetPassword</NavLink></div>
         <button
@@ -71,10 +106,11 @@ const Login = () => {
             color: "#fff",
             border: "none",
             borderRadius: "5px",
-            width:"50%",
+            width:"80%",
             height:"50px",
             cursor: "pointer",
           }}
+          onClick={()=>handleLogin(all)}
         >
           Login
         </button>

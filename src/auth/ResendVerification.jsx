@@ -1,30 +1,31 @@
 import React, { useState } from 'react'
-import "../styles/forgetPassword.css"
-import { NavLink } from "react-router-dom";
+import "../styles/ResendVerification.css"
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const Forgetpassword = () => {
+const ResendVerification = () => {
 
-  const [email, setEmail]=useState("")
+  const [email, setEmail] = useState('')
 
-   const baseUrl = 'https://vege-food.onrender.com/api/v1/'
+      const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
-   const forgetPassword = async (email) => {
-if(email){
-  try {
-    const res = await axios.post(`${baseUrl}forgotpassword`,{email})
-    toast.success(res.data.message)
-   } catch (error) {
-     console.log(error)
+  const resendEmail = async (email) => {
+   if(email){
+    try {
+      const res = await axios.post(`${baseUrl}resendverificationemail`,{email} )
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+   }else{
+    toast.error('Please Fill In your Email')
    }
-}else{
-  toast.error('Please input your email')
-}
-   }
+
+  }
+
   return (
-    <div className='Body3'>
-   <div className='forgetpassword'>
+    <div className='Body4'>
+   <div className='VerifyEmail'>
    <div
         style={{
           display: "flex",
@@ -51,7 +52,7 @@ if(email){
             width: "70%",
           }}
         >
-                <h2 style={{fontSize:"30px"}}>Forget Password?</h2>
+                <h2 style={{fontSize:"30px"}}>Resend verification Email</h2>
           <input
             type="Email"
             name="Email"
@@ -76,12 +77,10 @@ if(email){
               height:"50px",
               cursor: "pointer",
             }}
-            onClick={()=>forgetPassword(email)}
+            onClick={()=>resendEmail(email)}
           >
-            submit
-          </button>
-          <p style={{textAlign:'left',width:'80%'}}>Or <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/login">Login</NavLink></p>
-  
+            Resend
+          </button>  
         </div>
       </div>
    </div>
@@ -89,4 +88,4 @@ if(email){
   )
 }
 
-export default Forgetpassword
+export default ResendVerification
