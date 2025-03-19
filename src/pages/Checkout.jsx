@@ -2,10 +2,14 @@ import React from 'react'
 import '../styles/checkout.css'
 import { GoDot } from "react-icons/go";
 import { IoIosCheckboxOutline } from "react-icons/io";
+import { useSelector } from 'react-redux';
+import { TbCurrencyNaira } from 'react-icons/tb';
 
 
 const Checkout = () => {
   const arrayOfCountries = ['Select Country', 'Ghana','Nigeria', 'United state of america','Japan','China']
+  const totalValue = useSelector((state)=>state.totalValue)
+  console.log(totalValue)
   return (
     <div className='checkoutBody'>
       <div className='vegImage'>
@@ -86,9 +90,9 @@ const Checkout = () => {
               <p>Discount</p>
             </div>
             <div className='amount'>
-              <p>$20.60</p>
-              <p>$0.00</p>
-              <p>$3.00</p>
+              <p><TbCurrencyNaira fontSize={20}/>{totalValue}</p>
+              <p><TbCurrencyNaira fontSize={20}/>0.00</p>
+              <p><TbCurrencyNaira fontSize={20}/>0.00</p>
               {/* <hr style={{width:`100%`}}/> */}
             </div>
            </div>
@@ -98,7 +102,7 @@ const Checkout = () => {
                   <p>TOTAL</p>
                 </section>
                 <section className='amount2'>
-                  <p>$17.60</p>
+                  <p><TbCurrencyNaira fontSize={20}/>{totalValue}</p>
                 </section>
               
               </div>

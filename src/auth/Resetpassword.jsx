@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../styles/resetPassword.css"
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ResetPassword = () => { 
     const [all,setAll] = useState({
@@ -25,11 +26,11 @@ const ResetPassword = () => {
     const resetPassword = async (data) => {
       try {
        const res = await axios.post(`${baseUrl}resetpassword/${token}`,data)
-        console.log(res)
-        
-        // setTimeout(() => {
-        //   nav('/login')
-        // }, 6000);
+       toast.success(res.data.message)
+        console.log(res)        
+        setTimeout(() => {
+          nav('/login')
+        }, 6000);
       } catch (error) {
         console.log(error)
       }

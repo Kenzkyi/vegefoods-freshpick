@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     productId:'',
-    cart:[]
+    cart:[],
+    totalValue:0
 }
 
 const slice = createSlice({
@@ -27,10 +28,13 @@ const slice = createSlice({
         }else{
             state.cart = state.cart.filter((item)=>item._id !== payload)
         }
+       },
+       setTotalValue: (state,{payload})=>{
+        state.totalValue = payload
        }
     }
 })
 
-export const {setProductId,addCart,removeCart} = slice.actions
+export const {setProductId,addCart,removeCart,setTotalValue} = slice.actions
 
 export default slice.reducer
