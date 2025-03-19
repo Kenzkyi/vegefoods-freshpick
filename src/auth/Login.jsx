@@ -41,7 +41,6 @@ const Login = () => {
   const onChangeFuncPassword = (e)=>{
     const { value } = e.target
     const newPassword = value
-    // setAll({...all,password:newPassword.trim()})
     if(newPassword.trim() ){
       if (newPassword.trim().length < 6) {
         setAll({...all,password:newPassword.trim(),passwordErr:'Password must be at least 6 characters'})
@@ -60,7 +59,7 @@ const Login = () => {
     setIsdisabled(true)
     setLoading(true)
     try {
-      const res = await axios.post(`${baseUrl}login`,data)
+      const res = await axios.post(`${baseUrl}login`,{email:data.email,password:data.password})
       dispatch(setUserId(res.data.data._id))
       dispatch(setUserToken(res.data.token))
       toast.success('Log in successfully')
@@ -70,10 +69,9 @@ const Login = () => {
       }, 6000);
       setIsdisabled(false)
     } catch (error) {
-      console.log(error)
-      if(error.message === 'Request failed with status code 400'){
-        toast.error('Please verify your email')
-      }else if (error.message === 'Request failed with status code 500'){
+      if(error.response.data.message === 'account is not verify, please check your email for link'){
+        toast.error('Please verify your email first')
+      }else if (error.response.data.message === 'User not found' || error.response.data.message === 'Incorrect Password'){
         toast.error('Invalid login credentials')
       }
       setIsdisabled(false)
