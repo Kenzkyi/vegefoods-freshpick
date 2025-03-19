@@ -253,6 +253,11 @@
   color: rgb(172, 168, 168);
   flex-direction: column;
   gap: 20px;
+
+  p{
+    display: flex;
+    align-items: center;
+  }
 }
 
 .totalCont {
@@ -273,6 +278,11 @@
 .amount2 {
   width: 30%;
   height: 100%;
+
+  p{
+    display: flex;
+    align-items: center;
+  }
 }
 
 .paymentMethod {
