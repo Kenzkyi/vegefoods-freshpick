@@ -11,6 +11,7 @@
   height: 90vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   color: #ffffff;
   gap: 20px;
@@ -21,9 +22,19 @@
   background-size: 100% 80%;
 }
 
+.homeText{
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  justify-content: center;
+}
+
 .imgText{
   display: flex;
   flex-direction: column;
+  font-size: 27px;
+  justify-content: center;
+  font-weight: 1200;
 }
 
 .billing {
@@ -369,4 +380,12 @@
 
 .Billings {
   padding-left: 20px;
+
+  h3{
+    font-size: 26px;
+  }
 }
+
+
+
+
