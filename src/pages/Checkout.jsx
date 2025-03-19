@@ -9,8 +9,10 @@ const Checkout = () => {
   return (
     <div className='checkoutBody'>
       <div className='vegImage'>
-        <p>Home</p>
-         <p>checkout</p>
+          <div className='homeText'>
+          <p>HOME</p>
+          <p>CHECKOUT</p>
+          </div>
            <div className='imgText'>
             <h1>Checkout</h1>
            </div>
