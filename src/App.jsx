@@ -24,14 +24,15 @@ const routes = createBrowserRouter([
     {path:'verify-email/:token',element:<VerifyEmail/>},
     {element:<PrivateRoute/>,children:[
       {path:'profile',element:<Profile/>},
-      {path:'checkout',element:<Checkout/>}
     ]},
     {path:'forget-password',element:<Forgetpassword/>},
     {path:'reset-password/:token',element:<Resetpassword/>},
     {element:<MainHolder/>,children:[
-        {path:'',element:<Home/>},
-        {path:'cart',element:<Cart/>},
-        {path:'checkout',element:<Checkout/>},
+      {path:'',element:<Home/>},
+      {path:'cart',element:<Cart/>},
+      {element:<PrivateRoute/>,children:[
+          {path:'checkout',element:<Checkout/>}
+        ]},
         {path:'shop',element:<Shop/>},
         {path:'shop/:productName',element:<ProductDetails/>},
     ]}

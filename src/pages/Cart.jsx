@@ -3,13 +3,17 @@ import '../styles/cart.css'
 import { MdCancelPresentation } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { removeCart } from '../global/slice';
+import { TbCurrencyNaira } from 'react-icons/tb';
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
 
   const cart = useSelector((state)=>state.cart)
-  // console.log(cart)
+  
   const dispatch = useDispatch()
+
+  const nav = useNavigate()
 
   return (
     <div className='cartBody'>
@@ -25,51 +29,51 @@ const Cart = () => {
           <h1>MY CART</h1>
         </div>
       </div>
-
-           {/* product header */}
-      <div className='productHeader'>
-        <div className='icon'></div>
-        <div className='fruits'></div>
-        <div className='product'>
-          <p>Product Name</p>
+      {
+        cart.length === 0 ? <h3 style={{margin:100,fontSize:50}}>Your Cart is Empty</h3> : <div className="all-productdiv">
+        <div className='productHeader'>
+          <div className='icon'></div>
+          <div className='fruits'></div>
+          <div className='product'>
+            <p>Product Name</p>
+          </div>
+          <div className='price'>
+            <p>Price</p>
+          </div>
+          <div className='quantity'>
+            <p>Quantity</p>
+          </div>
+          <div className='total1'>
+            <p>Total</p>
+          </div>
         </div>
-        <div className='price'>
-          <p>Price</p>
-        </div>
-        <div className='quantity'>
-          <p>Quantity</p>
-        </div>
-        <div className='total1'>
-          <p>Total</p>
-        </div>
-      </div>
-
-
-                 {/* middle product */}
-          {
-            cart.map((item,index)=>(
-            <div className='middleProduct' key={index}> 
-              <div className='icons1'>
-            <MdCancelPresentation size={35} cursor={'pointer'} onClick={()=>dispatch(removeCart(item._id))}/>
-          </div>
-          <div className='fruits2'>
-            <img src={item.productImage.imageUrl} alt="" />
-          </div>
-          <div className='product2'>
-            <h3 style={{color:`#000000`}}>{item.name}</h3>
-            <p>{item.description.length > 120? item.description.substr(0,120) + ' ...':item.description}</p>
-          </div>
-          <div className='prices'>
-            <p>{item.price}</p>
-          </div>
-          <div className='quantity2'>{item.quantityNum}</div>
-          <div className='total2'>
-            <p>{item.price * item.quantityNum}</p>
-          </div>
-        </div>))
-          }
-
-      
+  
+  
+                   {/* middle product */}
+            {
+              cart.map((item,index)=>(
+              <div className='middleProduct' key={index}> 
+                <div className='icons1'>
+              <MdCancelPresentation size={35} cursor={'pointer'} onClick={()=>dispatch(removeCart(item._id))}/>
+            </div>
+            <div className='fruits2'>
+              <img src={item.productImage.imageUrl} alt="" />
+            </div>
+            <div className='product2'>
+              <h3 style={{color:`#000000`}}>{item.name}</h3>
+              <p>{item.description.length > 105? item.description.substr(0,105) + ' ...':item.description}</p>
+            </div>
+            <div className='prices'>
+              <p><TbCurrencyNaira fontSize={20}/>{item.price}</p>
+            </div>
+            <div className='quantity2'>{item.quantityNum}</div>
+            <div className='total2'>
+              <p><TbCurrencyNaira fontSize={20}/>{item.price * item.quantityNum}</p>
+            </div>
+          </div>))
+            }
+        </div> 
+      }
            {/* proceed to checkout section */}
       <div className='finalBottom'>
          <div className='couponWrapper'>
@@ -79,78 +83,60 @@ const Cart = () => {
             <p>Coupon Code</p>
             <input type='text' className='couponBox'/>
           </div>
-          <button className='apply'>
-            <h3>Apply Coupon</h3>
-          </button>
+          <button className='apply'>Apply Coupon</button>
          </div>
 
          {/* estimate line */}
          <div className='estimate'>
            <div className='shipping'>
             <div className='shippingTask'>
-              <h3 style={{color:`#000000`}}>Estimate shipping and tax</h3>
-              Enter your Destination to get a shipping
-              <p>estimate</p>
+              <h3>Estimate shipping and tax</h3>
+              <p>Enter your Destination to get a shipping
+              estimate</p>
             </div>
             <div className='estimateCountry'>
-              <div>
-                <p style={{color:`#000000`}}>Country</p>
-              </div>
+              <main>
+              <label>Country</label>
               <input type="text" className='pressMe'/>
-
-              <div className='stateCont'>
-                <div><p>State/Province</p></div>
-                <input type="text" className='provinceInput'/>
-
-                <div className='zipCont'>
-                <div><p>Zip/Postal Code</p></div>
-                <button className='zipInput'/>
-              </div>
-              </div>
-            
+              </main>
+              <main>
+              <label>State/Province</label>
+              <input type="text" className='provinceInput'/>
+              </main>
+              <main>
+              <label>Zip/Postal Code</label>
+              <input type="text" className='zipInput'/>
+              </main>
             </div>
-            
-          
            </div>
-           
-           <button className='estimate2'>
-            <h3>Estimate</h3>
-           </button>
+           <button className='estimate2'>Estimate</button>
          </div>
-
          {/* my checkout */}
          <div className='checkout'>
           <div className='cardsContainer1'>
-          <div className='cardTotalHolder'>
-                <h4>Card Total</h4>
-           </div>
-           <div className='wrapper2'>
-            <div className='subTotal'>
+          <div className='cardTotalHolder1'>Card Totals</div>
+           <div className='wrapper3'>
+           <main>
               <p>Subtotal</p>
-              <p>Delivery</p>
-              <p>Discount</p>
-            </div>
-            <div className='amount'>
               <p>$20.60</p>
+           </main>
+           <main>
+              <p>Delivery</p>
               <p>$0.00</p>
+           </main>
+           <main>
+              <p>Discount</p>
               <p>$3.00</p>
-              {/* <hr style={{width:`100%`}}/> */}
-            </div>
+           </main>
            </div>
            
-           <div className='totalCont'>
-                <section className='total'>
+           <div className='totalCont1'>
                   <p>TOTAL</p>
-                </section>
-                <section className='amount2'>
-                  <p>$17.60</p>
-                </section>
+                  <h3>$17.60</h3>
               </div>
 
           </div>
-          <button className='proceed'>
-            <h3>Proceed to Checkout</h3>
-          </button>
+          <button className='proceed' onClick={()=>nav('/checkout')}>Proceed to Checkout</button>
          </div>
       </div>
 

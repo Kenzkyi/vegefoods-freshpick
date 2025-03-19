@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import "../styles/ResendVerification.css"
-import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -81,9 +80,7 @@ const ResendVerification = () => {
             onClick={()=>resendEmail(email)}
           >
             Resend
-          </button>
-          <p style={{textAlign:'left',width:'80%'}}>Or <NavLink style={{cursor: "pointer", textDecoration: "none"}}></NavLink></p>
-  
+          </button>  
         </div>
       </div>
    </div>

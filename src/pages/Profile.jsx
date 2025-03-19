@@ -6,6 +6,7 @@ import { TbCloudUpload } from "react-icons/tb";
 import { BsFillCameraFill } from "react-icons/bs";
 import EditPopUp from '../components/EditPopUp';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Profile = () => {
 
@@ -15,21 +16,18 @@ const Profile = () => {
   const [isPopUpOpend, setIsPopupOpen] = useState(false)
   const [username, setUsername] = useState(localStorage.getItem('username') || 'guest_user123');
   const [location, setLocation] = useState(localStorage.getItem('location') || 'Unknown Location');
-  const [phone, setPhone] = useState( localStorage.getItem('phone') || 'No Number');
+  
 
   const [editUserName, setEditUserName] = useState(username);
   const [editLocation, setEditLocation] = useState(location);
-  const [editPhone, setEditPhone] = useState(phone);
 
   useEffect(()=> {
     const savedUsername = localStorage.getItem('username')
     const savedLocation = localStorage.getItem('location')
-    const savedPhone = localStorage.getItem('phone')
     const savedImage = localStorage.getItem('profileImage')
 
     if (savedUsername) setUsername(savedUsername);
     if (savedLocation) setLocation(savedLocation);
-    if (savedPhone) setPhone(savedPhone);
     if (savedImage) setImageValue(savedImage);
   }, [])
 
@@ -37,18 +35,15 @@ const Profile = () => {
   const openEditPopUp = () => {
     setEditUserName(username);
     setEditLocation(location);
-    setEditPhone(phone);
     setIsPopupOpen(true);
   }
 
   const saveChanges = () => {
      setUsername(editUserName);
      setLocation(editLocation);
-     setPhone(editPhone);
 
      localStorage.setItem('username', editUserName);
      localStorage.setItem('location', editLocation);
-     localStorage.setItem('phone', editPhone)
      setIsPopupOpen(false);
   }
 
@@ -64,7 +59,7 @@ const Profile = () => {
         };
         reader.readAsDataURL(file)
       } else {
-          alert("please upload a valid image file!");
+        toast.error("Please upload a valid image file.")
       }
      
     }
@@ -78,7 +73,6 @@ const Profile = () => {
         try {
            const res = await axios.get(`${baseUrl}getOneUser/${userInfo.id}`)
            setData(res.data.data)
-        //    console.log(res)
         } catch (error) {
             console.log(error)
         }
@@ -107,9 +101,6 @@ const Profile = () => {
         </div>
         <div className='location-div-edit'>
             <input onChange={(e)=>setEditLocation(e.target.value)} value={editLocation} type="text" className='my-edit-input'placeholder='Location' />
-        </div>
-        <div className='phone-number-div-edit'>
-            <input onChange={(e)=>setEditPhone(e.target.value)} value={editPhone} type="number" className='my-edit-input' placeholder='Phone Number' />
         </div>
     </div>
     <div className='save-cahnage-cancel-btn'>
