@@ -7,10 +7,16 @@ import { BsFillCameraFill } from "react-icons/bs";
 import EditPopUp from '../components/EditPopUp';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeUserInfo } from '../global/slice';
 
 const Profile = () => {
 
   const navigate = useNavigate()
+
+  const userId = useSelector((state)=>state.userId)
+
+  const dispatch = useDispatch()
 
   const [imageValue, setImageValue] = useState( localStorage.getItem('profileImage') || null)
   const [isPopUpOpend, setIsPopupOpen] = useState(false)
@@ -71,7 +77,7 @@ const Profile = () => {
     const getOneUser = async() =>{
         const userInfo = JSON.parse(localStorage.getItem('userInfo'))
         try {
-           const res = await axios.get(`${baseUrl}getOneUser/${userInfo.id}`)
+           const res = await axios.get(`${baseUrl}getOneUser/${userId}`)
            setData(res.data.data)
         } catch (error) {
             console.log(error)
@@ -116,7 +122,7 @@ const Profile = () => {
         <div className='Profile-wrap'>
             <div className='Profile-wrap-up-div'>
                 <div className='image-div'>
-                <button onClick={()=>{navigate("/"),localStorage.removeItem('userInfo')}} className='logout-btn'><RiLogoutBoxFill/>Logout</button>
+                <button onClick={()=>{navigate("/"),dispatch(removeUserInfo())}} className='logout-btn'><RiLogoutBoxFill/>Logout</button>
                     <div className='image-div-main'>
                     {
                             imageValue ? (

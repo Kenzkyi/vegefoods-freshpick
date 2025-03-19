@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import "../styles/resetPassword.css"
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
-const resetPassword = () => { 
+const ResetPassword = () => { 
     const [all,setAll] = useState({
       password:'',
       confirmPassword:'',
@@ -22,14 +23,14 @@ const resetPassword = () => {
     const nav = useNavigate()
 
 
-    const resetPassword = async () => {
+    const resetPassword = async (data) => {
       try {
-       const res = await axios.post(`${baseUrl}resetpassword/${token}`,all)
-        console.log(res)
-        
-        // setTimeout(() => {
-        //   nav('/login')
-        // }, 6000);
+       const res = await axios.post(`${baseUrl}resetpassword/${token}`,data)
+       toast.success(res.data.message)
+        console.log(res)        
+        setTimeout(() => {
+          nav('/login')
+        }, 6000);
       } catch (error) {
         console.log(error)
       }
@@ -102,7 +103,7 @@ const resetPassword = () => {
             height:"50px",
             cursor: "pointer",
           }}
-          onClick={ resetPassword}
+          onClick={()=>resetPassword(all)}
         >
           Submit
         </button>
@@ -115,4 +116,4 @@ const resetPassword = () => {
   )
 }
 
-export default resetPassword
+export default ResetPassword
