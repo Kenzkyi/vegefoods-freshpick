@@ -9,6 +9,8 @@ import { TbCurrencyNaira } from 'react-icons/tb';
 const Checkout = () => {
   const arrayOfCountries = ['Select Country', 'Ghana','Nigeria', 'United state of america','Japan','China']
   const totalValue = useSelector((state)=>state.totalValue)
+  const cart = useSelector((state)=>state.cart)
+  
   console.log(totalValue)
   return (
     <div className='checkoutBody'>
@@ -18,25 +20,25 @@ const Checkout = () => {
           <p>CHECKOUT</p>
           </div>
            <div className='imgText'>
-            <h1>Checkout</h1>
+            <h1>CHECKOUT</h1>
            </div>
       </div>
-      <div className='Billings'>
+      <div className="checkout-secondlayer">
+        <div className="checkout-leftwrapper">
         <h3>Billing Details</h3>
-      </div>
       <div className='wrapper'>
-        <div className='leftWrapper'>
-          <div className='nameHolder'>
-            <p>First name</p>
-            <p>Last name</p>
-          </div>
-          <div className='nameWrapper'>
-            <input type='text' className='firstName'/>
-            <input type='text' className='lastName'/>
-          </div>
-          <div className='stateCountry'>
-            <p>State / Country</p>
-          </div>
+        <main>
+          <article>
+            <label>First Name</label>
+            <input type="text" />
+          </article>
+          <article>
+            <label>Last Name</label>
+            <input type="text" />
+          </article>
+        </main>
+        <section>
+          <label>State / Country</label>
           <select type='text' className='stateCountryHolder'>
             {
               arrayOfCountries.map((item,index)=>(
@@ -44,91 +46,93 @@ const Checkout = () => {
               ))
             }
           </select>
-          <section streetAddress>
-            <p>Street Address</p>
-          </section>
-          <div className='addressHolder'>
-            <input type='text' className='houseHolder'/>
-            <input type='text' className='apartment'/>
-          </div>
-          <div className='townPostCode'>
-            <p>Town / City</p>
-            <p>Postcode / Zip *</p>
-          </div>
-          <div className='townWrapper'>
-            <input type='text' className='townHolder'/>
-            <input type='text' className='postCardHolder'/>
-          </div>
-          <div className='phoneEmailHolder'>
-            <p>Phone</p>
-            <p>Email Address</p>
-          </div>
-          <div className='phoneEmailWrapper'>
-            <input type='text' className='phoneContainer'/>
-            <input type='text' className='emailContainer'/>
-          </div>
-          <div className='accountWrapper'>
+        </section>
+        <main>
+          <article>
+            <label>Street Address</label>
+            <input type="text" placeholder='House number and street name'/>
+          </article>
+          <article>
+            <aside></aside>
+            <input type="text" placeholder='Appartment, suite, unit etc: (optional)'/>
+          </article>
+        </main>
+        <main>
+          <article>
+            <label>Town / City</label>
+            <input type="text" />
+          </article>
+          <article>
+            <label>Postcode / ZIP *</label>
+            <input type="text" />
+          </article>
+        </main>
+        <main>
+          <article>
+            <label>Phone</label>
+            <input type="text" />
+          </article>
+          <article>
+            <label>Email Address</label>
+            <input type="text" />
+          </article>
+        </main>
+          {/* <div className='accountWrapper'>
            <p> <GoDot/>Create an Account?</p>
            <p> <GoDot/>Ship to different address</p>
-          </div>
+          </div> */}
         </div>
-        
-
-
-
-
-
-
-
+            </div>
         <div className='rightWrapper'>
-          <div className='cardTotalCont'>
-           <div className='cardTotalHolder'>
-                <h4>Card Total</h4>
-           </div>
-           <div className='wrapper2'>
-            <div className='subTotal'>
-              <p>Subtotal</p>
-              <p>Delivery</p>
-              <p>Discount</p>
-            </div>
-            <div className='amount'>
-              <p><TbCurrencyNaira fontSize={20}/>{totalValue}</p>
-              <p><TbCurrencyNaira fontSize={20}/>0.00</p>
-              <p><TbCurrencyNaira fontSize={20}/>0.00</p>
-              {/* <hr style={{width:`100%`}}/> */}
-            </div>
-           </div>
-           
-              <div className='totalCont'>
-                <section className='total'>
-                  <p>TOTAL</p>
-                </section>
-                <section className='amount2'>
-                  <p><TbCurrencyNaira fontSize={20}/>{totalValue}</p>
-                </section>
-              
-              </div>
-                
-          </div>
+                   <div className='rightWrapper-holder'>
+                    <div className='cardsContainer1'>
+                    <div className='cardTotalHolder1'>Card Totals</div>
+                     <div className='wrapper3'>
+                     <main>
+                        <p>Subtotal</p>
+                        <p><TbCurrencyNaira fontSize={20}/>{cart.reduce((acc,item)=>{
+              const itemTotal = item.price * item.quantityNum
+              acc += itemTotal
+              return acc
+            },0)}</p>
+                     </main>
+                     <main>
+                        <p>Delivery</p>
+                        <p><TbCurrencyNaira fontSize={20}/>0.00</p>
+                     </main>
+                     <main>
+                        <p>Discount</p>
+                        <p><TbCurrencyNaira fontSize={20}/>0.00</p>
+                     </main>
+                     </div>
+                     
+                     <div className='totalCont1'>
+                            <p>TOTAL</p>
+                            <h3><TbCurrencyNaira fontSize={20}/>{cart.reduce((acc,item)=>{
+              const itemTotal = item.price * item.quantityNum
+              acc += itemTotal
+              return acc
+            },0)}</h3>
+                        </div>
+          
+                    </div>
+                   </div>
+          
           <div className='bottomCont'>
             <div className='paymentMethod'>
-            <div className='payment'>
             <h3>Payment Method</h3>
-            </div>
            <div className='bottomdivholder'>
-           <p><GoDot/>Direct Bank Transfer</p>
-            <p><GoDot/>Check Payment</p>
-           <p><GoDot/>Paypal</p>
-           <p><IoIosCheckboxOutline/>I have Read and accept the terms and conditions</p>
+           <p><input type="radio" />Direct Bank Transfer</p>
+            <p><input type="radio" />Check Payment</p>
+           <p><input type="radio" />Paypal</p>
+           <p><input type="checkbox" name="" id="" /> I have Read and accept the terms and conditions</p>
            </div>
            </div>
-           <div className='bottomDiv'>
-            <p>Place your order</p>
-           </div>
+           <button className='bottomDiv'>Place your order</button>
           </div>
     
-        </div>
 
+      </div>
       </div>
     
 

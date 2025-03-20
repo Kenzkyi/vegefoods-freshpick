@@ -69,12 +69,21 @@ const Profile = () => {
     const [data, setData] = useState({})
 
     const getOneUser = async() =>{
-        const userInfo = JSON.parse(localStorage.getItem('userInfo'))
         try {
            const res = await axios.get(`${baseUrl}getOneUser/${userId}`)
            setData(res.data.data)
         } catch (error) {
             console.log(error)
+        }
+    }
+
+    const [inputData,setInputData] = useState(data?.username)
+
+    const userUsername = async () => {
+        try {
+            const res = await axios.put(`${baseUrl}updateuser/${userId}`)
+        } catch (error) {
+            
         }
     }
 
@@ -97,7 +106,7 @@ const Profile = () => {
 <div className='popup-div-btm'>
     <div className='user-details-edit-wrap'>
         <div className='username-div-edit'>
-            <input onChange={(e)=>setEditUserName(e.target.value)} value={editUserName} type="text" className='my-edit-input' placeholder='Username' />
+            <input onChange={(e)=>inputData(e.target.value)} value={inputData} type="text" className='my-edit-input' placeholder='Username'/>
         </div>
     </div>
     <div className='save-cahnage-cancel-btn'>
