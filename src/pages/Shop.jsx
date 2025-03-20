@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setProductId } from '../global/slice';
 import { TbCurrencyNaira } from 'react-icons/tb';
+import { ScaleLoader } from 'react-spinners';
 
 const Shop = () => {
 
@@ -53,7 +54,7 @@ const Shop = () => {
     </div>
     <div className='Vegeatbles-main-table'>
         <div className='Vegeatbles-main-table-wrap'>
-            { Product.length === 0 ? <h1>Loading Products...</h1> : (
+            { Product.length === 0 ? <ScaleLoader /> : (
                 Product.map((item)=>(
                     <div key={item._id} onClick={()=>{handleProductClick(item.name.toLowerCase()),dispatch(setProductId(item._id))}} className='vegetable-image-1'>
                         <div className='vegetable-image-div'>
