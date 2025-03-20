@@ -72,6 +72,16 @@
     @media screen and (max-width:768px) {
         width: 100%;
     }
+
+    @media screen and (max-width:550px) {
+        main{
+            form{
+                width: 100%;
+                background: transparent;
+                box-shadow: none;
+            }
+        }
+    }
 }
 .forgetPassword{
     width: 80%;
