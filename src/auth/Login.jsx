@@ -69,10 +69,14 @@ const Login = () => {
       }, 6000);
       setIsdisabled(false)
     } catch (error) {
-      if(error.response.data.message === 'account is not verify, please check your email for link'){
+      if (error.message === 'Network Error'){
+        toast.error('Oops network error')
+      }else if(error.response.data.message === 'account is not verify, please check your email for link'){
         toast.error('Please verify your email first')
       }else if (error.response.data.message === 'User not found' || error.response.data.message === 'Incorrect Password'){
         toast.error('Invalid login credentials')
+      }else{
+        console.log(error)
       }
       setIsdisabled(false)
       setLoading(false)
@@ -111,7 +115,7 @@ const Login = () => {
           }}
           onChange={onChangeFuncEmail}
         />
-        <small >{all.emailErr}</small>
+        <small style={{paddingInline:10}}>{all.emailErr}</small>
         </article>
         <article>
         <input
@@ -125,13 +129,13 @@ const Login = () => {
           }}
           onChange={onChangeFuncPassword}
         />
-        <small >{all.passwordErr}</small>
+        <small style={{paddingInline:10}}>{all.passwordErr}</small>
         </article>
         <div className="forgetPassword"> <NavLink style={{cursor: "pointer", textDecoration: "none"}} to="/forget-password">Forgot Password?</NavLink></div>
         <button
           style={{
             color:isDisabled ? '#707070' : 'white',
-            backgroundColor: isDisabled? '#eaeaea' : 'blue',
+            backgroundColor: isDisabled? '#dad7d7' : 'blue',
             cursor:isDisabled? 'not-allowed' : 'pointer'
           }}
           disabled={isDisabled}

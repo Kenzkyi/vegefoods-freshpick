@@ -86,9 +86,10 @@ const Signup = () => {
       }, 6000);
       setIsdisabled(false)
     }catch(error){
-      console.log(error)
       if(error.message === 'Network Error'){
         toast.error('Oops network error')
+      }else{
+        console.log(error)
       }
       setLoading(false)
       setIsdisabled(false)
@@ -131,7 +132,7 @@ const Signup = () => {
               }}
               onChange={onChangeFuncUsername}
             />
-            <small >{all.usernameErr}</small>
+            <small style={{paddingInline:10}}>{all.usernameErr}</small>
             </article>
             <article>
             <input
@@ -145,7 +146,7 @@ const Signup = () => {
               }}
               onChange={onChangeFuncEmail}
             />
-            <small >{all.emailErr}</small>
+            <small style={{paddingInline:10}}>{all.emailErr}</small>
             </article>
             <article>
             <input
@@ -159,7 +160,7 @@ const Signup = () => {
               }}
               onChange={onChangeFuncFullname}
             />
-            <small >{all.fullnameErr}</small>
+            <small style={{paddingInline:10}}>{all.fullnameErr}</small>
             </article>
             <article>
             <input
@@ -173,12 +174,12 @@ const Signup = () => {
               }}
               onChange={onChangeFuncPassword}
             />
-            <small >{all.passwordErr}</small>
+            <small style={{paddingInline:10}}>{all.passwordErr}</small>
             </article>
             <button
               style={{
                 color:isDisabled ? '#707070' : 'white',
-                backgroundColor: isDisabled? '#eaeaea' : 'blue',
+                backgroundColor: isDisabled? '#dad7d7' : 'blue',
                 cursor:isDisabled? 'not-allowed' : 'pointer'
               }}
               disabled={isDisabled}
