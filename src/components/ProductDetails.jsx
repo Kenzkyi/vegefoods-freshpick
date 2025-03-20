@@ -12,17 +12,6 @@ const ProductDetails = () => {
   const productId = useSelector((state)=>state.productId)
 
   const dispatch = useDispatch()
-
-  // const [count, setCount] = useState(1)
-
-  // const handleIncrease = () => {
-  //   setCount(count + 1)
-  // }
-
-  // const handleDecrease = () => {
-  //   count < 2 ? 1 : setCount(count - 1)
-  // }
-
   const [product,setProduct] = useState({})
 
 
@@ -67,9 +56,7 @@ const ProductDetails = () => {
           <div className='Single-product-main-div-wrap-div2'>{product.description}</div>
           <div className='Single-product-main-div-wrap-div3'>
             <div className='Counter-App'>
-              {/* <div className='decrement-btn'><button onClick={handleDecrease} className='my-btn'>-</button></div> */}
               <div className='Count-container'>1</div>
-              {/* <div className='increment-btn'><button onClick={handleIncrease} className='my-btn'>+</button></div> */}
              
             </div>
             <div className='weight-div'><p>{product.quantity} kg available</p></div>

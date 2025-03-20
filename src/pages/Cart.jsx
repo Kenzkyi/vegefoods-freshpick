@@ -37,7 +37,11 @@ const Cart = () => {
         </div>
       </div>
       {
-        cart.length === 0 ? <h3 style={{margin:100,fontSize:50}}>Your Cart is Empty</h3> : <div className="all-productdiv">
+        cart.length === 0 ?  <div className='empty-cart-div'>
+           <div className='empty-cart-image-div-main'>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYNQomkYBtMziAZTJwcLZfUt2s2XbgT_x6LA&s" alt="" />
+           </div>
+        </div> : <div className="all-productdiv">
         <div className='productHeader'>
           <div className='icon'></div>
           <div className='fruits'></div>
