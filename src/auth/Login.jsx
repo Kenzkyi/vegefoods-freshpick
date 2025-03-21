@@ -66,8 +66,8 @@ const Login = () => {
       setLoading(false)
       setTimeout(() => {
         nav('/')
+        setIsdisabled(false)
       }, 6000);
-      setIsdisabled(false)
     } catch (error) {
       if (error.message === 'Network Error'){
         toast.error('Oops network error')
