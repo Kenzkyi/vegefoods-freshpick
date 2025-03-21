@@ -1,0 +1,136 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+  
+    overflow: auto;
+    box-sizing: border-box;
+  }
+  
+  .contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #648a5a; 
+    padding: 0;
+  }
+  
+  .contact-card {
+    background: #74b677;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 40px;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+  }
+  
+  
+  .contact-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c5d3f; 
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  
+  .customer-care-message {
+    font-size: 20px;
+    color: #426041; 
+    line-height: 1.8;
+    text-align: center;
+    font-weight: 500;
+    background: #eaf5e3; 
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-links-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+  }
+  
+  
+  .contact-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    max-width: 900px;
+    width: 100%;
+  }
+  
+  
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s, opacity 0.2s;
+    text-align: left;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+  }
+  
+  
+  .contact-icon {
+    font-size: 24px;
+  }
+  
+  
+  .contact-link:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  
+  .facebook { background-color: #1877f2; }
+  .twitter { background-color: #1da1f2; }
+  .whatsapp { background-color: #25d366; }
+  .email { background-color: #d93025; }
+  .phone { background-color: #444; }
+  
+  
+  @media (max-width: 1024px) {
+    .contact-card {
+      width: 95%;
+      padding: 30px;
+    }
+  
+    .customer-care-message {
+      font-size: 18px;
+      padding: 20px;
+    }
+  
+    .contact-link {
+      font-size: 16px;
+      width: auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-links {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  
+    .contact-link {
+      font-size: 16px;
+      padding: 12px;
+    }
+  
+    .contact-icon {
+      font-size: 20px;
+    }
+  }
