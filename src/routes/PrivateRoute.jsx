@@ -1,12 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
 
 const PrivateRoute = () => {
-    const userToken = JSON.parse(localStorage.getItem('userInfo'))
+    const userToken = useSelector((state)=>state.userToken)
   return (
   <>
   
-  {userToken?.token ? <Outlet/>: <Navigate to={'/login'}/>}
+  {userToken ? <Outlet/>: <Navigate to={'/login'} replace/>}
   </>
   )
 }

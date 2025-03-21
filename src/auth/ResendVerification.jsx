@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import "../styles/ResendVerification.css"
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const ResendVerification = () => {
 
   const [email, setEmail] = useState('')
+
+  const nav = useNavigate()
 
       const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
@@ -13,7 +16,10 @@ const ResendVerification = () => {
    if(email){
     try {
       const res = await axios.post(`${baseUrl}resendverificationemail`,{email} )
-      console.log(res)
+      toast.success(res.data.message)
+      setTimeout(() => {
+        nav('/login')
+      }, 6000);
     } catch (error) {
       console.log(error)
     }

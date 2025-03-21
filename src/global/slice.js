@@ -4,7 +4,9 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     productId:'',
     cart:[],
-    totalValue:0
+    totalValue:0,
+    userToken:'',
+    userId:''
 }
 
 const slice = createSlice({
@@ -31,10 +33,21 @@ const slice = createSlice({
        },
        setTotalValue: (state,{payload})=>{
         state.totalValue = payload
+       },
+       setUserToken: (state,{payload})=>{
+        state.userToken = payload
+       },
+       setUserId : (state,{payload})=>{
+        state.userId = payload
+       },
+       removeUserInfo : (state)=>{
+        state.userId = ''
+        state.userToken = ''
+        state.productId = ''
        }
     }
 })
 
-export const {setProductId,addCart,removeCart,setTotalValue} = slice.actions
+export const {setProductId,addCart,removeCart,setTotalValue,setUserId,setUserToken,removeUserInfo} = slice.actions
 
 export default slice.reducer

@@ -16,6 +16,7 @@ import VerifyEmail from './auth/VerifyEmail';
 import ResendVerification from './auth/ResendVerification';
 import PrivateRoute from './routes/PrivateRoute';
 import Contactus from './pages/Contactus';
+import AboutUs from './pages/AboutUs';
 
 
 const routes = createBrowserRouter([
@@ -31,6 +32,7 @@ const routes = createBrowserRouter([
     {element:<MainHolder/>,children:[
       {path:'',element:<Home/>},
       {path:'/contact-us',element:<Contactus/>},
+      {path:'/About-Us',element:<AboutUs/>},
       {path:'cart',element:<Cart/>},
       {element:<PrivateRoute/>,children:[
           {path:'checkout',element:<Checkout/>}

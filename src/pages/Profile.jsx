@@ -1,49 +1,49 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/profile.css"
-import { RiLogoutBoxFill } from "react-icons/ri";
 import {useNavigate} from 'react-router-dom'
 import { TbCloudUpload } from "react-icons/tb";
 import { BsFillCameraFill } from "react-icons/bs";
 import EditPopUp from '../components/EditPopUp';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeUserInfo } from '../global/slice';
+import { IoCaretBackCircleSharp } from "react-icons/io5";
+import { RiLogoutBoxRFill } from "react-icons/ri";
 
 const Profile = () => {
 
   const navigate = useNavigate()
 
+  const userId = useSelector((state)=>state.userId)
+
+  const dispatch = useDispatch()
+
   const [imageValue, setImageValue] = useState( localStorage.getItem('profileImage') || null)
   const [isPopUpOpend, setIsPopupOpen] = useState(false)
   const [username, setUsername] = useState(localStorage.getItem('username') || 'guest_user123');
-  const [location, setLocation] = useState(localStorage.getItem('location') || 'Unknown Location');
   
 
   const [editUserName, setEditUserName] = useState(username);
-  const [editLocation, setEditLocation] = useState(location);
 
   useEffect(()=> {
     const savedUsername = localStorage.getItem('username')
-    const savedLocation = localStorage.getItem('location')
     const savedImage = localStorage.getItem('profileImage')
 
     if (savedUsername) setUsername(savedUsername);
-    if (savedLocation) setLocation(savedLocation);
     if (savedImage) setImageValue(savedImage);
   }, [])
 
 
   const openEditPopUp = () => {
     setEditUserName(username);
-    setEditLocation(location);
     setIsPopupOpen(true);
   }
 
   const saveChanges = () => {
      setUsername(editUserName);
-     setLocation(editLocation);
 
      localStorage.setItem('username', editUserName);
-     localStorage.setItem('location', editLocation);
      setIsPopupOpen(false);
   }
 
@@ -69,12 +69,21 @@ const Profile = () => {
     const [data, setData] = useState({})
 
     const getOneUser = async() =>{
-        const userInfo = JSON.parse(localStorage.getItem('userInfo'))
         try {
-           const res = await axios.get(`${baseUrl}getOneUser/${userInfo.id}`)
+           const res = await axios.get(`${baseUrl}getOneUser/${userId}`)
            setData(res.data.data)
         } catch (error) {
             console.log(error)
+        }
+    }
+
+    const [inputData,setInputData] = useState(data?.username)
+
+    const userUsername = async () => {
+        try {
+            const res = await axios.put(`${baseUrl}updateuser/${userId}`)
+        } catch (error) {
+            
         }
     }
 
@@ -85,7 +94,7 @@ const Profile = () => {
   return (
     <div className='Profile'>
 
-         <EditPopUp isopen={isPopUpOpend} onClose={()=>setIsPopupOpen(false)} >
+         <EditPopUp isopen={isPopUpOpend} onClose={()=>setIsPopupOpen(false)}>
 
 <div className='popup-div-top'>
     <div className='edit-image-div'>
@@ -97,10 +106,7 @@ const Profile = () => {
 <div className='popup-div-btm'>
     <div className='user-details-edit-wrap'>
         <div className='username-div-edit'>
-            <input onChange={(e)=>setEditUserName(e.target.value)} value={editUserName} type="text" className='my-edit-input' placeholder='Username' />
-        </div>
-        <div className='location-div-edit'>
-            <input onChange={(e)=>setEditLocation(e.target.value)} value={editLocation} type="text" className='my-edit-input'placeholder='Location' />
+            <input onChange={(e)=>inputData(e.target.value)} value={inputData} type="text" className='my-edit-input' placeholder='Username'/>
         </div>
     </div>
     <div className='save-cahnage-cancel-btn'>
@@ -116,7 +122,7 @@ const Profile = () => {
         <div className='Profile-wrap'>
             <div className='Profile-wrap-up-div'>
                 <div className='image-div'>
-                <button onClick={()=>{navigate("/"),localStorage.removeItem('userInfo')}} className='logout-btn'><RiLogoutBoxFill/>Logout</button>
+                <button onClick={()=>navigate("/")} className='Back-to-home'><IoCaretBackCircleSharp style={{fontSize: "30px"}}/><p>Go To Home</p></button>
                     <div className='image-div-main'>
                     {
                             imageValue ? (
@@ -135,7 +141,9 @@ const Profile = () => {
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYUeh_jPiNdJAV8w-eAlcgjcYxstpo8AHOQ&s" alt="" />
                     </div>
                     <div className='Account-and-payment'>
-                        <button className='payment-btn'>Account & Payments</button>
+                        <button onClick={()=>{navigate("/"),setTimeout(() => {
+                            dispatch(removeUserInfo())
+                        }, 1000);}} className='payment-btn'>Logout<RiLogoutBoxRFill style={{fontSize: "30px"}}/></button>
                     </div>
                 </div>
             </div>
@@ -147,7 +155,7 @@ const Profile = () => {
                             <button onClick={openEditPopUp} className='myprofilebtn'>Edit Profile</button>
                         </div>
                         <div className='settings'>
-                            <button className='myprofilebtn2'>Settings</button>
+                            <button className='myprofilebtn2'>Accounts & Payment</button>
                         </div>
                     </div>
                 </div>

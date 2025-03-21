@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { addCart, setProductId } from '../global/slice'
 import { useDispatch } from 'react-redux'
 import { TbCurrencyNaira } from 'react-icons/tb'
+import { ScaleLoader } from 'react-spinners'
 
 
 const Home = () => {
@@ -141,7 +142,9 @@ const Home = () => {
         </nav>
       </div>
       <div className="home-fifthlayer">
-        {Product.slice(0,8).map((item,index)=>(
+        {
+          Product.length === 0 ? <ScaleLoader /> : (
+        Product.slice(0,8).map((item,index)=>(
           <div className="home-productholder" key={index} onClick={()=>{handleProductClick(item.name),dispatch(setProductId(item._id))}}>
           <main>
             <img src={item.productImage.imageUrl} alt="" />
@@ -156,7 +159,7 @@ const Home = () => {
             <div><FcLikePlaceholder /></div>
           </aside>
         </div>
-        ))}
+        )))}
       </div>
       <div className="home-sixthlayer">
         <div className="home-sixthlayerright">
