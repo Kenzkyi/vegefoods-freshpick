@@ -23,7 +23,7 @@ const AboutUs = () => {
           should be both healthy and delicious, which is why we ensure that all our products meet the highest standards.
         </p>
 
-        {/* Section: Highlights with Images */}
+       
         <div className="about-highlights-container">
           <div className="highlight-item">
             <div className="highlight">
@@ -59,7 +59,7 @@ const AboutUs = () => {
           follow strict quality control, and ensure that every vegetable you receive is as fresh as the moment it was harvested.
         </p>
 
-        {/* Section: Trust Highlights with Images */}
+      
         <div className="about-highlights-container">
           <div className="highlight-item">
             <div className="highlight">
