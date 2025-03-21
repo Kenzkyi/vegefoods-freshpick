@@ -7,7 +7,7 @@ const PrivateRoute = () => {
   return (
   <>
   
-  {userToken ? <Outlet/>: <Navigate to={'/login'}/>}
+  {userToken ? <Outlet/>: <Navigate to={'/login'} replace/>}
   </>
   )
 }

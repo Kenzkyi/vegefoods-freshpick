@@ -13,6 +13,7 @@ const Header = () => {
   const [headerDropdownMenu,setHeaderDropdownMenu] = useState(false)
   const nav = useNavigate()
   const cart = useSelector((state)=>state.cart)
+  const productId = useSelector((state)=>state.productId)
   return (
     <div className='header'>
       <div className='header-holder'>
@@ -22,9 +23,12 @@ const Header = () => {
           <li onMouseEnter={()=>setHeaderDropdown(!headerDropdown)}>SHOP<IoMdArrowDropdown /></li>
           <div className="header-dropdown" style={{display:headerDropdown?'flex':'none'}} onMouseLeave={()=>setHeaderDropdown(false)}>
             <p onClick={()=>{nav('/shop'),setHeaderDropdown(false)}}>Shop</p>
-            <p>Single Product</p>
+            <p onClick={()=>{
+              if (productId) {
+                nav(`/shop/${productId}`),setHeaderDropdown(false)
+              }
+            }}>Single Product</p>
             <p onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}>Cart</p>
-            <p onClick={()=>{nav('/checkout'),setHeaderDropdown(false)}}>Checkout</p>
           </div>
           <li>ABOUT</li>
           <li>BLOG</li>
@@ -44,9 +48,12 @@ const Header = () => {
           <li onMouseEnter={()=>setHeaderDropdownMenu(!headerDropdownMenu)}>SHOP<IoMdArrowDropdown /></li>
           <div className="headermobile-dropdown" style={{display:headerDropdownMenu?'flex':'none'}} onMouseLeave={()=>setHeaderDropdownMenu(false)}>
             <p onClick={()=>{nav('/shop'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Shop</p>
-            <p>Single Product</p>
+            <p onClick={()=>{
+              if (productId) {
+                nav(`/shop/${productId}`),setHeaderMenu(false),setHeaderDropdownMenu(false)
+              }
+            }}>Single Product</p>
             <p onClick={()=>{nav('/cart'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Cart</p>
-            <p onClick={()=>{nav('/checkout'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Checkout</p>
           </div>
           <li>ABOUT</li>
           <li>BLOG</li>

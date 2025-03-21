@@ -141,7 +141,9 @@ const Profile = () => {
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYUeh_jPiNdJAV8w-eAlcgjcYxstpo8AHOQ&s" alt="" />
                     </div>
                     <div className='Account-and-payment'>
-                        <button onClick={()=>{navigate("/"),dispatch(removeUserInfo())}} className='payment-btn'>Logout<RiLogoutBoxRFill style={{fontSize: "30px"}}/></button>
+                        <button onClick={()=>{navigate("/"),setTimeout(() => {
+                            dispatch(removeUserInfo())
+                        }, 1000);}} className='payment-btn'>Logout<RiLogoutBoxRFill style={{fontSize: "30px"}}/></button>
                     </div>
                 </div>
             </div>

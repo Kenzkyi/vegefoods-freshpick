@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/checkout.css'
-import { GoDot } from "react-icons/go";
-import { IoIosCheckboxOutline } from "react-icons/io";
 import { useSelector } from 'react-redux';
 import { TbCurrencyNaira } from 'react-icons/tb';
 
@@ -10,8 +8,13 @@ const Checkout = () => {
   const arrayOfCountries = ['Select Country', 'Ghana','Nigeria', 'United state of america','Japan','China']
   const totalValue = useSelector((state)=>state.totalValue)
   const cart = useSelector((state)=>state.cart)
+  const [allChecks,setAllChecks] = useState({
+    check1:false,
+    check2:false,
+    check3:false
+  })
+  const [isAgreed,setIsagreed] = useState(false)
   
-  console.log(totalValue)
   return (
     <div className='checkoutBody'>
       <div className='vegImage'>
@@ -85,7 +88,7 @@ const Checkout = () => {
             </div>
         <div className='rightWrapper'>
                    <div className='rightWrapper-holder'>
-                    <div className='cardsContainer1'>
+                    <div className='cardsContainer3'>
                     <div className='cardTotalHolder1'>Card Totals</div>
                      <div className='wrapper3'>
                      <main>
@@ -117,26 +120,20 @@ const Checkout = () => {
           
                     </div>
                    </div>
-          
           <div className='bottomCont'>
             <div className='paymentMethod'>
             <h3>Payment Method</h3>
            <div className='bottomdivholder'>
-           <p><input type="radio" />Direct Bank Transfer</p>
-            <p><input type="radio" />Check Payment</p>
-           <p><input type="radio" />Paypal</p>
-           <p><input type="checkbox" name="" id="" /> I have Read and accept the terms and conditions</p>
+           <p><input type="radio" checked={allChecks.check1} onChange={(e)=>setAllChecks({...allChecks,check1:e.target.checked,check2:false,check3:false})}/>Direct Bank Transfer</p>
+            <p><input type="radio" checked={allChecks.check2} onChange={(e)=>setAllChecks({...allChecks,check2:e.target.checked,check1:false,check3:false})}/>Check Payment</p>
+           <p><input type="radio" checked={allChecks.check3} onChange={(e)=>setAllChecks({...allChecks,check3:e.target.checked,check1:false,check2:false})}/>Paypal</p>
+           <p><input type="checkbox" checked={isAgreed} onChange={(e)=>setIsagreed(e.target.checked)}/> I have Read and accept the terms and conditions</p>
            </div>
            </div>
            <button className='bottomDiv'>Place your order</button>
           </div>
-    
-
       </div>
       </div>
-    
-
-      
     </div>
   )
 }

@@ -43,6 +43,7 @@ const slice = createSlice({
        removeUserInfo : (state)=>{
         state.userId = ''
         state.userToken = ''
+        state.productId = ''
        }
     }
 })
