@@ -30,7 +30,7 @@ const Header = () => {
             }}>Single Product</p>
             <p onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}>Cart</p>
           </div>
-          <li onClick={()=>nav("/About-Us")}>ABOUT</li>
+          <li onClick={()=>nav('/about-us')}>ABOUT</li>
           <li>BLOG</li>
           <li onClick={()=>nav("/contact-us")}>CONTACT</li>
           <li onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}><MdShoppingCart />[ {cart?.length} ]</li>
