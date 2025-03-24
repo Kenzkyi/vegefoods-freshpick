@@ -40,14 +40,14 @@
   }
   
 }
-
+ 
 @keyframes zoomIn {
   from {
-    transform: translateX(-100%);
-    opacity: 0;
+    transform: scale(0.8);
+    opacity: 0.8;
   }
   to {
-    transform: translateX(0);
+    transform: scale(1);
     opacity: 1;
   }
 }
@@ -80,7 +80,7 @@
 .vegetable-image-1{
   width: 23%;
   height: 50vh;
-  animation: zoomIn 10s ease-in;
+  animation: zoomIn 10s ease-out;
   border: 1px solid rgba(128, 128, 128, 0.548);
   cursor: pointer;
 }

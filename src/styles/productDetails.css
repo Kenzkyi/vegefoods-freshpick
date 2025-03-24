@@ -50,6 +50,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: zoomIn 7s ease-out;
 
     & img {
         width: 60%;
