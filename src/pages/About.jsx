@@ -6,7 +6,8 @@ import fresh from '../assets/public/fresh.jpeg'
 import organic from '../assets/public/organic.jpeg';
 import good from '../assets/public/good.jpeg';
 
-const AboutUs = () => {
+
+const About = () => {
   return (
     <div className="about-container">
       <div className="about-content">
@@ -105,4 +106,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default About;
