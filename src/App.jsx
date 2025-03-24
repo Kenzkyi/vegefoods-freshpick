@@ -15,6 +15,8 @@ import ProductDetails from './components/ProductDetails';
 import VerifyEmail from './auth/VerifyEmail';
 import ResendVerification from './auth/ResendVerification';
 import PrivateRoute from './routes/PrivateRoute';
+import ContactUs from './pages/Contactus';
+import About from './pages/About';
 
 
 const routes = createBrowserRouter([
@@ -29,6 +31,8 @@ const routes = createBrowserRouter([
     {path:'reset-password/:token',element:<Resetpassword/>},
     {element:<MainHolder/>,children:[
       {path:'',element:<Home/>},
+      {path:'/contact-us',element:< ContactUs/>},
+      {path:'/about-us',element:< About />},
       {path:'cart',element:<Cart/>},
       {element:<PrivateRoute/>,children:[
           {path:'checkout',element:<Checkout/>}
