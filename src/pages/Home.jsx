@@ -9,7 +9,8 @@ import { useNavigate } from 'react-router-dom'
 import { addCart, setProductId } from '../global/slice'
 import { useDispatch } from 'react-redux'
 import { TbCurrencyNaira } from 'react-icons/tb'
-import { ScaleLoader } from 'react-spinners'
+import Loader from '../components/Loader'
+// import ReactOwlCarousel from 'react-owl-carousel'
 
 
 const Home = () => {
@@ -49,7 +50,10 @@ const Home = () => {
     navigate(`/shop/${name}`);
  };
   return (
-    <div className='home'>
+    <>
+    {
+      Product.length === 0 ? <Loader /> :
+      <div className='home'>
       {firstlayer ? <div className="home-firstlayer1">
         <div className="home-firstlayertext">
           <main>
@@ -143,7 +147,7 @@ const Home = () => {
       </div>
       <div className="home-fifthlayer">
         {
-          Product.length === 0 ? <ScaleLoader /> : (
+           
         Product.slice(0,8).map((item,index)=>(
           <div className="home-productholder" key={index} onClick={()=>{handleProductClick(item.name),dispatch(setProductId(item._id))}}>
           <main>
@@ -159,7 +163,7 @@ const Home = () => {
             <div><FcLikePlaceholder /></div>
           </aside>
         </div>
-        )))}
+        ))}
       </div>
       <div className="home-sixthlayer">
         <div className="home-sixthlayerright">
@@ -196,6 +200,7 @@ const Home = () => {
         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
       </div>
       <div className="home-eightlayer">
+        {/* <ReactOwlCarousel > */}
         <header>
           <main className='home-eightlayerholder'>
             <div className="home-lineholder">
@@ -252,7 +257,7 @@ const Home = () => {
             </aside>
           </main>
         </header>
-        <footer>
+         <footer>
           <main>
             <div style={{backgroundColor:'#82AE46'}}></div>
             <div></div>
@@ -260,7 +265,8 @@ const Home = () => {
             <div></div>
             <div></div>
           </main>
-        </footer>
+        </footer> 
+        {/* </ReactOwlCarousel> */}
       </div>
       <div className="home-lastlayer">
         <main>
@@ -282,6 +288,9 @@ const Home = () => {
         </main>
       </div>
     </div>
+    }
+    </>
+    
   )
 }
 
