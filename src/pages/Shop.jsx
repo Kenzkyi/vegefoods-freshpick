@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import "../styles/shop.css"
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setProductId } from '../global/slice';
 import { TbCurrencyNaira } from 'react-icons/tb';
 import { ScaleLoader } from 'react-spinners';
+import Loader from '../components/Loader';
 
 const Shop = () => {
 
@@ -35,7 +36,10 @@ const Shop = () => {
  const dispatch = useDispatch()
 
   return (
-    <div className='Shop'>
+    <>
+        {
+            Product.length <= 0 ? <Loader/> :
+            <div className='Shop'>
     <div className='Shop-hero'>
     <div className='Shop-hero-inner-div'>
         <p>HOME PRODUCTS</p>
@@ -54,7 +58,7 @@ const Shop = () => {
     </div>
     <div className='Vegeatbles-main-table'>
         <div className='Vegeatbles-main-table-wrap'>
-            { Product.length === 0 ? <ScaleLoader /> : (
+            {
                 Product.map((item)=>(
                     <div key={item._id} onClick={()=>{handleProductClick(item.name.toLowerCase()),dispatch(setProductId(item._id))}} className='vegetable-image-1'>
                         <div className='vegetable-image-div'>
@@ -65,12 +69,14 @@ const Shop = () => {
                             <div className='item-price-div'><TbCurrencyNaira />{item.price}</div>
                         </div>
                     </div>
-                )))
+                ))
             }
             
         </div>
     </div>
 </div>
+        }
+    </>
   )
 }
 

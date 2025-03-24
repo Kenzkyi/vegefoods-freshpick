@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { TbCurrencyNaira } from 'react-icons/tb';
 import { addCart } from '../global/slice';
+import Loader from './Loader';
 
 const ProductDetails = () => {
 
@@ -31,7 +32,10 @@ const ProductDetails = () => {
   },[])
 
   return (
-    <div className='ProductDetails'>
+    <>
+      {
+        product.length <= 0 ? <Loader/> :
+        <div className='ProductDetails'>
     <div className='ProductDetails-hero'>
     <div className='ProductDetails-hero-inner-div'>
         <p>HOME PRODUCTS---PRODUCTS SINGLE</p>
@@ -69,6 +73,9 @@ const ProductDetails = () => {
       </div>
     </div>
 </div>
+      }
+    </>
+    
   )
 }
 

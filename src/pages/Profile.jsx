@@ -32,20 +32,18 @@ const Profile = () => {
 
     if (savedUsername) setUsername(savedUsername);
     if (savedImage) setImageValue(savedImage);
-  }, [])
+}, [])
+const [data, setData] = useState({})
+const [inputData,setInputData] = useState(data?.username)
 
 
   const openEditPopUp = () => {
     setEditUserName(username);
     setIsPopupOpen(true);
+    setInputData(data?.username)
   }
 
-  const saveChanges = () => {
-     setUsername(editUserName);
 
-     localStorage.setItem('username', editUserName);
-     setIsPopupOpen(false);
-  }
 
 
     const getImageUrl = (e) => {
@@ -66,7 +64,6 @@ const Profile = () => {
 
     const baseUrl = 'https://vege-food.onrender.com/api/v1/'
 
-    const [data, setData] = useState({})
 
     const getOneUser = async() =>{
         try {
@@ -77,19 +74,26 @@ const Profile = () => {
         }
     }
 
-    const [inputData,setInputData] = useState(data?.username)
 
-    const userUsername = async () => {
+    const userUsername = async (username) => {
         try {
-            const res = await axios.put(`${baseUrl}updateuser/${userId}`)
+            const res = await axios.put(`${baseUrl}updateuser/${userId}`,{username})
+            toast.success('Username updated successfully')
+            setTimeout(() => {
+                setIsPopupOpen(false);
+            }, 1000);
         } catch (error) {
-            
+            console.log(error)
         }
     }
 
+    const saveChanges = () => {
+        userUsername(inputData)
+     }
+
     useEffect(()=>{
         getOneUser()
-    }, [])
+    },[isPopUpOpend])
 
   return (
     <div className='Profile'>
@@ -106,7 +110,7 @@ const Profile = () => {
 <div className='popup-div-btm'>
     <div className='user-details-edit-wrap'>
         <div className='username-div-edit'>
-            <input onChange={(e)=>inputData(e.target.value)} value={inputData} type="text" className='my-edit-input' placeholder='Username'/>
+            <input onChange={(e)=>setInputData(e.target.value)} value={inputData} type="text" className='my-edit-input' placeholder='Username'/>
         </div>
     </div>
     <div className='save-cahnage-cancel-btn'>
