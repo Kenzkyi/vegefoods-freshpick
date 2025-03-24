@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/aboutus.css';
+import '../styles/aboutUs.css';
 import { FaLeaf, FaTruck, FaSeedling, FaHeart, FaShieldAlt, FaStar } from 'react-icons/fa';
 import aboutImage from '../assets/public/aboutImage.jpeg';
 import fresh from '../assets/public/fresh.jpeg'
