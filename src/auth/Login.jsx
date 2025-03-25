@@ -35,7 +35,7 @@ const Login = () => {
         setAll({...all,email:newEmail.trim(),emailErr:'Please enter a valid email address'})
       }
     }else {
-      setAll({...all,email:newEmail.trim(),emailErr:'Please enter a valid email address'})
+      setAll({...all,email:newEmail.trim(),emailErr:'Please input your email address.'})
     }
   }
   const onChangeFuncPassword = (e)=>{
