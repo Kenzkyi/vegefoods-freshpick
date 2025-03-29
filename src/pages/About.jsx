@@ -5,9 +5,11 @@ import aboutImage from '../assets/public/aboutImage.jpeg';
 import fresh from '../assets/public/fresh.jpeg'
 import organic from '../assets/public/organic.jpeg';
 import good from '../assets/public/good.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 
 const About = () => {
+  const nav = useNavigate()
   return (
     <div className="about-container">
       <div className="about-content">
@@ -100,7 +102,7 @@ const About = () => {
         </ul>
 
         <p className="about-text">🌱 Fresh | 🥗 Healthy | 🚜 Sustainable | ❤️ Trusted</p>
-        <button className="about-button">Shop Now</button>
+        <button className="about-button" onClick={()=>nav('/shop')}>Shop Now</button>
       </div>
     </div>
   );

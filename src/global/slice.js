@@ -6,7 +6,14 @@ const initialState = {
     cart:[],
     totalValue:0,
     userToken:'',
-    userId:''
+    userId:'',
+    totalAmount:0,
+    countDown:{
+      days:-1907,
+      hours:8,
+      mins:1,
+      secs:10
+    }
 }
 
 const slice = createSlice({
@@ -44,10 +51,28 @@ const slice = createSlice({
         state.userId = ''
         state.userToken = ''
         state.productId = ''
+       },
+       setCountDown: (state)=>{
+        if (state.countDown.secs === 0) {
+            state.countDown.mins--
+            state.countDown.secs = 59 
+            return;   
+        }
+        if (state.countDown.mins === 0) {
+            state.countDown.hours--
+            state.countDown.mins = 59 
+            return;
+        }
+        if (state.countDown.hours === 0) {
+            state.countDown.days--
+            state.countDown.secs = 59 
+            return   
+        }
+            state.countDown.secs--
        }
     }
 })
 
-export const {setProductId,addCart,removeCart,setTotalValue,setUserId,setUserToken,removeUserInfo} = slice.actions
+export const {setProductId,addCart,removeCart,setTotalValue,setUserId,setUserToken,removeUserInfo,setCountDown} = slice.actions
 
 export default slice.reducer

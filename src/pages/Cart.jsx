@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/cart.css'
 import { MdCancelPresentation } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,17 +10,20 @@ import { useNavigate } from 'react-router-dom';
 const Cart = () => {
 
   const cart = useSelector((state)=>state.cart)
+  const totalValue = useSelector((state)=>state.totalValue)
   
   const dispatch = useDispatch()
 
   const nav = useNavigate()
 
-  const totalValue = cart.reduce((acc,item)=>{
-    const itemTotal = item.price * item.quantityNum
-    acc += itemTotal
-    return acc
-  },0)
-  console.log(totalValue)
+
+  useEffect(()=>{
+    dispatch(setTotalValue(cart.reduce((acc,item)=>{
+      const itemTotal = item.price * item.quantityNum
+      acc += itemTotal
+      return acc
+    },0)))
+  },[cart])
 
   return (
     <div className='cartBody'>
@@ -147,19 +150,11 @@ const Cart = () => {
            
            <div className='totalCont1'>
                   <p>TOTAL</p>
-                  <h3><TbCurrencyNaira fontSize={20}/>{cart.reduce((acc,item)=>{
-    const itemTotal = item.price * item.quantityNum
-    acc += itemTotal
-    return acc
-  },0)}</h3>
+                  <h3><TbCurrencyNaira fontSize={20}/>{totalValue}</h3>
               </div>
 
           </div>
-          <button className='proceed' onClick={()=>{dispatch(setTotalValue(cart.reduce((acc,item)=>{
-    const itemTotal = item.price * item.quantityNum
-    acc += itemTotal
-    return acc
-  },0))),nav('/checkout')}}>Proceed to Checkout</button>
+          <button className='proceed' onClick={()=>{dispatch(setTotalValue(cart.reduce((acc,item)=>{const itemTotal = item.price * item.quantityNum; acc += itemTotal; return acc},0))),nav('/checkout')}}>Proceed to Checkout</button>
          </div>
       </div>
 

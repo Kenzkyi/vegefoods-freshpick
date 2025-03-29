@@ -6,11 +6,13 @@ import { FcLikePlaceholder } from 'react-icons/fc'
 import { FaQuoteLeft } from 'react-icons/fa'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { addCart, setProductId } from '../global/slice'
-import { useDispatch } from 'react-redux'
+import { addCart, setCountDown, setProductId } from '../global/slice'
+import { useDispatch, useSelector } from 'react-redux'
 import { TbCurrencyNaira } from 'react-icons/tb'
 import Loader from '../components/Loader'
-// import ReactOwlCarousel from 'react-owl-carousel'
+import OwlCarousel from 'react-owl-carousel'
+import 'owl.carousel/dist/assets/owl.carousel.css'
+import 'owl.carousel/dist/assets/owl.theme.default.min.css'
 
 
 const Home = () => {
@@ -18,6 +20,7 @@ const Home = () => {
       const [Product,setProduct] = useState([])
       const navigate = useNavigate();
       const dispatch = useDispatch()
+      const countDown = useSelector((state)=>state.countDown)
 
   useEffect(()=>{
     // console.log(window.scrollY > 250)
@@ -48,7 +51,48 @@ const Home = () => {
 
   const handleProductClick = (name) => {
     navigate(`/shop/${name}`);
- };
+  };
+
+  const carouselOptions = {
+    loop: true,
+    autoWidth: false,
+    items: 1,
+    // autoplay: true,
+    // autoplayTimeout: 5000,
+    mergeFit: true,
+    stagePadding: 0,
+    // autoplaySpeed: 1000,
+    navSpeed: 1000,
+    dots: true,
+    margin: 10,
+    nav: true,
+    // center:true,
+    responsive: {
+        0: {
+            items: 1,
+            nav: true,
+            dots: true,
+          },
+          600: {
+            items: 2,
+            nav: true,
+            dots: true,
+        },
+        1000: {
+            items: 3,
+            dots: true,
+            nav: true,
+        },
+    },
+};
+
+useEffect(()=>{
+  const interval = setInterval(() => {
+    dispatch(setCountDown())
+  }, 1000);
+  return ()=> clearInterval(interval)
+},[countDown])
+
   return (
     <>
     {
@@ -175,19 +219,19 @@ const Home = () => {
             <h5>$10 <span>now $5 only</span></h5>
             <section>
               <div>
-                <h1>-1907</h1>
+                <h1>{countDown.days}</h1>
                 <a>DAYS</a>
               </div>
               <div>
-                <h1>08</h1>
+                <h1>{countDown.hours}</h1>
                 <a>HOURS</a>
               </div>
               <div>
-                <h1>21</h1>
+                <h1>{countDown.mins}</h1>
                 <a>MINUTES</a>
               </div>
               <div>
-                <h1>10</h1>
+                <h1>{countDown.secs}</h1>
                 <a>SECONDS</a>
               </div>
             </section>
@@ -200,13 +244,53 @@ const Home = () => {
         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
       </div>
       <div className="home-eightlayer">
-        {/* <ReactOwlCarousel > */}
-        <header>
+        {/* <header> */}
+        <OwlCarousel 
+        {...carouselOptions}
+        dotsEach={true}
+        >
+          <main>
+            <div className="home-lineholder">
+              <div></div>
+            </div>
+            <article>
+              <div><FaQuoteLeft /></div>
+            </article>
+            <section>
+                 <p>Far Far away, behind the word</p> 
+              <p>mountains,far from the countries</p>
+              <p>Vokalia and Consonantia, there live</p>
+                            <p>the blind texts.</p>
+            </section>
+            <aside>
+              <h5>Garreth Smith</h5>
+              <p>SYSTEM ANALYST</p>
+            </aside>
+          </main>
+          <main>
+            <div className="home-lineholder">
+              <div></div>
+            </div>
+            <article>
+              <div><FaQuoteLeft /></div>
+            </article>
+            <section>
+                 <p>Far Far away, behind the word</p> 
+              <p>mountains,far from the countries</p>
+              <p>Vokalia and Consonantia, there live</p>
+                            <p>the blind texts.</p>
+            </section>
+            <aside>
+              <h5>Garreth Smith</h5>
+              <p>SYSTEM ANALYST</p>
+            </aside>
+          </main>
           <main className='home-eightlayerholder'>
             <div className="home-lineholder">
               <div></div>
             </div>
             <article>
+            <img src="https://preview.colorlib.com/theme/vegefoods/images/person_2.jpg" alt="" />
               <div><FaQuoteLeft /></div>
             </article>
             <section>
@@ -220,53 +304,44 @@ const Home = () => {
               <p>SYSTEM ANALYST</p>
             </aside>
           </main>
-          <main className='home-eightlayerholder2'>
-            <div className="home-lineholder">
-              <div></div>
-            </div>
-            <article>
-              <div><FaQuoteLeft /></div>
-            </article>
-            <section>
-                 <p>Far Far away, behind the word</p> 
-              <p>mountains,far from the countries</p>
-              <p>Vokalia and Consonantia, there live</p>
-                            <p>the blind texts.</p>
-            </section>
-            <aside>
-              <h5>Garreth Smith</h5>
-              <p>SYSTEM ANALYST</p>
-            </aside>
-          </main>
-          <main className='home-eightlayerholder3'>
-            <div className="home-lineholder">
-              <div></div>
-            </div>
-            <article>
-              <div><FaQuoteLeft /></div>
-            </article>
-            <section>
-                 <p>Far Far away, behind the word</p> 
-              <p>mountains,far from the countries</p>
-              <p>Vokalia and Consonantia, there live</p>
-                            <p>the blind texts.</p>
-            </section>
-            <aside>
-              <h5>Garreth Smith</h5>
-              <p>SYSTEM ANALYST</p>
-            </aside>
-          </main>
-        </header>
-         <footer>
           <main>
-            <div style={{backgroundColor:'#82AE46'}}></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className="home-lineholder">
+              <div></div>
+            </div>
+            <article>
+              <img src="https://preview.colorlib.com/theme/vegefoods/images/person_3.jpg" alt="" />
+              <div><FaQuoteLeft /></div>
+            </article>
+            <section>
+                 <p>Far Far away, behind the word</p> 
+              <p>mountains,far from the countries</p>
+              <p>Vokalia and Consonantia, there live</p>
+                            <p>the blind texts.</p>
+            </section>
+            <aside>
+              <h5>Garreth Smith</h5>
+              <p>SYSTEM ANALYST</p>
+            </aside>
           </main>
-        </footer> 
-        {/* </ReactOwlCarousel> */}
+          <main>
+            <div className="home-lineholder">
+              <div></div>
+            </div>
+            <article>
+              <div><FaQuoteLeft /></div>
+            </article>
+            <section>
+                 <p>Far Far away, behind the word</p> 
+              <p>mountains,far from the countries</p>
+              <p>Vokalia and Consonantia, there live</p>
+                            <p>the blind texts.</p>
+            </section>
+            <aside>
+              <h5>Garreth Smith</h5>
+              <p>SYSTEM ANALYST</p>
+            </aside>
+          </main>
+        </OwlCarousel>
       </div>
       <div className="home-lastlayer">
         <main>

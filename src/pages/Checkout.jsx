@@ -111,11 +111,7 @@ const Checkout = () => {
                      
                      <div className='totalCont1'>
                             <p>TOTAL</p>
-                            <h3><TbCurrencyNaira fontSize={20}/>{cart.reduce((acc,item)=>{
-              const itemTotal = item.price * item.quantityNum
-              acc += itemTotal
-              return acc
-            },0)}</h3>
+                            <h3><TbCurrencyNaira fontSize={20}/>{totalValue}</h3>
                         </div>
           
                     </div>
