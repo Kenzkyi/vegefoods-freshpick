@@ -31,7 +31,6 @@ const Header = () => {
             <p onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}>Cart</p>
           </div>
           <li onClick={()=>nav('/about-us')}>ABOUT</li>
-          <li>BLOG</li>
           <li onClick={()=>nav("/contact-us")}>CONTACT</li>
           <li onClick={()=>{nav('/cart'),setHeaderDropdown(false)}}><MdShoppingCart />[ {cart?.length} ]</li>
         </ul>
@@ -55,9 +54,8 @@ const Header = () => {
             }}>Single Product</p>
             <p onClick={()=>{nav('/cart'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>Cart</p>
           </div>
-          <li>ABOUT</li>
-          <li>BLOG</li>
-          <li>CONTACT</li>
+          <li onClick={()=>{nav('/about-us'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>ABOUT</li>
+          <li onClick={()=>{nav('/contact-us'),setHeaderMenu(false),setHeaderDropdownMenu(false)}}>CONTACT</li>
           <h6 onClick={()=>{nav('/cart'),setHeaderMenu(false)}}><MdShoppingCart />[ {cart?.length} ]</h6>
         </ul>
       </div>
