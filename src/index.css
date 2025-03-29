@@ -3,3 +3,32 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.owl-nav {
+    display: none;
+  }
+  
+  .owl-dots {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .owl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #ffb703 !important;
+    transition: all 0.3s ease-in-out;
+  }
+  .owl-dot.active {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #ffb703 !important;
+    background: #ffb703 !important;
+    transition: all 0.3s ease-in-out;
+  }

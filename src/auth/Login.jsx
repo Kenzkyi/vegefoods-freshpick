@@ -60,6 +60,7 @@ const Login = () => {
     setLoading(true)
     try {
       const res = await axios.post(`${baseUrl}login`,{email:data.email,password:data.password})
+      console.log(res)
       dispatch(setUserId(res.data.data._id))
       dispatch(setUserToken(res.data.token))
       toast.success('Log in successfully')
